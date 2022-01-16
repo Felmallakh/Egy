@@ -44,7 +44,6 @@ function SignUp() {
       <div className="auth">
         <div className="namelogo">
           <img src="https://cdn.discordapp.com/attachments/919391399269515305/932090523496370277/logo-removebg-preview.png" alt="logo"></img>
-          <h2>Zing</h2>
         </div>
         <p>Create an Account</p>
         <Link to="/login">Already have an account?</Link>
