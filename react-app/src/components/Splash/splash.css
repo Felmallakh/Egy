@@ -4,21 +4,22 @@
 }
 
 
-/* body {
+body {
   background: url(../../../public/splash-page.jpg) no-repeat center center fixed;
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
   background-size: cover;
-} */
-#splash-container {
+    transition: background-image 1s linear;
+}
+/* #splash-container {
     background-image: url(../../../public/splash-page.jpg);
     background-repeat: no-repeat;
     background-size:cover;
     width: 100vw;
     height: 100vh;
     transition: background-image 1s linear;
-}
+} */
 #imgCache {
     display: none;
 }

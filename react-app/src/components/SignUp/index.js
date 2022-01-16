@@ -39,7 +39,7 @@ function SignUp() {
   };
 
   return (
-    <div className="wrapper authwrapper">
+    <div className="authwrapper">
       <div className="auth">
         <div className="namelogo">
           <Link to="/">

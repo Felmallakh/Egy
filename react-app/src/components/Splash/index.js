@@ -21,10 +21,10 @@ function Splash(){
 
     // Background slideshow
     let i = 0;
-    let time = 1500;
+    let time = 2000;
 
     const slideShow = () => {
-      const splashContainer = document.getElementById("splash-container");
+      const splashContainer = document.body;
       splashContainer.style.backgroundImage = `url(${slideShowArr[i]})`;
 
       if (i < slideShowArr.length - 1) {
@@ -40,15 +40,15 @@ function Splash(){
         imagesLoaded = true;
     });
 
-    // useEffect(() => {
+    useEffect(() => {
 
-    //     if (imagesLoaded = true) {
-    //         const slideShowTimer = setInterval(slideShow, time);
+        if (imagesLoaded = true) {
+            const slideShowTimer = setInterval(slideShow, time);
 
-    //         return () => clearInterval(slideShowTimer);
-    //     }
+            return () => clearInterval(slideShowTimer);
+        }
 
-    // }, [imagesLoaded])
+    }, [imagesLoaded])
 
 
     const hist = useNavigate();
