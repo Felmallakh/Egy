@@ -1,4 +1,3 @@
-import "./signup.css";
 import { Link } from "react-router-dom";
 import React, { useState } from "react";
 import { useDispatch } from "react-redux";
@@ -87,7 +86,7 @@ function SignUp() {
             value={confirmPassword}
             onChange={(e) => setConfirmPassword(e.target.value)}
           />
-          <button type="submit">Continue</button>
+          <button type="submit">Sign Up</button>
           <button onClick={demoLogin}>Demo User</button>
         </form>
       </div>
