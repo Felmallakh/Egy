@@ -30,17 +30,22 @@ function AuthPage() {
     <div className="wrapper authwrapper">
       <div className="auth">
         <div className="namelogo">
-          <img src="https://cdn.discordapp.com/attachments/919391399269515305/930910536839864351/zinglogo.png" alt="logo"></img>
-          <h2>Zing</h2>
+          <Link to="/">
+          <img
+            src="https://cdn.discordapp.com/attachments/919391399269515305/932090523496370277/logo-removebg-preview.png"
+            alt="logo"
+          ></img></Link>
         </div>
-        <p> Sign in to your workspace.</p>
+        <p> Sign In</p>
         <Link to="/signup">Don't have an account?</Link>
         <ul className="errors-container">
           {errors.map((error, idx) => (
-            <li className='errors' key={idx}>{error}</li>
+            <li className="errors" key={idx}>
+              {error}
+            </li>
           ))}
         </ul>
-        <form className='loginform' onSubmit={handleSubmit}>
+        <form className="loginform" onSubmit={handleSubmit}>
           <input
             type="text"
             placeholder={"Email"}
@@ -55,7 +60,7 @@ function AuthPage() {
             onChange={(e) => setPassword(e.target.value)}
             required
           />
-          <button>Continue</button>
+          <button>Sign In</button>
           <button onClick={demoLogin}>Demo User</button>
         </form>
       </div>

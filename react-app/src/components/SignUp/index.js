@@ -42,7 +42,11 @@ function SignUp() {
     <div className="wrapper authwrapper">
       <div className="auth">
         <div className="namelogo">
-          <img src="https://cdn.discordapp.com/attachments/919391399269515305/932090523496370277/logo-removebg-preview.png" alt="logo"></img>
+          <Link to="/">
+          <img
+            src="https://cdn.discordapp.com/attachments/919391399269515305/932090523496370277/logo-removebg-preview.png"
+            alt="logo"
+          ></img></Link>
         </div>
         <p>Create an Account</p>
         <Link to="/login">Already have an account?</Link>
