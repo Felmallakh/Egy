@@ -63,7 +63,6 @@ function Splash(){
             <h2>Egypt Destinations</h2>
           </div>
           <div className="rightNav">
-            <button id="search">Search</button>
             <button
               id="signin"
               onClick={() => {
