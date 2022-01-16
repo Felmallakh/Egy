@@ -1,4 +1,3 @@
-import "./signup.css";
 import { Link } from "react-router-dom";
 import React, { useState } from "react";
 import { useDispatch } from "react-redux";
@@ -43,7 +42,11 @@ function SignUp() {
     <div className="wrapper authwrapper">
       <div className="auth">
         <div className="namelogo">
-          <img src="https://cdn.discordapp.com/attachments/919391399269515305/932090523496370277/logo-removebg-preview.png" alt="logo"></img>
+          <Link to="/">
+          <img
+            src="https://cdn.discordapp.com/attachments/919391399269515305/932090523496370277/logo-removebg-preview.png"
+            alt="logo"
+          ></img></Link>
         </div>
         <p>Create an Account</p>
         <Link to="/login">Already have an account?</Link>
@@ -87,7 +90,7 @@ function SignUp() {
             value={confirmPassword}
             onChange={(e) => setConfirmPassword(e.target.value)}
           />
-          <button type="submit">Continue</button>
+          <button type="submit">Sign Up</button>
           <button onClick={demoLogin}>Demo User</button>
         </form>
       </div>

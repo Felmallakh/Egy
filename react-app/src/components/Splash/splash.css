@@ -1,3 +1,7 @@
+* {
+  font-family: Arial, Helvetica, sans-serif;
+
+}
 body {
   background: url(../../../public/splash-page.jpg) no-repeat center center fixed;
   -webkit-background-size: cover;
@@ -69,7 +73,6 @@ nav h2 {
   margin-top: 0px;
   margin-left: 10px;
   font-size: 30px;
-  font-family: Arial, Helvetica, sans-serif;
 }
 nav img {
   width: 35px;
