@@ -16,7 +16,7 @@ function SignUp() {
   const demoLogin = async (e) => {
     e.preventDefault();
     await dispatch(sessionActions.login('demo@aa.io', 'password'));
-    navigate('/organization')
+    navigate('/home')
   }
 
 
@@ -35,7 +35,7 @@ function SignUp() {
         "Passwords need to match!",
       ]);
     }
-    navigate('/organization')
+    navigate('/home')
   };
 
   return (
