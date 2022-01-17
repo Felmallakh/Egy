@@ -2,6 +2,7 @@ from .db import db
 from werkzeug.security import generate_password_hash, check_password_hash
 from flask_login import UserMixin
 from sqlalchemy.sql import func
+import datetime
 
 
 class User(db.Model, UserMixin):
@@ -12,7 +13,7 @@ class User(db.Model, UserMixin):
     email = db.Column(db.String(50), nullable=False, unique=True)
     hashed_password = db.Column(db.String(255), nullable=False)
     photoURL = db.Column(db.String)
-    created_at = db.Column(db.DateTime(), nullable=False, server_default=func.now())
+    created_at = db.Column(db.DateTime(), default=datetime.datetime.utcnow)
     updated_at = db.Column(db.DateTime(), onupdate=func.now(), default=func.now())
 
     albums = db.relationship(
@@ -49,6 +50,8 @@ class Album(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     title = db.Column(db.String, nullable=False)
     description = db.Column(db.String(250))
+    created_at = db.Column(db.DateTime(), default=datetime.datetime.utcnow)
+    updated_at = db.Column(db.DateTime(), onupdate=func.now(), default=func.now())
 
     user_id = db.Column(db.Integer, db.ForeignKey('users.id'), nullable=False)
 
@@ -68,6 +71,8 @@ class Photo(db.Model):
     title = db.Column(db.String, nullable=False)
     description = db.Column(db.String(250))
     photoURL = db.Column(db.String)
+    created_at = db.Column(db.DateTime(), default=datetime.datetime.utcnow)
+    updated_at = db.Column(db.DateTime(), onupdate=func.now(), default=func.now())
 
     user_id = db.Column(db.Integer, db.ForeignKey('users.id'), nullable=False)
     album_id = db.Column(db.Integer, db.ForeignKey('albums.id'))
@@ -90,6 +95,7 @@ class Comment(db.Model):
 
     id = db.Column(db.Integer, primary_key=True)
     content = db.Column(db.String(250))
+
 
     user_id = db.Column(db.Integer, db.ForeignKey('users.id'), nullable=False)
     photo_id = db.Column(db.Integer, db.ForeignKey('photos.id'), nullable=False)
