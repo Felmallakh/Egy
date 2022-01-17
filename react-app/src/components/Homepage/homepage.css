@@ -80,6 +80,19 @@
   justify-content: center;
 }
 
+.secondary-button {
+    border-radius: 20px;
+    line-height: 30px;
+    /* font-weight: 700; */
+    font-size: 18px;
+    /* color: #fff; */
+    text-transform: uppercase;
+    padding: 5px 15px;
+    cursor: pointer;
+    border: none;
+    background: antiquewhite;
+}
+
 @media all and (max-width: 600px) {
   .homepage-hero-description {
     font-weight: 400;
