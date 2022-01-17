@@ -1,8 +1,8 @@
 """empty message
 
-Revision ID: 807025a4929f
+Revision ID: 2e72e489524b
 Revises: 
-Create Date: 2022-01-16 18:07:44.268140
+Create Date: 2022-01-17 04:09:52.088525
 
 """
 from alembic import op
@@ -10,7 +10,7 @@ import sqlalchemy as sa
 
 
 # revision identifiers, used by Alembic.
-revision = '807025a4929f'
+revision = '2e72e489524b'
 down_revision = None
 branch_labels = None
 depends_on = None
@@ -24,7 +24,7 @@ def upgrade():
     sa.Column('email', sa.String(length=50), nullable=False),
     sa.Column('hashed_password', sa.String(length=255), nullable=False),
     sa.Column('photoURL', sa.String(), nullable=True),
-    sa.Column('created_at', sa.DateTime(), server_default=sa.text('now()'), nullable=False),
+    sa.Column('created_at', sa.DateTime(), nullable=True),
     sa.Column('updated_at', sa.DateTime(), nullable=True),
     sa.PrimaryKeyConstraint('id'),
     sa.UniqueConstraint('email'),
@@ -34,6 +34,8 @@ def upgrade():
     sa.Column('id', sa.Integer(), nullable=False),
     sa.Column('title', sa.String(), nullable=False),
     sa.Column('description', sa.String(length=250), nullable=True),
+    sa.Column('created_at', sa.DateTime(), nullable=True),
+    sa.Column('updated_at', sa.DateTime(), nullable=True),
     sa.Column('user_id', sa.Integer(), nullable=False),
     sa.ForeignKeyConstraint(['user_id'], ['users.id'], ),
     sa.PrimaryKeyConstraint('id')
@@ -43,6 +45,8 @@ def upgrade():
     sa.Column('title', sa.String(), nullable=False),
     sa.Column('description', sa.String(length=250), nullable=True),
     sa.Column('photoURL', sa.String(), nullable=True),
+    sa.Column('created_at', sa.DateTime(), nullable=True),
+    sa.Column('updated_at', sa.DateTime(), nullable=True),
     sa.Column('user_id', sa.Integer(), nullable=False),
     sa.Column('album_id', sa.Integer(), nullable=True),
     sa.ForeignKeyConstraint(['album_id'], ['albums.id'], ),
