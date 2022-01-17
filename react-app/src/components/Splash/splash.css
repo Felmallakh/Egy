@@ -2,14 +2,13 @@
   font-family: Arial, Helvetica, sans-serif;
 }
 
-
 body {
   background: url(../../../public/splash-page.jpg) no-repeat center center fixed;
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
   background-size: cover;
-    transition: background-image 1s linear;
+  transition: background-image 1s linear;
 }
 /* #splash-container {
     background-image: url(../../../public/splash-page.jpg);
@@ -52,13 +51,14 @@ nav .rightNav button {
 }
 
 .rightNav #signin {
-  opacity: .9;
+  font-weight:700;
+  opacity: 0.9;
   border-radius: 7px;
   transition-property: background-color;
   transition-duration: 1.2s;
 }
 .rightNav #signin:hover {
-  background-color: rgb(30, 36, 87);
+  background-color: rgb(208 149 73 / 66%);
   color: white;
 }
 nav .leftNav {
@@ -85,22 +85,20 @@ nav img {
 }
 .titleContent button {
   color: white;
+  font-weight:700;
   padding: 15px;
   width: 100px;
   font-size: 15px;
-  background-color: rgb(25, 33, 100);
+  background-color: rgb(208 149 73 / 66%);
   border: none;
   border-radius: 7px;
   /* transition-property: opacity; */
-  transition-property: transparent;
-  transition-duration: .8s;
-  opacity: .85;
-
-
+  transition-property: background-color;
+  transition-duration: 0.8s;
+  opacity: 0.85;
 }
 
-
 .titleContent button:hover {
-  background-color: rgb(30, 36, 87);
+  background-color: rgba(204, 167, 118, 0.66);
   color: white;
 }
