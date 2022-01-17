@@ -1,6 +1,5 @@
 * {
   font-family: Arial, Helvetica, sans-serif;
-
 }
 
 
@@ -20,15 +19,7 @@ body {
     height: 100vh;
     transition: background-image 1s linear;
 } */
-#imgCache {
-    display: none;
-}
-/* .wrapper {
-  color: #000807;
-  position: fixed;
-  height: 100%;
-  width: 100%;
-} */
+
 .logo {
   background: transparent;
 }
