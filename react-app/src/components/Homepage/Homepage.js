@@ -44,17 +44,13 @@ function Homepage() {
 
       <div className="homepage-howto-div">
         <div className="homepage-mission-box">
-          <p>Select today's mission and set off on an adventure</p>
-          <button className="secondary-button">ssa</button>
+          <button className="secondary-button">Albums</button>
         </div>
         <div className="homepage-share-box">
-          <p>Document your experience with photos and text</p>
-          <button className="secondary-button">asas</button>
+          <button className="secondary-button">Photos</button>
         </div>
-
         <div className="homepage-explore-box">
-          <p>Discover people and places to inspire your next trek</p>
-          <button className="secondary-button">as</button>
+          <button className="secondary-button">Profile</button>
         </div>
       </div>
     </div>

@@ -26,7 +26,7 @@
 
 #signout {
   color: white;
-  font-weight:700;
+  font-weight: 700;
   padding: 12px;
   width: 100px;
   font-size: 15px;
@@ -60,6 +60,18 @@
   background-size: cover;
   font-weight: 700;
   font-size: 16px;
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.719);
+}
+.homepage-mission-box:hover,
+.homepage-share-box:hover,
+.homepage-explore-box:hover {
+  width: 20vw;
+  height: 65vh;
+  background-color: #fff;
+  border-bottom: 0.2px solid hsla(0, 0%, 50.2%, 0.272);
+  border-left: 0.1px solid hsla(0, 0%, 50.2%, 0.272);
+  border-right: 0.1px solid hsla(0, 0%, 50.2%, 0.272);
+  transition: all 1.5s ease;
 }
 
 .homepage-mission-box {
@@ -78,6 +90,19 @@
   display: flex;
   align-items: center;
   justify-content: center;
+}
+
+.secondary-button {
+  border-radius: 20px;
+  line-height: 30px;
+  /* font-weight: 700; */
+  font-size: 18px;
+  /* color: #fff; */
+  text-transform: uppercase;
+  padding: 5px 15px;
+  cursor: pointer;
+  border: none;
+  background: antiquewhite;
 }
 
 @media all and (max-width: 600px) {
