@@ -14,7 +14,7 @@ function AuthPage() {
   const demoLogin = async (e) => {
     e.preventDefault();
     await dispatch(login('demo@aa.io', 'password'));
-    navigate('/organization');
+    navigate('/home');
   }
 
   const handleSubmit = async (e) => {
@@ -24,7 +24,7 @@ function AuthPage() {
     if (data) {
       return setErrors(data);
     }
-    navigate('/organization');
+    navigate('/home');
   };
   return (
     <div className="wrapper authwrapper">

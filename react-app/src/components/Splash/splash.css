@@ -1,20 +1,25 @@
 * {
   font-family: Arial, Helvetica, sans-serif;
-
 }
+
+
 body {
   background: url(../../../public/splash-page.jpg) no-repeat center center fixed;
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
   background-size: cover;
+    transition: background-image 1s linear;
 }
-/* .wrapper {
-  color: #000807;
-  position: fixed;
-  height: 100%;
-  width: 100%;
+/* #splash-container {
+    background-image: url(../../../public/splash-page.jpg);
+    background-repeat: no-repeat;
+    background-size:cover;
+    width: 100vw;
+    height: 100vh;
+    transition: background-image 1s linear;
 } */
+
 .logo {
   background: transparent;
 }
@@ -45,24 +50,15 @@ nav button {
 nav .rightNav button {
   margin-left: 20px;
 }
+
 .rightNav #signin {
-  border: none;
-  border-radius: 5px;
-  color: white;
-  background-color: rgb(25, 33, 100);
-  transition-property: opacity;
-  transition-duration: 0.5s;
+  opacity: .9;
+  border-radius: 7px;
+  transition-property: background-color;
+  transition-duration: 1.2s;
 }
 .rightNav #signin:hover {
-  opacity: 0.8;
-}
-.rightNav #search {
-  border-radius: 5px;
-  transition-property: background-color;
-  transition-duration: 0.5s;
-}
-.rightNav #search:hover {
-  background-color: rgb(25, 33, 100);
+  background-color: rgb(30, 36, 87);
   color: white;
 }
 nav .leftNav {
@@ -90,14 +86,21 @@ nav img {
 .titleContent button {
   color: white;
   padding: 15px;
-  width: 150px;
+  width: 100px;
   font-size: 15px;
   background-color: rgb(25, 33, 100);
   border: none;
-  border-radius: 5px;
-  transition-property: opacity;
-  transition-duration: 0.5s;
+  border-radius: 7px;
+  /* transition-property: opacity; */
+  transition-property: transparent;
+  transition-duration: .8s;
+  opacity: .85;
+
+
 }
+
+
 .titleContent button:hover {
-  opacity: 0.8;
+  background-color: rgb(30, 36, 87);
+  color: white;
 }
