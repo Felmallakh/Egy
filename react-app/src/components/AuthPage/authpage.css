@@ -10,8 +10,9 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin-top: 40px;
   margin-left: 130px;
+  margin-top: 40px;
+  /* margin-top: 110px */
 }
 .auth form {
   display: flex;
@@ -73,6 +74,10 @@ body {
 .authwrapper {
   display: flex;
   justify-content: center;
+  height: 100%;
+    overflow: scroll;
+    position: fixed;
+    width: 100%;
 }
 
 .errors {
