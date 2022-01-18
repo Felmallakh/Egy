@@ -65,13 +65,12 @@
 .homepage-mission-box:hover,
 .homepage-share-box:hover,
 .homepage-explore-box:hover {
-  width: 20vw;
-  height: 65vh;
+  /* width: 20vw;
+  height: 65vh; */
   background-color: #fff;
-  border-bottom: 0.2px solid hsla(0, 0%, 50.2%, 0.272);
-  border-left: 0.1px solid hsla(0, 0%, 50.2%, 0.272);
-  border-right: 0.1px solid hsla(0, 0%, 50.2%, 0.272);
-  transition: all 1.5s ease;
+  box-shadow: 18px 18px 48px 18px rgba(39, 4, 4, 0.849);
+    transform: translate(3%, -3%);
+    transition: 1s all;
 }
 
 .homepage-mission-box {
