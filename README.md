@@ -1,6 +1,6 @@
 # Egypt-Destinations
 
-Egy-Dest is a site dedicated to the most wonderful destinations in Egypt to visit.
+[Egy-Dest](https://egypt-dest.herokuapp.com/) is a site dedicated to the most wonderful destinations in Egypt to visit.
 
 
 ![Splash Page](https://cdn.discordapp.com/attachments/919391399269515305/933089187551404092/Splash.png)
