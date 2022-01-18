@@ -8,7 +8,7 @@ import { useDispatch } from "react-redux";
 import { authenticate } from "./components/store/session";
 import NotFound from "./components/NotFound";
 import Homepage from "./components/Homepage/Homepage"
-
+import Albums from "./components/Albums/Albums"
 
 function App() {
   // organization page:
@@ -32,6 +32,8 @@ function App() {
       <Route path="/signup" element={<SignUp />}></Route>
       <Route path="/NotFound" element={<NotFound />}></Route>
       <Route path="/home" element={<Homepage />}></Route>
+      <Route path="/users/:userId/albums" element={<Albums />}></Route>
+
     </Routes>
   );
 }

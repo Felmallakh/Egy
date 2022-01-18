@@ -1,8 +1,8 @@
 """empty message
 
-Revision ID: 2e72e489524b
+Revision ID: d562d3f9ce74
 Revises: 
-Create Date: 2022-01-17 04:09:52.088525
+Create Date: 2022-01-17 19:58:35.966042
 
 """
 from alembic import op
@@ -10,7 +10,7 @@ import sqlalchemy as sa
 
 
 # revision identifiers, used by Alembic.
-revision = '2e72e489524b'
+revision = 'd562d3f9ce74'
 down_revision = None
 branch_labels = None
 depends_on = None
@@ -32,7 +32,7 @@ def upgrade():
     )
     op.create_table('albums',
     sa.Column('id', sa.Integer(), nullable=False),
-    sa.Column('title', sa.String(), nullable=False),
+    sa.Column('title', sa.String(), nullable=True),
     sa.Column('description', sa.String(length=250), nullable=True),
     sa.Column('created_at', sa.DateTime(), nullable=True),
     sa.Column('updated_at', sa.DateTime(), nullable=True),
@@ -42,7 +42,7 @@ def upgrade():
     )
     op.create_table('photos',
     sa.Column('id', sa.Integer(), nullable=False),
-    sa.Column('title', sa.String(), nullable=False),
+    sa.Column('title', sa.String(), nullable=True),
     sa.Column('description', sa.String(length=250), nullable=True),
     sa.Column('photoURL', sa.String(), nullable=True),
     sa.Column('created_at', sa.DateTime(), nullable=True),

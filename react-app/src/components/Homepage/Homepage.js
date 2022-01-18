@@ -9,10 +9,15 @@ function Homepage() {
   const dispatch = useDispatch();
   const hist = useNavigate()
 
-  const session = useSelector((state) => state.session.user);
+  const user_session = useSelector((state) => state.session.user);
   useEffect(() => {
-    if (!session) return hist("/NotFound");
+    if (!user_session) return hist("/NotFound");
   }, []);
+
+  let albums = <NavLink className="secondary-button" to={`/users/${user_session?.id}/albums`}>Albums</NavLink>;
+  let photos
+  let profile
+
 
   return (
     <div className="homepage">
@@ -25,7 +30,7 @@ function Homepage() {
           <h2>Egypt Destinations</h2>
         </div>
         <div className="rightNav">
-          <NavLink to={`/users/${session?.id}/organizations`}>
+          <NavLink to={`/users/${user_session?.id}/organizations`}>
             <button id="signout"
               onClick={async () => {
                 await dispatch(logout());
@@ -40,7 +45,7 @@ function Homepage() {
 
       <div className="homepage-howto-div">
         <div className="homepage-mission-box">
-          <button className="secondary-button">Albums</button>
+          <button className="secondary-button">{albums}</button>
         </div>
         <div className="homepage-share-box">
           <button className="secondary-button">Photos</button>
