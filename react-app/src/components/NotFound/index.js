@@ -1,8 +1,5 @@
 import "./notfound.css";
-import { useParams } from "react-router-dom";
-import { useDispatch, useSelector } from "react-redux";
-import React, { useEffect, useRef } from "react";
-import { useNavigate } from "react-router-dom";
+import React from "react";
 
 function NotFound() {
 
