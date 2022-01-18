@@ -30,7 +30,6 @@ function Homepage() {
           <h2>Egypt Destinations</h2>
         </div>
         <div className="rightNav">
-          <NavLink to={`/users/${user_session?.id}/organizations`}>
             <button id="signout"
               onClick={async () => {
                 await dispatch(logout());
@@ -39,7 +38,6 @@ function Homepage() {
             >
               Log Out
             </button>
-          </NavLink>
         </div>
       </nav>
 

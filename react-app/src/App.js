@@ -33,7 +33,6 @@ function App() {
       <Route path="/NotFound" element={<NotFound />}></Route>
       <Route path="/home" element={<Homepage />}></Route>
       <Route path="/users/:userId/albums" element={<Albums />}></Route>
-
     </Routes>
   );
 }
