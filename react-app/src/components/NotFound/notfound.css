@@ -1,18 +1,29 @@
 @import url("https://fonts.googleapis.com/css?family=Montserrat:700");
 .container {
-	height: 100vh;
-	font-family: "Montserrat", "sans-serif";
-	font-weight: bolder;
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	flex-direction: column;
+  height: 100vh;
+  font-family: "Montserrat", "sans-serif";
+  font-weight: bolder;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
 }
 
 .container a {
-    color: black;
+  color: rgb(224, 206, 206);
 }
 
 .container h1 {
-    width: fit-content;
+  width: fit-content;
+  color: antiquewhite;
+}
+
+.Hieroglyphics {
+  background-image: url("../../../public/Page-not-found.jpg");
+  background-repeat: no-repeat;
+    display: flex;
+    flex-direction: column;
+    background-position-x: center;
+    height: 500px;
+    font-weight: 700;
 }
