@@ -1,0 +1,119 @@
+.homepage {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+   background: url(../../../public/Egypt-Papyrus-background.png);
+     background-repeat: no-repeat;
+    background-size:cover;
+    /* width: 100vw;
+    height: 100vh;  */
+    overflow:scroll;
+}
+
+.homepage-hero-div {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+}
+
+.homepage-howto-div {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  margin: 20px;
+}
+
+#signout {
+  color: white;
+  font-weight: 700;
+  padding: 12px;
+  width: 100px;
+  font-size: 15px;
+  background-color: transparent;
+  border: 1px solid #000807;
+  border: none;
+  border-radius: 7px;
+  /* transition-property: opacity; */
+  transition-property: background-color;
+  transition-duration: 1.2s;
+  /* opacity: 0.85; */
+}
+
+#signout:hover {
+  background-color: rgb(208 149 73 / 66%);
+  color: white;
+}
+
+.first {
+  display: flex;
+  flex-direction: column;
+  box-sizing: border-box;
+  justify-content: flex-end;
+  height: 333px;
+  width: 245px;
+  padding: 20px;
+  margin: 10px;
+  border-radius: 10px;
+  background-size: cover;
+  font-weight: 700;
+  font-size: 16px;
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.719);
+}
+.homepage-mission-box:hover,
+.homepage-share-box:hover,
+.homepage-explore-box:hover {
+  /* width: 20vw;
+  height: 65vh; */
+  background-color: #fff;
+  box-shadow: 18px 18px 48px 18px rgba(39, 4, 4, 0.849);
+    transform: translate(3%, -3%);
+    transition: 1s all;
+}
+
+.first {
+  background-image: url("../images/Pyramids\ 02.jpg");
+}
+
+.homepage-share-box {
+  background-image: url("../images/Pyramids\ 01.jpg");
+}
+
+.homepage-explore-box {
+  background-image: url("../images/Pyramids\ 03.jpg");
+}
+
+.photo-grid-div {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.secondary-button {
+  border-radius: 20px;
+  line-height: 30px;
+  font-size: 18px;
+  text-transform: uppercase;
+  padding: 5px 15px;
+  cursor: pointer;
+  border: none;
+  background: antiquewhite;
+  text-decoration: none;
+  color: black;
+}
+
+
+.ptitle{
+  font-size: 50px;
+    margin-top: 40px;
+}
+
+
+@media all and (max-width: 600px) {
+  .homepage-hero-description {
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 1.5;
+  }
+}

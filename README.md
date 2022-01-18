@@ -1,6 +1,17 @@
-# Flask React Project
+# Egypt-Destinations
 
-This is the starter for the Flask React project.
+Egy-Dest is a site dedicated to the most wonderful destinations in Egypt to visit.
+
+
+![Splash Page](https://cdn.discordapp.com/attachments/919391399269515305/933089187551404092/Splash.png)
+
+![User Login](https://cdn.discordapp.com/attachments/919391399269515305/932574372273725492/Sign-in.png)
+![User Sign-up](https://cdn.discordapp.com/attachments/919391399269515305/932574372529569832/Sign-up.png)
+
+![Albums Page](https://cdn.discordapp.com/attachments/919391399269515305/933086075839193158/Albums-page.png)
+
+![Photos Page](https://cdn.discordapp.com/attachments/919391399269515305/933086076380274778/Photos-page.png)
+
 
 ## Getting started
 
