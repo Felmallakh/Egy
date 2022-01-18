@@ -48,7 +48,7 @@ class Album(db.Model):
     __tablename__ = 'albums'
 
     id = db.Column(db.Integer, primary_key=True)
-    title = db.Column(db.String, nullable=False)
+    title = db.Column(db.String)
     description = db.Column(db.String(250))
     created_at = db.Column(db.DateTime(), default=datetime.datetime.utcnow)
     updated_at = db.Column(db.DateTime(), onupdate=func.now(), default=func.now())
@@ -62,13 +62,14 @@ class Album(db.Model):
         return {
             'title' : self.title,
             'description' : self.description,
+            'user_id' : self.user_id,
         }
 
 class Photo(db.Model):
     __tablename__ = 'photos'
 
     id = db.Column(db.Integer, primary_key=True)
-    title = db.Column(db.String, nullable=False)
+    title = db.Column(db.String)
     description = db.Column(db.String(250))
     photoURL = db.Column(db.String)
     created_at = db.Column(db.DateTime(), default=datetime.datetime.utcnow)
@@ -88,6 +89,8 @@ class Photo(db.Model):
             'title' : self.title,
             'description' : self.description,
             'photoURL' : self.photoURL,
+            'user_id' : self.user_id,
+            'album_id' : self.album_id
         }
 
 class Comment(db.Model):
@@ -106,6 +109,8 @@ class Comment(db.Model):
     def to_dict(self):
         return {
             'content' : self.title,
+            'user_id' : self.user_id,
+            'photo_id' : self.photo_id
         }
 
 class Favorite(db.Model):
@@ -118,6 +123,13 @@ class Favorite(db.Model):
 
     user = db.relationship("User", back_populates="favorites")
     photos = db.relationship("Photo", back_populates="favorites")
+
+    def to_dict(self):
+        return {
+            'id': self.id,
+            'user_id': self.user_id,
+            'photo_id': self.post_id,
+        }
 
 class Tag(db.Model):
     __tablename__ = 'tags'
