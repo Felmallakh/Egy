@@ -3,10 +3,9 @@ import { NavLink, useNavigate } from "react-router-dom";
 import { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 
-import { getAlbumsThunk } from "../store/album";
 import { getPhotosThunk } from "../store/photo"
 
-function Albums() {
+function Photos() {
   const hist = useNavigate();
   const session = useSelector((state) => state.session.user);
   const albums = useSelector((state) => state.albumReducer);
@@ -15,14 +14,14 @@ function Albums() {
 
   const dispatch = useDispatch();
 
-  async function loadAlbums(session) {
+  async function loadPhotos(session) {
     if (session) {
-      await dispatch(getAlbumsThunk(session.id));
+      await dispatch(getPhotosThunk(session.id));
     }
   }
-  
+
   useEffect(() => {
-    loadAlbums(session);
+    loadPhotos(session);
   }, [session]);
 
 
@@ -30,7 +29,7 @@ function Albums() {
     <div className="album-wrap">
       <div className="album-wrap">
         <h3>Photos for {session.username}</h3>
-        <h3>{albums.title}</h3>
+        <h3>{photos.photoURL}</h3>
         <h3>{albums.description}</h3>
       </div>
       {/* <ul className="home-photos-feed">
@@ -80,4 +79,4 @@ function Albums() {
     </div>
   ) : null;
 }
-export default Albums;
+export default Photos;

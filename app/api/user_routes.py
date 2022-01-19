@@ -22,16 +22,17 @@ def user(id):
 @user_routes.route('/<int:id>/albums')
 @login_required
 def get_albums(id):
-    albums = Album.query.get(id)
-    # albums = Album.query.filter_by(user_id = userId).all()
+    # albums = Album.query.all()
 
+    albums = Album.query.get(id)
+
+    print("😣😣",albums)
     return albums.to_dict()
 
 # Get photos
 @user_routes.route('/<int:id>/photos')
 @login_required
 def get_photos(id):
-    print("😣😣")
     photos = Photo.query.get(int(id))
 
     return photos.to_dict()
