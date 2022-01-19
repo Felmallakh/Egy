@@ -40,7 +40,8 @@ class User(db.Model, UserMixin):
         return {
             'id': self.id,
             'username': self.username,
-            'email': self.email
+            'email': self.email,
+            'profile_picture' : self.profile_picture
         }
 
 
@@ -60,6 +61,7 @@ class Album(db.Model):
 
     def to_dict(self):
         return {
+            'id' : self.id,
             'title' : self.title,
             'description' : self.description,
             'user_id' : self.user_id,
@@ -86,6 +88,7 @@ class Photo(db.Model):
 
     def to_dict(self):
         return {
+            'id' : self.id,
             'title' : self.title,
             'description' : self.description,
             'photoURL' : self.photoURL,
@@ -108,6 +111,7 @@ class Comment(db.Model):
 
     def to_dict(self):
         return {
+            'id' : self.id,
             'content' : self.title,
             'user_id' : self.user_id,
             'photo_id' : self.photo_id

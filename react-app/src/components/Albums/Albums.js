@@ -9,16 +9,19 @@ function Albums() {
   const hist = useNavigate();
   const session = useSelector((state) => state.session.user);
   const albums = useSelector((state) => state.albumReducer);
+  const album = Object.values(albums)
+
 
   const dispatch = useDispatch();
 
-  async function loadAlbums(session) {
-    if (session) {
-      await dispatch(getAlbumsThunk(session.id));
-    }
-  }
+  // async function loadAlbums(session) {
+  //   if (session) {
+  //     await dispatch(getAlbumsThunk(session.id));
+  //   }
+  // }
+
   useEffect(() => {
-    loadAlbums(session);
+    dispatch(getAlbumsThunk(session.id));
   }, [session]);
 
 
@@ -26,7 +29,15 @@ function Albums() {
     <div className="album-wrap">
       <div className="album-wrap">
         <h3>Albums for {session.username}</h3>
-        <h3>{albums.title}</h3>
+        <h3>
+          {album.map((album) => {
+            return (
+              <option key={album.id} value={album.id}>
+                Albums Title: {album.title}
+              </option>
+            );
+          })}
+        </h3>
         <h3>{albums.description}</h3>
       </div>
       {/* <ul className="home-photos-feed">
