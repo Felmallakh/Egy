@@ -3,13 +3,14 @@ import thunk from 'redux-thunk'
 import session from './session'
 import albumReducer from "./album";
 import photoReducer from "./photo";
-
+import AddAlbumFormReducer from "./AddAlbumForm"
 
 
 const rootReducer = combineReducers({
   session,
   albumReducer,
   photoReducer,
+  AddAlbumFormReducer,
 });
 
 

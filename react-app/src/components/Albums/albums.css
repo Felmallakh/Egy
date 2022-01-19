@@ -1,4 +1,21 @@
+nav {
+    display: flex;
+    justify-content: space-between;
+    height: 130px;
+    position: fixed;
+    width: 100vw;
+}
 
+.album-section-div {
+    margin-top: 100px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.albums-preview-item-div{
+    text-align-last: center;
+}
 
 a {
     text-decoration: none;
@@ -6,9 +23,21 @@ a {
     align-items: center
 }
 
-.album-preview-image {
+.albums-preview-image {
     /* border-radius: 10px; */
     /* display: inline-block; */
     /* margin-bottom: 10px; */
-    width: 40%;
+    width: 30%;
 }
+
+.photo-grid-list {
+        /* list-style-type: none; */
+    /* padding-inline-start: 0; */
+    /* column-count: 4; */
+    display: flex;
+    /* flex-direction: column; */
+    /* column-count: 4; */
+    flex-wrap: wrap;
+    flex-direction: row-reverse ;
+}
+

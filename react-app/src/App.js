@@ -29,7 +29,7 @@ function App() {
   }
   return (
     <Routes>
-      <Route path="/" element={<Splash />}></Route>
+      <Route path="/" exact element={<Splash />}></Route>
       <Route path="/login" element={<AuthPage />}></Route>
       <Route path="/signup" element={<SignUp />}></Route>
       <Route path="/NotFound" element={<NotFound />}></Route>

@@ -3,6 +3,7 @@ import {useNavigate} from "react-router-dom"
 import './splash.css'
 
 function Splash(){
+    const hist = useNavigate();
 
 
     const slideShowArr = [];
@@ -51,7 +52,6 @@ function Splash(){
     // }, [imagesLoaded])
 
 
-    const hist = useNavigate();
     return (
       <div id="splash-container">
         <nav>
