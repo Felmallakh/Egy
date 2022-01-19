@@ -54,7 +54,7 @@ function Albums() {
               Add Album
             </button>
             <div
-              id="createAlbum-button"
+              id="signout"
               onClick={() => hist(`/albums/new`)}
             >
               <i className="far fa-plus-square createAlbum-plus"></i>

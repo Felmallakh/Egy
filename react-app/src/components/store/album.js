@@ -24,23 +24,6 @@ const updateAlbum = (album) => ({
   album,
 });
 
-// // Get album by id thunk
-// export const getAlbumById = ({ albumId }) => async (dispatch) => {
-//     const res = await fetch(`/api/albums/${albumId}`, {
-//       method: "GET",
-//       headers: {
-//         "Content-Type": "application/json",
-//       },
-//     });
-
-//     if (res.ok) {
-//       const album = await res.json();
-//       // dispatch(getPhotoById(photo));
-//       console.log(album);
-//       return album;
-//     }
-//   };
-
 // Get albums
 export const getAlbumsThunk= (userId) => async (dispatch) => {
   const res = await fetch(`/api/users/${userId}/albums`)
@@ -67,7 +50,6 @@ export const addAlbumThunk =({ userId, title, description }) => async (dispatch)
       }),
     });
     if (res.ok) {
-      console.log("👍👍👍")
       const album = await res.json();
       dispatch(addAlbum(album));
 
@@ -76,7 +58,7 @@ export const addAlbumThunk =({ userId, title, description }) => async (dispatch)
   };
 
 // Delete album thunk
-export const thunk_deletealbum =({ albumId }) =>
+export const deleteAlbumThunk =({ albumId }) =>
   async (dispatch) => {
     const res = await fetch(`/api/albums/${albumId}`, {
       method: "DELETE",
@@ -96,9 +78,7 @@ export const thunk_deletealbum =({ albumId }) =>
   };
 
 // Update album thunk
-export const thunk_updatealbum =
-  ({ albumId, title, description }) =>
-  async (dispatch) => {
+export const updateAlbumThunk = ({ albumId, title, description }) => async (dispatch) => {
     const res = await fetch(`/api/albums/${albumId}`, {
       method: "PUT",
       headers: {
@@ -129,17 +109,14 @@ const albumReducer = (state = {}, action) => {
       return newState;
     }
     case ADD_ALBUM: {
-      // const newState = { ...state };
-      newState[action.album.album.id] = action.album.album;
+      newState[action.album.id] = action.album;
       return newState;
     }
     case DELETE_ALBUM: {
-      // const newState = { ...state };
       delete newState[action.deletedAlbumId];
       return newState;
     }
     case UPDATE_ALBUM: {
-      // const newState = { ...state };
       newState[action.album.updatedAlbum.id] = action.album.updatedAlbum;
       return newState;
     }
