@@ -2,36 +2,34 @@ import React from "react";
 import { NavLink, useNavigate } from "react-router-dom";
 import { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
-
 import { getPhotosThunk } from "../store/photo"
+import './photos.css'
 
 function Photos() {
   const hist = useNavigate();
   const session = useSelector((state) => state.session.user);
   const albums = useSelector((state) => state.albumReducer);
   const photos = useSelector((state) => state.photoReducer);
-
+  const photo = Object.values(photos)
 
   const dispatch = useDispatch();
 
-  async function loadPhotos(session) {
-    if (session) {
-      await dispatch(getPhotosThunk(session.id));
-    }
-  }
 
   useEffect(() => {
-    loadPhotos(session);
+    dispatch(getPhotosThunk(session.id));
   }, [session]);
 
 
   return session ? (
     <div className="album-wrap">
-      <div className="album-wrap">
         <h3>Photos for {session.username}</h3>
-        <h3>{photos.photoURL}</h3>
-        <h3>{albums.description}</h3>
-      </div>
+        <ul className="photoGrid" key={photo.id} value={photo.id}>
+            {photo.map((photo) => {
+              return <img className="img-grid" src={photo.photoURL}/>;
+
+            })}
+        </ul>
+        
       {/* <ul className="home-photos-feed">
         {userPhotosArr.map((photo) => (
           <li

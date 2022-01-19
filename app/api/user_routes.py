@@ -1,6 +1,8 @@
-from flask import Blueprint, jsonify
+from flask import Blueprint
 from flask_login import login_required
 from app.models import User, Album, Photo
+
+
 
 user_routes = Blueprint('users', __name__)
 
@@ -29,11 +31,14 @@ def get_albums(id):
     # print("😣😣",albums)
     return {'albums' : [album.to_dict() for album in albums]}
 
+
 # Get photos
 @user_routes.route('/<int:id>/photos')
 @login_required
 def get_photos(id):
-    photos = Photo.query.get(int(id))
+    photos = Photo.query.all()
 
-    return photos.to_dict()
+    # print("😣😣",photos)
+    return {'photos': [photo.to_dict() for photo in photos]}
+
 

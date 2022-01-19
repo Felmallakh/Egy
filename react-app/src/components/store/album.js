@@ -47,17 +47,15 @@ export const getAlbumsThunk= (userId) => async (dispatch) => {
 
     if (res.ok) {
       const albums = await res.json();
-      console.log("😣🍎😣", albums)
+      // console.log("😣🍎😣", albums)
       dispatch(getAlbums(albums.albums));
       return albums.albums;
     }
   };
 
 // Add album thunk
-export const thunk_addalbum =
-  ({ userId, title, description }) =>
-  async (dispatch) => {
-    const res = await fetch("/api/albums", {
+export const addAlbumThunk =({ userId, title, description }) => async (dispatch) => {
+    const res = await fetch(`/api/albums/new`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -68,17 +66,17 @@ export const thunk_addalbum =
         description,
       }),
     });
-
     if (res.ok) {
+      console.log("👍👍👍")
       const album = await res.json();
       dispatch(addAlbum(album));
+
       return album;
     }
   };
 
 // Delete album thunk
-export const thunk_deletealbum =
-  ({ albumId }) =>
+export const thunk_deletealbum =({ albumId }) =>
   async (dispatch) => {
     const res = await fetch(`/api/albums/${albumId}`, {
       method: "DELETE",
@@ -125,24 +123,23 @@ const albumReducer = (state = {}, action) => {
   const newState = { ...state }
   switch (action.type) {
     case GET_ALBUMS: {
-
       action.albums.forEach(album => {
         // console.log("👌👌", album);
         newState[album.id] = album})
       return newState;
     }
     case ADD_ALBUM: {
-      const newState = { ...state };
+      // const newState = { ...state };
       newState[action.album.album.id] = action.album.album;
       return newState;
     }
     case DELETE_ALBUM: {
-      const newState = { ...state };
+      // const newState = { ...state };
       delete newState[action.deletedAlbumId];
       return newState;
     }
     case UPDATE_ALBUM: {
-      const newState = { ...state };
+      // const newState = { ...state };
       newState[action.album.updatedAlbum.id] = action.album.updatedAlbum;
       return newState;
     }
