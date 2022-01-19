@@ -26,7 +26,7 @@ def get_albums(id):
     # userAlbums = [album for album in albums if id == album.user_id]
     # albums = Album.query.get(id)
 
-    print("😣😣",albums)
+    # print("😣😣",albums)
     return {'albums' : [album.to_dict() for album in albums]}
 
 # Get photos
