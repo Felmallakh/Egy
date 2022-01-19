@@ -72,55 +72,11 @@ function Albums() {
             </button>
           </div>
         </nav>
-        <div className="post-section-div">
-          <h2 className="post-section-title">Explore Destination's Albums</h2>
+        <div className="album-section-div">
+          <h2 className="album-section-title">Explore Destination's Albums</h2>
           <PhotoGrid album={album} />
         </div>
       </div>
-      {/* <ul className="home-photos-feed">
-        {userPhotosArr.map((photo) => (
-          <li
-            onClick={() => {
-              setFullScreen(true);
-              setFullScreenPhoto(photo);
-              document.body.classList.add("stop-scrolling");
-            }}
-            className="home-photoLi"
-            key={photo.id}
-          >
-            <img className="home-img" src={photo.photoURL}></img>
-            <div id="home-photoMask">
-              <div className="mask-item">
-                <div>{photo.title}</div>
-              </div>
-              <div className="mask-item">
-                <button
-                  id="albumRemove-button"
-                  onClick={removeAlbum}
-                  value={photo.id}
-                  className="photo-albumSelect far fa-minus-square"
-                ></button>
-                <button
-                  className="mask-button"
-                  onClick={(e) => {
-                    e.stopPropagation();
-                    history.push(`/photos/${photo.id}/edit`);
-                  }}
-                >
-                  Edit
-                </button>
-                <button
-                  className="mask-button"
-                  value={photo.id}
-                  onClick={deletePhoto}
-                >
-                  Delete
-                </button>
-              </div>
-            </div>
-          </li>
-        ))}
-      </ul> */}
     </div>
   ) : null;
 }

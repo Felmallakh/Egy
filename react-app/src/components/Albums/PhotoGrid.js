@@ -1,5 +1,5 @@
 import React from 'react';
-import PostPreview from './PostPreview.js';
+import AlbumPreview from './AlbumPreview.js';
 import "./albums.css"
 
 function PhotoGrid({album}) {
@@ -8,7 +8,7 @@ function PhotoGrid({album}) {
         <ul className="photo-grid-list">
             {album && album?.map((album) => {
                 return (
-                    <PostPreview key={album.id} album={album} />
+                    <AlbumPreview key={album.id} album={album} />
                 )
             })}
         </ul>
