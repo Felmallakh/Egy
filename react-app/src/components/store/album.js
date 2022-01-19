@@ -6,50 +6,47 @@ const UPDATE_ALBUM = "album/UPDATE_ALBUM";
 
 const getAlbums = (albums) => ({
   type: GET_ALBUMS,
-  payload: albums,
+  albums,
 });
 
 const addAlbum = (album) => ({
   type: ADD_ALBUM,
-  payload: album,
+  album,
 });
 
 const deleteAlbum = (deletedAlbumId) => ({
   type: DELETE_ALBUM,
-  payload: deletedAlbumId,
+  deletedAlbumId,
 });
 
 const updateAlbum = (album) => ({
   type: UPDATE_ALBUM,
-  payload: album,
+  album,
 });
 
-// Get album by id thunk
-export const getAlbumById =
-  ({ albumId }) =>
-  async (dispatch) => {
-    const res = await fetch(`/api/albums/${albumId}`, {
-      method: "GET",
-      headers: {
-        "Content-Type": "application/json",
-      },
-    });
+// // Get album by id thunk
+// export const getAlbumById = ({ albumId }) => async (dispatch) => {
+//     const res = await fetch(`/api/albums/${albumId}`, {
+//       method: "GET",
+//       headers: {
+//         "Content-Type": "application/json",
+//       },
+//     });
 
-    if (res.ok) {
-      const album = await res.json();
-      // dispatch(getPhotoById(photo));
-      console.log(album);
-      return album;
-    }
-  };
+//     if (res.ok) {
+//       const album = await res.json();
+//       // dispatch(getPhotoById(photo));
+//       console.log(album);
+//       return album;
+//     }
+//   };
 
-// Get albums by user id
+// Get albums
 export const getAlbumsThunk= (userId) => async (dispatch) => {
   const res = await fetch(`/api/users/${userId}/albums`)
 
     if (res.ok) {
       const albums = await res.json();
-      // console.log("😣😣")
       dispatch(getAlbums(albums));
       return albums;
     }
@@ -124,12 +121,12 @@ export const thunk_updatealbum =
 
 // Album Reducer
 const albumReducer = (state = {}, action) => {
-
+  console.log("🍎😣", action.albums)
   switch (action.type) {
     case GET_ALBUMS: {
-      return action.payload
+      return action.albums
       // const newState = { ...state };
-      // action.payload.albums.forEach((album) => (newState[album.id] = album));
+      // action.albums.albums.forEach((album) => (newState[album.id] = album));
       // return newState;
     }
     case ADD_ALBUM: {

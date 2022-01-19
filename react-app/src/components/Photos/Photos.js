@@ -4,11 +4,14 @@ import { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 
 import { getAlbumsThunk } from "../store/album";
+import { getPhotosThunk } from "../store/photo"
 
 function Albums() {
   const hist = useNavigate();
   const session = useSelector((state) => state.session.user);
   const albums = useSelector((state) => state.albumReducer);
+  const photos = useSelector((state) => state.photoReducer);
+
 
   const dispatch = useDispatch();
 
@@ -17,6 +20,7 @@ function Albums() {
       await dispatch(getAlbumsThunk(session.id));
     }
   }
+  
   useEffect(() => {
     loadAlbums(session);
   }, [session]);
@@ -25,7 +29,7 @@ function Albums() {
   return session ? (
     <div className="album-wrap">
       <div className="album-wrap">
-        <h3>Albums for {session.username}</h3>
+        <h3>Photos for {session.username}</h3>
         <h3>{albums.title}</h3>
         <h3>{albums.description}</h3>
       </div>

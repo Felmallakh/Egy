@@ -27,7 +27,55 @@ def seed_photos():
         description="Pyramids-Camel"
     )
 
-    all_photos = [demo1, demo2, demo3]
+    demo4 = Photo(
+        user_id=1,
+        album_id=2,
+        photoURL='https://cdn.discordapp.com/attachments/919391399269515305/933139037043187792/hurghada.jpg',
+        title='Hurghada Marina',
+        description=""
+    )
+
+    demo5 = Photo(
+        user_id=1,
+        album_id=2,
+        photoURL='https://cdn.discordapp.com/attachments/919391399269515305/933139037319991306/Hurghada.jpg',
+        title='Hurghada Marina',
+        description="Red sea Marina's"
+    )
+
+    demo6 = Photo(
+        user_id=1,
+        album_id=2,
+        photoURL='https://cdn.discordapp.com/attachments/919391399269515305/933139037538119700/Hurghada02.jpg',
+        title='Red Sea Water',
+        description=""
+    )
+
+    demo7 = Photo(
+        user_id=1,
+        album_id=3,
+        photoURL='https://cdn.discordapp.com/attachments/919391399269515305/933139735914901584/Karnak-Temple-Complex.jpg',
+        title='Temples',
+        description="Karnak Temple"
+    )
+
+    demo8 = Photo(
+        user_id=1,
+        album_id=3,
+        photoURL='https://cdn.discordapp.com/attachments/919391399269515305/933139736183316480/Karnak-Temple-Complex02.jpg',
+        title='Karnak Complex Temple',
+        description="Temple"
+    )
+
+    demo9 = Photo(
+        user_id=1,
+        album_id=3,
+        photoURL='https://cdn.discordapp.com/attachments/919391399269515305/933139736397238312/Luxor.jpg',
+        title='Temple Complex',
+        description="Luxor"
+    )
+
+    all_photos = [demo1, demo2, demo3, demo4, demo5, demo6, demo7, demo8, demo9]
 
     for album in all_photos:
         db.session.add(album)

@@ -75,13 +75,12 @@ function Splash(){
         </nav>
         <div className="titleContent">
           <h1>Find your next destination</h1>
-          {/* <p>Transform the way you work with one place for everyone and everything you need to get stuff done.</p> */}
           <button
             onClick={() => {
               hist("/signup");
             }}
           >
-            Try it!
+            EXPLORE
           </button>
         </div>
       </div>

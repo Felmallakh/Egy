@@ -1,8 +1,8 @@
 """empty message
 
-Revision ID: 597948f41029
+Revision ID: ef87b0a88d78
 Revises: 
-Create Date: 2022-01-17 21:35:41.337634
+Create Date: 2022-01-18 15:45:31.395700
 
 """
 from alembic import op
@@ -10,7 +10,7 @@ import sqlalchemy as sa
 
 
 # revision identifiers, used by Alembic.
-revision = '597948f41029'
+revision = 'ef87b0a88d78'
 down_revision = None
 branch_labels = None
 depends_on = None
@@ -23,7 +23,7 @@ def upgrade():
     sa.Column('username', sa.String(length=20), nullable=False),
     sa.Column('email', sa.String(length=50), nullable=False),
     sa.Column('hashed_password', sa.String(length=255), nullable=False),
-    sa.Column('photoURL', sa.String(), nullable=True),
+    sa.Column('profile_picture', sa.String(), nullable=True),
     sa.Column('created_at', sa.DateTime(), nullable=True),
     sa.Column('updated_at', sa.DateTime(), nullable=True),
     sa.PrimaryKeyConstraint('id'),
@@ -34,9 +34,9 @@ def upgrade():
     sa.Column('id', sa.Integer(), nullable=False),
     sa.Column('title', sa.String(), nullable=True),
     sa.Column('description', sa.String(length=250), nullable=True),
+    sa.Column('user_id', sa.Integer(), nullable=False),
     sa.Column('created_at', sa.DateTime(), nullable=True),
     sa.Column('updated_at', sa.DateTime(), nullable=True),
-    sa.Column('user_id', sa.Integer(), nullable=False),
     sa.ForeignKeyConstraint(['user_id'], ['users.id'], ),
     sa.PrimaryKeyConstraint('id')
     )
@@ -45,10 +45,10 @@ def upgrade():
     sa.Column('title', sa.String(), nullable=True),
     sa.Column('description', sa.String(length=250), nullable=True),
     sa.Column('photoURL', sa.String(), nullable=True),
-    sa.Column('created_at', sa.DateTime(), nullable=True),
-    sa.Column('updated_at', sa.DateTime(), nullable=True),
     sa.Column('user_id', sa.Integer(), nullable=False),
     sa.Column('album_id', sa.Integer(), nullable=True),
+    sa.Column('created_at', sa.DateTime(), nullable=True),
+    sa.Column('updated_at', sa.DateTime(), nullable=True),
     sa.ForeignKeyConstraint(['album_id'], ['albums.id'], ),
     sa.ForeignKeyConstraint(['user_id'], ['users.id'], ),
     sa.PrimaryKeyConstraint('id')
@@ -72,7 +72,7 @@ def upgrade():
     )
     op.create_table('tags',
     sa.Column('id', sa.Integer(), nullable=False),
-    sa.Column('keywod', sa.String(length=255), nullable=False),
+    sa.Column('keyword', sa.String(length=255), nullable=False),
     sa.Column('photo_id', sa.Integer(), nullable=False),
     sa.ForeignKeyConstraint(['photo_id'], ['photos.id'], ),
     sa.PrimaryKeyConstraint('id')
