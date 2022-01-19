@@ -1,0 +1,12 @@
+a {
+    text-decoration: none;
+    color:antiquewhite;
+    align-items: center
+}
+
+.album-preview-image {
+    /* border-radius: 10px; */
+    /* display: inline-block; */
+    /* margin-bottom: 10px; */
+    width: 40%;
+}

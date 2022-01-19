@@ -10,6 +10,7 @@ import NotFound from "./components/NotFound";
 import Homepage from "./components/Homepage/Homepage"
 import Albums from "./components/Albums/Albums"
 import Photos from "./components/Photos/Photos"
+import CreateAlbumForm from "./components/CreateAlbumForm"
 
 function App() {
   // organization page:
@@ -35,6 +36,7 @@ function App() {
       <Route path="/home" element={<Homepage />}></Route>
       <Route path="/users/:userId/albums" element={<Albums />}></Route>
       <Route path="/users/:userId/photos" element={<Photos />}></Route>
+      <Route path="albums/new" element={<CreateAlbumForm />}></Route>
     </Routes>
   );
 }
