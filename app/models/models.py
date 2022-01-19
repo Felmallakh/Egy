@@ -12,7 +12,7 @@ class User(db.Model, UserMixin):
     username = db.Column(db.String(20), nullable=False, unique=True)
     email = db.Column(db.String(50), nullable=False, unique=True)
     hashed_password = db.Column(db.String(255), nullable=False)
-    photoURL = db.Column(db.String)
+    profile_picture = db.Column(db.String)
     created_at = db.Column(db.DateTime(), default=datetime.datetime.utcnow)
     updated_at = db.Column(db.DateTime(), onupdate=func.now(), default=func.now())
 
@@ -50,10 +50,10 @@ class Album(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     title = db.Column(db.String)
     description = db.Column(db.String(250))
+    user_id = db.Column(db.Integer, db.ForeignKey('users.id'), nullable=False)
     created_at = db.Column(db.DateTime(), default=datetime.datetime.utcnow)
     updated_at = db.Column(db.DateTime(), onupdate=func.now(), default=func.now())
 
-    user_id = db.Column(db.Integer, db.ForeignKey('users.id'), nullable=False)
 
     user = db.relationship("User", back_populates="albums")
     photos = db.relationship("Photo", back_populates="albums", cascade="all, delete")
@@ -72,11 +72,11 @@ class Photo(db.Model):
     title = db.Column(db.String)
     description = db.Column(db.String(250))
     photoURL = db.Column(db.String)
+    user_id = db.Column(db.Integer, db.ForeignKey('users.id'), nullable=False)
+    album_id = db.Column(db.Integer, db.ForeignKey('albums.id'))
     created_at = db.Column(db.DateTime(), default=datetime.datetime.utcnow)
     updated_at = db.Column(db.DateTime(), onupdate=func.now(), default=func.now())
 
-    user_id = db.Column(db.Integer, db.ForeignKey('users.id'), nullable=False)
-    album_id = db.Column(db.Integer, db.ForeignKey('albums.id'))
 
     user = db.relationship("User", back_populates="photos")
     albums = db.relationship("Album", back_populates="photos")
@@ -135,7 +135,7 @@ class Tag(db.Model):
     __tablename__ = 'tags'
 
     id = db.Column(db.Integer, primary_key=True)
-    keywod = db.Column(db.String(255), nullable=False)
+    keyword = db.Column(db.String(255), nullable=False)
 
     photo_id = db.Column(db.Integer, db.ForeignKey('photos.id'), nullable=False)
     photos = db.relationship("Photo", back_populates="tags")

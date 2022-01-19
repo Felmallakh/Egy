@@ -9,6 +9,7 @@ import { authenticate } from "./components/store/session";
 import NotFound from "./components/NotFound";
 import Homepage from "./components/Homepage/Homepage"
 import Albums from "./components/Albums/Albums"
+import Photos from "./components/Photos/Photos"
 
 function App() {
   // organization page:
@@ -33,6 +34,7 @@ function App() {
       <Route path="/NotFound" element={<NotFound />}></Route>
       <Route path="/home" element={<Homepage />}></Route>
       <Route path="/users/:userId/albums" element={<Albums />}></Route>
+      <Route path="/users/:userId/photos" element={<Photos />}></Route>
     </Routes>
   );
 }

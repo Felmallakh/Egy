@@ -15,7 +15,7 @@ function Homepage() {
   }, []);
 
   let albums = <NavLink className="secondary-button" to={`/users/${user_session?.id}/albums`}>Albums</NavLink>;
-  let photos
+  let photos = <NavLink className="secondary-button" to={`/users/${user_session?.id}/photos`}>Photos</NavLink>;
   let profile
 
 
@@ -46,7 +46,7 @@ function Homepage() {
           <button className="secondary-button">{albums}</button>
         </div>
         <div className="homepage-share-box">
-          <button className="secondary-button">Photos</button>
+          <button className="secondary-button">{photos}</button>
         </div>
         <div className="homepage-explore-box">
           <button className="secondary-button">Profile</button>
