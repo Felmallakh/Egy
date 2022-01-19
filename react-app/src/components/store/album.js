@@ -47,8 +47,9 @@ export const getAlbumsThunk= (userId) => async (dispatch) => {
 
     if (res.ok) {
       const albums = await res.json();
-      dispatch(getAlbums(albums));
-      return albums;
+      console.log("😣🍎😣", albums)
+      dispatch(getAlbums(albums.albums));
+      return albums.albums;
     }
   };
 
@@ -121,13 +122,14 @@ export const thunk_updatealbum =
 
 // Album Reducer
 const albumReducer = (state = {}, action) => {
-  console.log("🍎😣", action.albums)
+  const newState = { ...state }
   switch (action.type) {
     case GET_ALBUMS: {
-      return action.albums
-      // const newState = { ...state };
-      // action.albums.albums.forEach((album) => (newState[album.id] = album));
-      // return newState;
+
+      action.albums.forEach(album => {
+        // console.log("👌👌", album);
+        newState[album.id] = album})
+      return newState;
     }
     case ADD_ALBUM: {
       const newState = { ...state };

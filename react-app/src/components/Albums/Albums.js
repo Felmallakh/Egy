@@ -12,13 +12,14 @@ function Albums() {
 
   const dispatch = useDispatch();
 
-  async function loadAlbums(session) {
-    if (session) {
-      await dispatch(getAlbumsThunk(session.id));
-    }
-  }
+  // async function loadAlbums(session) {
+  //   if (session) {
+  //     await dispatch(getAlbumsThunk(session.id));
+  //   }
+  // }
+  
   useEffect(() => {
-    loadAlbums(session);
+    dispatch(getAlbumsThunk(session.id));
   }, [session]);
 
 
@@ -74,6 +75,6 @@ function Albums() {
         ))}
       </ul> */}
     </div>
-  ) : null;
+  ) : null
 }
 export default Albums;
