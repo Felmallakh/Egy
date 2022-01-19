@@ -9,14 +9,13 @@ album_routes = Blueprint('albums', __name__)
 
 # Add Album
 
-@album_routes.route('/new')
+@album_routes.route('/new', methods=['POST'])
 @login_required
 def addAlbum():
-    print("😣😣 FORM")
     form = AlbumForm()
 
     form['csrf_token'].data = request.cookies['csrf_token']
-    if form.name.data:
+    if form.validate_on_submit:
         albums = Album(
             title=form.title.data,
             description=form.description.data,
