@@ -3,11 +3,11 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  background: url(../../../public/Egypt-Papyrus-background.png);
+  /* background: url(../../../public/Egypt-Papyrus-background.png); */
      background-repeat: no-repeat;
     background-size:cover;
-    width: 100vw;
-    height: 100vh;
+    /* width: 100vw; */
+    /* height: 100vh; */
 }
 
 .homepage-hero-div {
@@ -28,7 +28,7 @@
   color: white;
   font-weight: 700;
   padding: 12px;
-  width: 100px;
+  width: max-content;
   font-size: 15px;
   background-color: transparent;
   border: 1px solid #000807;
@@ -68,7 +68,7 @@
   /* width: 20vw;
   height: 65vh; */
   background-color: #fff;
-  box-shadow: 18px 18px 48px 18px rgba(39, 4, 4, 0.849);
+  /* box-shadow: 18px 18px 48px 18px rgba(39, 4, 4, 0.849); */
     transform: translate(3%, -3%);
     transition: 1s all;
 }
@@ -102,6 +102,10 @@
   background: antiquewhite;
   text-decoration: none;
   color: black;
+}
+
+#explore{
+  margin-left:100px;
 }
 
 @media all and (max-width: 600px) {

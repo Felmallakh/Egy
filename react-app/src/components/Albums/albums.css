@@ -1,14 +1,44 @@
-
-
-a {
-    text-decoration: none;
-    color:antiquewhite;
-    align-items: center
+.album-nav {
+ position: fixed;
+ gap: 1000px;
 }
 
-.album-preview-image {
-    /* border-radius: 10px; */
-    /* display: inline-block; */
-    /* margin-bottom: 10px; */
-    width: 40%;
+.album-lef-Nav {
+        display: flex;
+        margin-block-end: auto;
+}
+
+.album-section-div {
+  margin-top: 100px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.albums-preview-item-div {
+  text-align-last: center;
+}
+
+a {
+  text-decoration: none;
+  color: antiquewhite;
+  align-items: center;
+}
+
+.albums-preview-image {
+  /* border-radius: 10px; */
+  /* display: inline-block; */
+  /* margin-bottom: 10px; */
+  width: 30%;
+}
+
+.photo-grid-list {
+  /* list-style-type: none; */
+  /* padding-inline-start: 0; */
+  /* column-count: 4; */
+  display: flex;
+  /* flex-direction: column; */
+  /* column-count: 4; */
+  flex-wrap: wrap;
+  place-content: center;
 }

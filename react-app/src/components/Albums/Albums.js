@@ -34,48 +34,33 @@ function Albums() {
   };
 
   return session ? (
-    <div className="album-wrap">
-      <div className="album-wrap">
-        <nav>
-          <div className="leftNav">
-            <h3>Albums for {session.username}</h3>
-            <h3>
-              {album.map((album) => {
-                return (
-                  <option key={album.id} value={album.id}>
-                    Albums Title: {album.title}
-                  </option>
-                );
-              })}
-            </h3>
-          </div>
-          <div className="rightNav">
-            <button id="signout" onClick={addAlbum}>
-              Add Album
-            </button>
-            <div
-              id="signout"
-              onClick={() => hist(`/albums/new`)}
-            >
-              <i className="far fa-plus-square createAlbum-plus"></i>
-              <span className="createAlbum-text">Create album</span>
-            </div>
-
-            <button
-              id="signout"
-              onClick={async () => {
-                await dispatch(logout());
-                hist("/");
-              }}
-            >
-              Log Out
-            </button>
-          </div>
-        </nav>
-        <div className="album-section-div">
-          <h2 className="album-section-title">Explore Destination's Albums</h2>
-          <PhotoGrid album={album} />
+    <div id="splash-container">
+      <nav className="album-nav">
+        <div className="album-left-Nav">
+          <button id="signout" onClick={() => hist(`/home`)}>
+            Back
+          </button>
+          <button id="signout" onClick={() => hist(`/albums/new`)}>
+            Create Album
+          </button>
         </div>
+        <div className="album-right-Nav">
+          {/* <button id="signout" onClick={addAlbum}>
+            Add Album
+          </button> */}
+          <button
+            id="signout"
+            onClick={async () => {
+              await dispatch(logout());
+              hist("/");
+            }}
+          >
+            Log Out
+          </button>
+        </div>
+      </nav>
+      <div className="album-section-div">
+        <PhotoGrid album={album} />
       </div>
     </div>
   ) : null;
