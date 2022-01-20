@@ -37,6 +37,9 @@ function Albums() {
     <div id="splash-container">
       <nav className="album-nav">
         <div className="album-left-Nav">
+          <button id="signout" onClick={() => hist(`/home`)}>
+            Back
+          </button>
           <button id="signout" onClick={() => hist(`/albums/new`)}>
             Create Album
           </button>

@@ -1,6 +1,11 @@
 .album-nav {
  position: fixed;
- gap: 1100px;
+ gap: 1000px;
+}
+
+.album-lef-Nav {
+        display: flex;
+        margin-block-end: auto;
 }
 
 .album-section-div {

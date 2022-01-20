@@ -28,7 +28,7 @@
   color: white;
   font-weight: 700;
   padding: 12px;
-  width: 100px;
+  width: max-content;
   font-size: 15px;
   background-color: transparent;
   border: 1px solid #000807;
