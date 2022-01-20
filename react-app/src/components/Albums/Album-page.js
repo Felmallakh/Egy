@@ -27,10 +27,6 @@ function AlbumPage() {
 
   const album = albums?.[albumId]
 
-
-  console.log("🍎🍎🍎", album)
-
-
   // const handleSubmit = async (e) => {
   //   e.preventDefault();
   //   if (deleteMember === ownerId)
@@ -65,7 +61,7 @@ function AlbumPage() {
         </div>
       </nav>
       <div className="album-section-div">
-        Album Title:
+        Album Title: {album.title}
       </div>
     </div>
   ) : null;
