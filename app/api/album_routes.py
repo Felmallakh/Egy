@@ -13,14 +13,14 @@ def get_single_album(id):
     album = Album.query.get(id)
     return album.to_dict()
 
-# Add Album
 
+# Add Album
 @album_routes.route('/new', methods=['POST'])
 @login_required
 def addAlbum():
     form = AlbumForm()
-
     form['csrf_token'].data = request.cookies['csrf_token']
+
     if form.validate_on_submit:
         albums = Album(
             title=form.title.data,
@@ -31,6 +31,23 @@ def addAlbum():
         db.session.commit()
 
         return albums.to_dict()
+
+
+# Update Album
+@album_routes.route('/<int:id>', methods=['PUT'])
+@login_required
+def updateAlbum(id):
+    album = Album.query.get(id)
+    form = EditAlbumForm()
+    form['csrf_token'].data = request.cookies['csrf_token']
+
+    if form.validate_on_submit:
+        album.title = form.title.data
+        album.description = form.description.data
+
+        db.session.commit()
+        return album.to_dict()
+
 
 
 # Delete Album

@@ -3,7 +3,7 @@ import { NavLink, useNavigate, useParams } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import { logout } from "../store/session";
 
-import { getAlbumsThunk, deleteAlbumThunk } from "../store/album";
+import { getAlbumsThunk, updateAlbumThunk, deleteAlbumThunk } from "../store/album";
 import "./albums.css";
 
 function AlbumPage() {
@@ -17,6 +17,7 @@ function AlbumPage() {
   const { albumId } = useParams();
   const album = albums?.[albumId];
   const userId = session.id;
+  const id = albumId
 
   useEffect(() => {
     dispatch(getAlbumsThunk(userId));
@@ -30,6 +31,13 @@ function AlbumPage() {
     await dispatch(deleteAlbumThunk(albumId));
     hist(`/users/${userId}/albums`)
   };
+
+  const editAlbum = e => {
+    e.preventDefault();
+    dispatch(updateAlbumThunk({
+      id,title,description
+    }));
+  }
 
   return session ? (
     <div id="splash-container">
@@ -56,6 +64,14 @@ function AlbumPage() {
       </nav>
       <div className="album-section-div">
         Album Title: {album?.title}
+        <form onSubmit={editAlbum} className="albumForm">
+          <input
+            placeholder={album?.title}
+            value={title}
+            onChange={(e) => setTitle(e.target.value)}
+            required
+          ></input>
+        </form>
       </div>
     </div>
   ) : null;

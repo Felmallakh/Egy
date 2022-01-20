@@ -76,14 +76,14 @@ export const addAlbumThunk =({ userId, title, description }) => async (dispatch)
 
 
   // Update album thunk
-export const updateAlbumThunk = ({ albumId, title, description }) => async (dispatch) => {
-    const res = await fetch(`/api/albums/${albumId}`, {
+export const updateAlbumThunk = ({ id, title, description }) => async (dispatch) => {
+    const res = await fetch(`/api/albums/${id}`, {
       method: "PUT",
       headers: {
         "Content-Type": "application/json",
       },
       body: JSON.stringify({
-        albumId,
+        id,
         title,
         description,
       }),
@@ -133,12 +133,13 @@ const albumReducer = (state = {}, action) => {
       newState[action.album.id] = action.album;
       return newState;
     }
-    case DELETE_ALBUM: {
-      delete newState[action.album.id];
+    case UPDATE_ALBUM: {
+      // console.log("🎅🎅",action.album)
+      newState[action.album.id] = action.album;
       return newState;
     }
-    case UPDATE_ALBUM: {
-      newState[action.album.updatedAlbum.id] = action.album.updatedAlbum;
+    case DELETE_ALBUM: {
+      delete newState[action.album.id];
       return newState;
     }
     default:
