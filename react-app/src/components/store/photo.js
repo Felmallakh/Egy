@@ -34,6 +34,8 @@ export const getPhotosThunk =(userId) => async (dispatch) => {
     }
   };
 
+
+
 const photoReducer = (state = {}, action) => {
   // console.log("😣😣", action.photos)
   switch (action.type) {
