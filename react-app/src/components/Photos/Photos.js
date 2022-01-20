@@ -14,6 +14,7 @@ function Photos() {
   const photos = useSelector((state) => state.photoReducer);
   const photo = Object.values(photos);
 
+  console.log("😣😣", photo)
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -47,13 +48,13 @@ function Photos() {
         </div>
       </nav>
       <div className="album-wrap">
-        <NavLink exact to={`/photos/${photo.id}`}>
           <ul className="photoGrid" key={photo.id} value={photo.id}>
             {photo.map((photo) => {
-              return <img className="img-grid" src={photo.photoURL} />;
+              return <NavLink exact to={`/photos/${photo.id}`}>
+                <img className="img-grid" src={photo.photoURL} />
+            </NavLink>
             })}
           </ul>
-        </NavLink>
       </div>
     </div>
   ) : null;
