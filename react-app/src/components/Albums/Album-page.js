@@ -64,6 +64,7 @@ function AlbumPage() {
       </nav>
       <div className="album-section-div">
         Album Title: {album?.title}
+        <div>Album description: {album?.description}</div>
         <form onSubmit={editAlbum} className="albumForm">
           <input
             placeholder={album?.title}
@@ -71,6 +72,12 @@ function AlbumPage() {
             onChange={(e) => setTitle(e.target.value)}
             required
           ></input>
+          <textarea
+            placeholder={album?.description}
+            value={description}
+            onChange={(e) => setDescription(e.target.value)}
+          ></textarea>
+          <button id="signout" type="submit">Submit changes</button>
         </form>
       </div>
     </div>
