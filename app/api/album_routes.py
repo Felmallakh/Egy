@@ -33,5 +33,13 @@ def addAlbum():
         return albums.to_dict()
 
 
+# Delete Album
+@album_routes.route('/<int:albumId>', methods=['DELETE'])
+@login_required
+def deleteAlbum(albumId):
+    album = Album.query.filter_by(id=albumId).first()
 
+    db.session.delete(album)
+    db.session.commit()
 
+    return album.to_dict()

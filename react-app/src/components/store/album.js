@@ -20,9 +20,9 @@ const addAlbum = (album) => ({
   album,
 });
 
-const deleteAlbum = (deletedAlbumId) => ({
+const deleteAlbum = (album) => ({
   type: DELETE_ALBUM,
-  deletedAlbumId,
+  album,
 });
 
 const updateAlbum = (album) => ({
@@ -74,27 +74,8 @@ export const addAlbumThunk =({ userId, title, description }) => async (dispatch)
     }
   };
 
-// Delete album thunk
-export const deleteAlbumThunk =({ albumId }) =>
-  async (dispatch) => {
-    const res = await fetch(`/api/albums/${albumId}`, {
-      method: "DELETE",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({
-        albumId,
-      }),
-    });
 
-    if (res.ok) {
-      const deletedAlbum = await res.json();
-      dispatch(deleteAlbum(deletedAlbum.albumToDelete.id));
-      return "Deletion successful";
-    }
-  };
-
-// Update album thunk
+  // Update album thunk
 export const updateAlbumThunk = ({ albumId, title, description }) => async (dispatch) => {
     const res = await fetch(`/api/albums/${albumId}`, {
       method: "PUT",
@@ -115,6 +96,29 @@ export const updateAlbumThunk = ({ albumId, title, description }) => async (disp
     }
   };
 
+
+  // Delete album thunk
+export const deleteAlbumThunk =(albumId) =>
+  async (dispatch) => {
+    const res = await fetch(`/api/albums/${albumId}`, {
+      method: "DELETE",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        albumId,
+      }),
+    });
+
+    if (res.ok) {
+      const album = await res.json();
+      dispatch(deleteAlbum(album));
+      return "Deletion successful";
+    }
+  };
+
+
+
 // Album Reducer
 const albumReducer = (state = {}, action) => {
   const newState = { ...state }
@@ -130,7 +134,7 @@ const albumReducer = (state = {}, action) => {
       return newState;
     }
     case DELETE_ALBUM: {
-      delete newState[action.deletedAlbumId];
+      delete newState[action.album.id];
       return newState;
     }
     case UPDATE_ALBUM: {
