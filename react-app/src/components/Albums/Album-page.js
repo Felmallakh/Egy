@@ -65,20 +65,47 @@ function AlbumPage() {
       <div className="album-section-div">
         Album Title: {album?.title}
         <div>Album description: {album?.description}</div>
-        <form onSubmit={editAlbum} className="albumForm">
-          <input
-            placeholder={album?.title}
-            value={title}
-            onChange={(e) => setTitle(e.target.value)}
-            required
-          ></input>
-          <textarea
-            placeholder={album?.description}
-            value={description}
-            onChange={(e) => setDescription(e.target.value)}
-          ></textarea>
-          <button id="signout" type="submit">Submit changes</button>
-        </form>
+        <div className="album_container">
+          <form className="albumForm" onSubmit={editAlbum}>
+            <div className="album_content">Album Title</div>
+            <input
+              className="input-form"
+              onChange={(e) => setTitle(e.target.value)}
+              name="title"
+              type="text"
+              placeholder={album?.title}
+              value={title}
+              required
+            />
+            <br />
+            <br />
+            <div className="album_content">Description</div>
+            <textarea
+              className="text-form"
+              onChange={(e) => setDescription(e.target.value)}
+              name="content"
+              type="text"
+              placeholder={album?.description}
+              value={description}
+            />
+            <br />
+            <div className="album-buttons">
+              <button className="submit-button" type="submit">
+                Save Album <i className="far fa-save" />
+              </button>
+              <button
+                className="submit-button"
+                type="button"
+                onClick={(e) => {
+                  e.preventDefault();
+                  hist(`/albums/${albumId}`);
+                }}
+              >
+                Cancel
+              </button>
+            </div>
+          </form>
+        </div>
       </div>
     </div>
   ) : null;

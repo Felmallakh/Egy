@@ -42,3 +42,59 @@ a {
   flex-wrap: wrap;
   place-content: center;
 }
+
+.album_container {
+  text-align: -webkit-center;
+}
+
+.album_content {
+  text-align: center;
+  font-family: cursive;
+  color: rgb(148, 139, 58);
+  font-size: 25px;
+}
+
+.input-form {
+  height: 30px;
+  width: fit-content;
+  font-size: 18px;
+  font-family: monospace;
+  border: groove;
+  border-radius: 10px;
+  border-width: thick;
+  resize: none;
+  padding: 10px;
+}
+
+.text-form {
+  font-family: monospace;
+  font-size: 18px;
+  height: 200px;
+  width: 550px;
+  border: groove;
+  border-radius: 10px;
+  border-width: thick;
+  resize: none;
+  padding: 10px;
+}
+
+.album-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+}
+
+.submit-button {
+  color: #35444b;
+  background-color: #bb8c75;
+  font-size: 14px;
+  width: fit-content;
+  box-shadow: 0 0 2px #687980;
+  border-radius: 10px;
+  margin-top: 15px;
+  cursor: pointer;
+}
+.submit-button:hover {
+  background-color: #3f5f6d;
+  color: #bb8c75;
+}
