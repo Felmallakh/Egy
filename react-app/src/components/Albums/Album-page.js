@@ -43,9 +43,6 @@ function AlbumPage() {
           </button>
         </div>
         <div className="album-right-Nav">
-          {/* <button id="signout" onClick={addAlbum}>
-            Add Album
-          </button> */}
           <button
             id="signout"
             onClick={async () => {
@@ -58,7 +55,7 @@ function AlbumPage() {
         </div>
       </nav>
       <div className="album-section-div">
-        {/* Album Title: {album.title} */}
+        Album Title: {album?.title}
       </div>
     </div>
   ) : null;
