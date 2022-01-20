@@ -6,6 +6,12 @@ from app.forms import AlbumForm, EditAlbumForm
 
 album_routes = Blueprint('albums', __name__)
 
+# Get One Album
+@album_routes.route('/<int:id>')
+@login_required
+def get_single_album(id):
+    album = Album.query.get(id)
+    return album.to_dict()
 
 # Add Album
 
@@ -27,5 +33,13 @@ def addAlbum():
         return albums.to_dict()
 
 
+# Delete Album
+@album_routes.route('/<int:albumId>', methods=['DELETE'])
+@login_required
+def deleteAlbum(albumId):
+    album = Album.query.filter_by(id=albumId).first()
 
+    db.session.delete(album)
+    db.session.commit()
 
+    return album.to_dict()
