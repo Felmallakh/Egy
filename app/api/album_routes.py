@@ -6,6 +6,12 @@ from app.forms import AlbumForm, EditAlbumForm
 
 album_routes = Blueprint('albums', __name__)
 
+# Get One Album
+@album_routes.route('/<int:id>')
+@login_required
+def get_single_album(id):
+    album = Album.query.get(id)
+    return album.to_dict()
 
 # Add Album
 

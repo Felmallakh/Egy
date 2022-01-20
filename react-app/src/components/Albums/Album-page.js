@@ -12,38 +12,37 @@ function AlbumPage() {
   const dispatch = useDispatch();
   const session = useSelector((state) => state.session.user);
   const albums = useSelector((state) => state.albumReducer);
-  const album = Object.values(albums);
+  // const album = Object.values(albums);
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
-  const { albumId } = useParams()
 
-  const sds = Array.from(album)
+  const userId = session.id;
 
-  const lol = sds.map(album => album.title)
-  console.log("🔼🔼", lol)
-
-    // async function loadAlbums(session) {
-  //   if (session) {
-  //     await dispatch(getAlbumsThunk(session.id));
-  //   }
-  // }
 
   useEffect(() => {
     dispatch(getAlbumsThunk(session.id));
   }, [session]);
 
-  const addAlbum = async (e) => {
-    e.preventDefault();
-    const userId = session.id;
+  const { albumId } = useParams()
 
-    await dispatch(addAlbumThunk({ userId, title, description }));
-  };
+  const album = albums?.[albumId]
+
+
+  console.log("🍎🍎🍎", album)
+
+
+  // const handleSubmit = async (e) => {
+  //   e.preventDefault();
+  //   if (deleteMember === ownerId)
+  //     return alert(`You cannot remove the owner of the Organization`);
+  //   await dispatch(removeMember(deleteMember, org.id));
+  // };
 
   return session ? (
     <div id="splash-container">
       <nav className="album-nav">
         <div className="album-left-Nav">
-          <button id="signout" onClick={() => hist(`/albums`)}>
+          <button id="signout" onClick={() => hist(`/users/${userId}/albums`)}>
             Back
           </button>
           <button id="signout" onClick={() => hist(`/albums/new`)}>
