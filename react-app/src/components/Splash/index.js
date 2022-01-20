@@ -75,7 +75,7 @@ function Splash(){
         </nav>
         <div className="titleContent">
           <h1>Find your next destination</h1>
-          <button
+          <button id="explore"
             onClick={() => {
               hist("/signup");
             }}
