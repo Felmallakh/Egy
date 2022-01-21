@@ -17,12 +17,12 @@ function AlbumPage() {
   const session = useSelector((state) => state.session.user);
   const albums = useSelector((state) => state.albumReducer);
   const photos = useSelector((state) => state.photoReducer);
-  const [title, setTitle] = useState("");
-  const [description, setDescription] = useState("");
   const { albumId } = useParams();
   const album = albums?.[albumId];
   const userId = session?.id;
   const id = albumId
+  const [title, setTitle] = useState(album?.title);
+  const [description, setDescription] = useState(album?.description);
 
   const photoArr = Object.values(photos).filter(photo => photo.album_id === +id)
   console.log("😣😣😣",photoArr);
