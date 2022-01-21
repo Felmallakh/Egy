@@ -108,23 +108,31 @@ a {
     display: flex;
     padding-top: 70px;
     align-items:center;
-    /* padding-left: 30px; */
+    padding-left: 50px;
+    padding-right: 50px;
 }
 
 .photoLi {
     position: relative;
-    width: fit-content;
     height: 500px;
-    padding: 0px;
     margin: 0px 10px;
+    overflow: hidden;
 }
 
-.home-img {
+.img {
     height: 500px;
+    box-sizing: border-box;
+    /* justify-content: flex-end; */
+    /* height: 200px; */
+    /* width: 500px;
+    padding: 20px;
+    margin: 10px;
+    border-radius: 10px;
+    box-shadow: 0 5px 10px rgb(0 0 0 / 72%); */
 }
 
 
-#home-photoMask {
+#photo-mask {
     color: rgba(255, 255, 255, 0);
     display: flex;
     align-items: flex-end;
@@ -135,18 +143,17 @@ a {
     position: absolute;
     top: 0px;
     transition: all 0.25s linear;
+
 }
 
-.photoLi:hover > #home-photoMask {
+.photoLi:hover > #photo-mask {
     background-color: rgba(0, 0, 0, 0.5);
     color: white;
 }
 
-.mask-item {
-    display: flex;
-    align-items: center;
+.img-title {
     font-size: 18px;
-    margin: 10px 5px 20px 15px
+    margin: 10px 5px 10px 15px;
 }
 
 

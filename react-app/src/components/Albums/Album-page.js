@@ -81,8 +81,8 @@ function AlbumPage() {
         {photoArr.map((photo) => (
           <li className="photoLi" key={photo.id}>
             <img className="img" src={photo.photoURL}></img>
-            <div id="home-photoMask">
-              <div className="mask-item">
+            <div id="photo-mask">
+              <div className="img-title">
                 <div>{photo.title}</div>
               </div>
             </div>
