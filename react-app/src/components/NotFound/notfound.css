@@ -32,17 +32,18 @@
   margin-left:130px;
 }
 
-.container a {
+.not-back{
   color: red;
   align-items: center;
-  border-style: groove;
+  border: solid;
   border-radius: 8px;
   padding: 10px;
   margin-left: 130px;
+  font-weight: bold;
 
 }
 
-.container a:hover {
+.not-back:hover {
   color: crimson;
   background-color: rgb(99, 17, 34);;
 }

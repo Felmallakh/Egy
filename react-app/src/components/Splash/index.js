@@ -40,15 +40,15 @@ function Splash(){
         imagesLoaded = true;
     });
 
-    // useEffect(() => {
+    useEffect(() => {
 
-    //     if (imagesLoaded = true) {
-    //         const slideShowTimer = setInterval(slideShow, time);
+        if (imagesLoaded = true) {
+            const slideShowTimer = setInterval(slideShow, time);
 
-    //         return () => clearInterval(slideShowTimer);
-    //     }
+            return () => clearInterval(slideShowTimer);
+        }
 
-    // }, [imagesLoaded])
+    }, [imagesLoaded])
 
 
     const hist = useNavigate();
