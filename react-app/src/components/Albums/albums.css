@@ -1,6 +1,15 @@
 #splash-container {
   overflow: scroll;
 }
+
+#album-splash-container {
+  overflow: scroll;
+  background: url(../../../public/Egypt-Papyrus-background.png) no-repeat center
+  center fixed;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
 .album-nav {
  /* position: fixed; */
  gap: 1000px;
@@ -110,19 +119,24 @@ a {
     align-items:center;
     padding-left: 50px;
     padding-right: 50px;
-    column-count: 4;
+    column-count: 3;
     /* margin-left: 230px;
     margin-top: 100px; */
-}
+    /* box-sizing: border-box; */
+    /* justify-content: flex-end; */
+    gap:0px;
+    border-radius: 10px;
+  }
 
-.photoLi {
+  .photoLi {
     position: relative;
     height: 400px;
-    margin: 0px 10px 0px 0px;
+    margin: 0px 10px 20px 40px;
     overflow: hidden;
-}
+  }
 
-.img {
+  .img {
+    /* padding: 20px; */
     height: 400px;
     width: 400px;
     border-style: outset;
@@ -144,7 +158,6 @@ a {
     align-items: flex-end;
     width: 400px;
     height: 400px;
-    /* background-color: rgba(0, 0, 0, 0.0); */
     position: absolute;
     top: 0px;
     transition: all 0.50s linear;
