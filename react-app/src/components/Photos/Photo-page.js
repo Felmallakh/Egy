@@ -2,7 +2,11 @@ import React, { useEffect, useState } from "react";
 import { NavLink, useNavigate, useParams } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import { logout } from "../store/session";
-import { getPhotosThunk, updatePhotoThunk, deletePhotoThunk } from "../store/photo";
+import {
+  getPhotosThunk,
+  updatePhotoThunk,
+  deletePhotoThunk,
+} from "../store/photo";
 
 import "./photos.css";
 
@@ -26,15 +30,16 @@ function PhotoPage() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     if (photo.user_id !== userId)
-    return alert(`User not authorized to perform this action`);
+      return alert(`User not authorized to perform this action`);
     await dispatch(deletePhotoThunk(photoId));
     hist(`/users/${userId}/photos`);
   };
 
-  const editPhoto = (e) => {
+  const editPhoto = async (e) => {
     e.preventDefault();
-    dispatch(
-      updatePhotoThunk({
+    if (photo.user_id !== userId)
+      return alert(`User not authorized to perform this action`);
+    dispatch(updatePhotoThunk({
         id,
         title,
         description,
@@ -42,10 +47,10 @@ function PhotoPage() {
     );
   };
 
-  const back = e => {
+  const back = (e) => {
     e.preventDefault();
     hist(`/users/${userId}/photos`);
-  }
+  };
 
   return session ? (
     <div id="photo-page">
