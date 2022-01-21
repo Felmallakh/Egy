@@ -44,7 +44,7 @@ function PhotoPage() {
     <div id="photo-page">
       <nav className="album-nav">
         <div className="album-left-Nav">
-          <button id="signout" onClick={() => hist(`/users/${userId}/albums`)}>
+          <button id="signout" onClick={() => hist(`/users/${userId}/photos`)}>
             Back
           </button>
           <button id="signout" onClick>
