@@ -20,9 +20,6 @@ function PhotoPage() {
   const userId = session.id;
   const id = photoId
 
-  console.log("😣😣", photo);
-
-
   useEffect(() => {
     dispatch(getPhotosThunk(userId));
   }, [session]);
@@ -44,7 +41,7 @@ function PhotoPage() {
   // }
 
   return session ? (
-    <div id="splash-container">
+    <div id="photo-page">
       <nav className="album-nav">
         <div className="album-left-Nav">
           <button id="signout" onClick={() => hist(`/users/${userId}/albums`)}>
@@ -66,12 +63,19 @@ function PhotoPage() {
           </button>
         </div>
       </nav>
+      <div className="photo-container">
+        <img className="single-image" src={photo?.photoURL} />
+        <h2 className="image-content">Title</h2>
+        <h3>{photo?.title}</h3>
+        <h2 className="image-content">Description</h2>
+        <h3>{photo?.description}</h3>
+      </div>
       <div className="album-section-div">
         Album Title: {photo?.title}
         <div>Album description: {photo?.description}</div>
         <div className="album_container">
           <form className="albumForm">
-          {/* <form className="albumForm" onSubmit={editAlbum}> */}
+            {/* <form className="albumForm" onSubmit={editAlbum}> */}
             <div className="album_content">Album Title</div>
             <input
               className="input-form"
