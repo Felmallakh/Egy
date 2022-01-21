@@ -10,15 +10,15 @@ import "./photos.css";
 function Photos() {
   const hist = useNavigate();
   const session = useSelector((state) => state.session.user);
-  const albums = useSelector((state) => state.albumReducer);
   const photos = useSelector((state) => state.photoReducer);
   const photo = Object.values(photos);
+  const albums = useSelector((state) => state.albumReducer);
 
-  // console.log("😣😣", photo)
   const dispatch = useDispatch();
+  const userId = session?.id
 
   useEffect(() => {
-    dispatch(getPhotosThunk(session.id));
+    dispatch(getPhotosThunk(userId));
   }, [session]);
 
   return session ? (
