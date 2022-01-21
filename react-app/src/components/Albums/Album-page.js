@@ -21,7 +21,7 @@ function AlbumPage() {
   const [description, setDescription] = useState(album?.description);
 
   const photoArr = Object.values(photos).filter(photo => photo.album_id === +id)
- 
+
 
   useEffect(() => {
     dispatch(getAlbumsThunk(userId));
@@ -128,7 +128,7 @@ function AlbumPage() {
                 type="button"
                 onClick={(e) => {
                   e.preventDefault();
-                  hist(`/albums/${albumId}`);
+                  hist(`/users/${userId}/albums`);
                 }}
               >
                 Cancel
