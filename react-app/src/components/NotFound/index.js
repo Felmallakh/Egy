@@ -4,7 +4,7 @@ import React from "react";
 function NotFound() {
 
     return (
-      <div>
+      <div id="not-found">
         <nav className="Hieroglyphics">
           <div class="container">
             <h1>An error has occured</h1>
