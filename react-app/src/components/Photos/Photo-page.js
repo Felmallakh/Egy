@@ -2,11 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import { logout } from "../store/session";
-import {
-  getPhotosThunk,
-  updatePhotoThunk,
-  deletePhotoThunk,
-} from "../store/photo";
+import { getPhotosThunk, updatePhotoThunk, deletePhotoThunk } from "../store/photo";
 
 import "./photos.css";
 

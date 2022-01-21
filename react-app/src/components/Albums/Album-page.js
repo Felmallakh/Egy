@@ -2,8 +2,13 @@ import React, { useEffect, useState } from "react";
 import { NavLink, useNavigate, useParams } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import { logout } from "../store/session";
-
 import { getAlbumsThunk, updateAlbumThunk, deleteAlbumThunk } from "../store/album";
+import {
+  getPhotosThunk,
+  updatePhotoThunk,
+  deletePhotoThunk,
+} from "../store/photo";
+
 import "./albums.css";
 
 function AlbumPage() {
@@ -11,7 +16,7 @@ function AlbumPage() {
   const dispatch = useDispatch();
   const session = useSelector((state) => state.session.user);
   const albums = useSelector((state) => state.albumReducer);
-  // const album = Object.values(albums);
+  const photos = useSelector((state) => Object.values(state.photoReducer));
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
   const { albumId } = useParams();
@@ -19,9 +24,16 @@ function AlbumPage() {
   const userId = session.id;
   const id = albumId
 
+  console.log("😣😣😣", photos)
+
   useEffect(() => {
     dispatch(getAlbumsThunk(userId));
   }, [session]);
+
+  useEffect(() => {
+    dispatch(getPhotosThunk(userId));
+  }, [session]);
+
 
 
   const handleSubmit = async (e) => {
@@ -64,6 +76,12 @@ function AlbumPage() {
           </button>
         </div>
       </nav>
+      {/* <ul className="photo-grid-list">
+        {photo &&
+          photo?.map((photo) => {
+            return <img src={photo.album_id == albumId} />
+          })}
+      </ul> */}
       <div className="album-section-div">
         Album Title: {album?.title}
         <div>Album description: {album?.description}</div>

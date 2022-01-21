@@ -34,6 +34,29 @@ export const getPhotosThunk = (userId) => async (dispatch) => {
   }
 };
 
+// Add photo
+export const thunk_addphoto = ({ title, description, photoURL, user_id, album_id }) => async (dispatch) => {
+    const res = await fetch("/api/photos", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        title,
+        description,
+        photoURL,
+        user_id,
+        album_id
+      }),
+    });
+
+    if (res.ok) {
+      const photo = await res.json();
+      dispatch(addPhoto(photo));
+      return photo;
+    }
+  };
+
 // Update photo thunk
 export const updatePhotoThunk = ({ id, title, description }) => async (dispatch) => {
     const res = await fetch(`/api/photos/${id}`, {
@@ -82,6 +105,10 @@ const photoReducer = (state = {}, action) => {
       action.photos.photos.forEach((photo) => (newState[photo.id] = photo));
       return newState;
     }
+    case ADD_PHOTO: {
+      newState[action.photo.id] = action.photo;
+      return newState;
+  }
     case UPDATE_PHOTO: {
       newState[action.photo.id] = action.photo;
       return newState;
