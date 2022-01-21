@@ -21,7 +21,7 @@ function AlbumPage() {
   const [description, setDescription] = useState(album?.description);
 
   const photoArr = Object.values(photos).filter(photo => photo.album_id === +id)
-  console.log("😣😣😣",photoArr);
+ 
 
   useEffect(() => {
     dispatch(getAlbumsThunk(userId));
