@@ -3,7 +3,6 @@
 }
 
 #album-splash-container {
-  overflow: scroll;
   background: url(../../../public/Egypt-Papyrus-background.png) no-repeat center
   center fixed;
   background-repeat: no-repeat;

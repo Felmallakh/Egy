@@ -21,7 +21,7 @@ function AlbumPage() {
   const [description, setDescription] = useState("");
   const { albumId } = useParams();
   const album = albums?.[albumId];
-  const userId = session.id;
+  const userId = session?.id;
   const id = albumId
 
   const photoArr = Object.values(photos).filter(photo => photo.album_id === +id)
@@ -68,7 +68,8 @@ function AlbumPage() {
         <div className="album-right-Nav">
           <button
             id="signout"
-            onClick={async () => {
+            onClick={async (e) => {
+              e.preventDefault()
               await dispatch(logout());
               hist("/");
             }}
