@@ -2,7 +2,6 @@
 
 [Egy-Dest](https://egypt-dest.herokuapp.com/) is a site dedicated to the most wonderful destinations in Egypt to visit.
 
-
 ![Splash Page](https://cdn.discordapp.com/attachments/919391399269515305/933089187551404092/Splash.png)
 
 ![User Login](https://cdn.discordapp.com/attachments/919391399269515305/932574372273725492/Sign-in.png)
@@ -11,7 +10,6 @@
 ![Albums Page](https://cdn.discordapp.com/attachments/919391399269515305/933086075839193158/Albums-page.png)
 
 ![Photos Page](https://cdn.discordapp.com/attachments/919391399269515305/933086076380274778/Photos-page.png)
-
 
 ## Getting started
 
@@ -23,9 +21,9 @@
 
 2. Install dependencies
 
-      ```bash
-      pipenv install --dev -r dev-requirements.txt && pipenv install -r requirements.txt
-      ```
+   ```bash
+   pipenv install --dev -r dev-requirements.txt && pipenv install -r requirements.txt
+   ```
 
 3. Create a **.env** file based on the example with proper settings for your
    development environment
@@ -51,27 +49,29 @@
 
 6. To run the React App in development, checkout the [README](./react-app/README.md) inside the `react-app` directory.
 
-***
-*IMPORTANT!*
-   If you add any python dependencies to your pipfiles, you'll need to regenerate your requirements.txt before deployment.
-   You can do this by running:
+---
 
-   ```bash
-   pipenv lock -r > requirements.txt
-   ```
+_IMPORTANT!_
+If you add any python dependencies to your pipfiles, you'll need to regenerate your requirements.txt before deployment.
+You can do this by running:
 
-*ALSO IMPORTANT!*
-   psycopg2-binary MUST remain a dev dependency because you can't install it on apline-linux.
-   There is a layer in the Dockerfile that will install psycopg2 (not binary) for us.
-***
+```bash
+pipenv lock -r > requirements.txt
+```
+
+_ALSO IMPORTANT!_
+psycopg2-binary MUST remain a dev dependency because you can't install it on apline-linux.
+There is a layer in the Dockerfile that will install psycopg2 (not binary) for us.
+
+---
 
 ## Deploy to Heroku
 
 1. Before you deploy, don't forget to run the following command in order to
-ensure that your production environment has all of your up-to-date
-dependencies. You only have to run this command when you have installed new
-Python packages since your last deployment, but if you aren't sure, it won't
-hurt to run it again.
+   ensure that your production environment has all of your up-to-date
+   dependencies. You only have to run this command when you have installed new
+   Python packages since your last deployment, but if you aren't sure, it won't
+   hurt to run it again.
 
    ```bash
    pipenv lock -r > requirements.txt
@@ -101,27 +101,29 @@ hurt to run it again.
    ```bash
    heroku container:push web -a {NAME_OF_HEROKU_APP}
    ```
-   heroku container:push web -a egypt-dest
-   heroku container:release web -a egypt-dest
-
 
 9. Release your docker container to heroku
 
-      ```bash
-      heroku container:release web -a {NAME_OF_HEROKU_APP}
-      ```
+   ```bash
+   heroku container:release web -a {NAME_OF_HEROKU_APP}
+   ```
 
 10. set up your database
 
-      ```bash
-      heroku run -a {NAME_OF_HEROKU_APP} flask db upgrade
-      heroku run -a {NAME_OF_HEROKU_APP} flask seed all
-      heroku run -a egypt-dest flask db upgrade
-      heroku run -a egypt-dest flask seed all
-      ```
+    ```bash
+    heroku run -a {NAME_OF_HEROKU_APP} flask db upgrade
+    heroku run -a {NAME_OF_HEROKU_APP} flask seed all
+    ```
+
+    ```bash
+    heroku container:push web -a egypt-dest
+    heroku container:release web -a egypt-dest
+    heroku run -a egypt-dest flask db upgrade
+    heroku run -a egypt-dest flask seed all
+    ```
 
 11. Under Settings find "Config Vars" and add any additional/secret .env
-variables.
+    variables.
 
 12. profit
 
@@ -130,14 +132,14 @@ variables.
 (Replaces **Step 8**)
 
 1. Build image with linux platform for heroku servers. Replace
-{NAME_OF_HEROKU_APP} with your own tag:
+   {NAME_OF_HEROKU_APP} with your own tag:
 
    ```bash=
    docker buildx build --platform linux/amd64 -t {NAME_OF_HEROKU_APP} .
    ```
 
 2. Tag your app with the url for your apps registry. Make sure to use the name
-of your Heroku app in the url and tag name:
+   of your Heroku app in the url and tag name:
 
    ```bash=2
    docker tag {NAME_OF_HEROKU_APP} registry.heroku.com/{NAME_OF_HEROKU_APP}/web
@@ -149,8 +151,8 @@ of your Heroku app in the url and tag name:
    docker push registry.heroku.com/{NAME_OF_HEROKU_APP}/web
    ```
 
-
    "to see heroku errors"
+
    ```
    heroku logs -a <app-name>
    ```

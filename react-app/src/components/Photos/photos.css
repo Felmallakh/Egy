@@ -2,6 +2,13 @@
   background: url(../../../public/Egypt-Papyrus-background.png) no-repeat center center fixed;
   background-repeat: no-repeat;
   background-size: cover;
+  overflow: scroll;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+#photo-page::-webkit-scrollbar {
+  display: none;
 }
 
 .img-grid {

@@ -1,5 +1,11 @@
 #splash-container {
   overflow: scroll;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+#splash-container::-webkit-scrollbar {
+  display: none
 }
 
 #album-splash-container {
@@ -7,7 +13,13 @@
   center fixed;
   background-repeat: no-repeat;
   background-size: cover;
+  height: 100vh;
 }
+
+#album-splash-container::-webkit-scrollbar {
+  display: none
+}
+
 
 .album-nav {
  /* position: fixed; */

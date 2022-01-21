@@ -4,7 +4,6 @@ import { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { getPhotosThunk } from "../store/photo";
 import { logout } from "../store/session";
-
 import "./photos.css";
 
 function Photos() {
@@ -27,9 +26,6 @@ function Photos() {
         <div className="album-left-Nav">
           <button id="signout" onClick={() => hist(`/home`)}>
             Back
-          </button>
-          <button id="signout" onClick={() => hist(`/albums/new`)}>
-            Add Photo
           </button>
         </div>
         <div className="album-right-Nav">
@@ -55,6 +51,9 @@ function Photos() {
             </NavLink>
             })}
           </ul>
+      </div>
+      <div>
+        <img src="./3846.jpg" alt="image" />
       </div>
     </div>
   ) : null;

@@ -35,7 +35,7 @@ export const getPhotosThunk = (userId) => async (dispatch) => {
 };
 
 // Add photo
-export const thunk_addphoto = ({ title, description, photoURL, user_id, album_id }) => async (dispatch) => {
+export const addPhotoThunk = ({ title, description, photoURL, user_id, album_id }) => async (dispatch) => {
     const res = await fetch("/api/photos", {
       method: "POST",
       headers: {
