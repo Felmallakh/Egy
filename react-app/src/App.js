@@ -11,6 +11,7 @@ import Homepage from "./components/Homepage/Homepage"
 import Albums from "./components/Albums/Albums"
 import Photos from "./components/Photos/Photos"
 import CreateAlbumForm from "./components/CreateAlbumForm"
+import CreatePhotoForm from "./components/CreatePhotoForm"
 import AlbumPage from "./components/Albums/Album-page"
 import PhotoPage from "./components/Photos/Photo-page"
 
@@ -39,9 +40,10 @@ function App() {
       <Route path="/home" element={<Homepage />}></Route>
       <Route path="/users/:userId/albums" exact element={<Albums />}></Route>
       <Route path="/users/:userId/photos" exact element={<Photos />}></Route>
-      <Route path="albums/new" element={<CreateAlbumForm />}></Route>
-      <Route path="albums/:albumId" element={<AlbumPage />}></Route>
-      <Route path="photos/:photoId" element={<PhotoPage />}></Route>
+      <Route path="/albums/new" element={<CreateAlbumForm />}></Route>
+      <Route path="/albums/:albumId/photos/new" element={<CreatePhotoForm />}></Route>
+      <Route path="/albums/:albumId" element={<AlbumPage />}></Route>
+      <Route path="/photos/:photoId" element={<PhotoPage />}></Route>
     </Routes>
   );
 }

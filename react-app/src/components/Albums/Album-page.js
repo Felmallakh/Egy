@@ -60,12 +60,15 @@ function AlbumPage() {
           <button id="signout" onClick={handleSubmit}>
             Delete Album
           </button>
+          <button id="signout" onClick={() => hist(`/albums/${albumId}/photos/new`)}>
+            Add Photo
+          </button>
         </div>
         <div className="album-right-Nav">
           <button
             id="signout"
             onClick={async (e) => {
-              e.preventDefault()
+              e.preventDefault();
               await dispatch(logout());
               hist("/");
             }}
