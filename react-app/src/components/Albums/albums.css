@@ -1,3 +1,6 @@
+#splash-container {
+  overflow: scroll;
+}
 .album-nav {
  /* position: fixed; */
  gap: 1000px;
