@@ -91,7 +91,7 @@ function SignUp() {
             onChange={(e) => setConfirmPassword(e.target.value)}
           />
           <button type="submit">Sign Up</button>
-          <button onClick={demoLogin}>Demo User</button>
+          <button onClick={demoLogin}>Guest</button>
         </form>
       </div>
     </div>

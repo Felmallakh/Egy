@@ -61,7 +61,7 @@ function AuthPage() {
             required
           />
           <button>Sign In</button>
-          <button onClick={demoLogin}>Guest User</button>
+          <button onClick={demoLogin}>Guest</button>
         </form>
       </div>
     </div>

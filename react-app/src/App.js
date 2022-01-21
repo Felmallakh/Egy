@@ -12,6 +12,8 @@ import Albums from "./components/Albums/Albums"
 import Photos from "./components/Photos/Photos"
 import CreateAlbumForm from "./components/CreateAlbumForm"
 import AlbumPage from "./components/Albums/Album-page"
+import PhotoPage from "./components/Photos/Photo-page"
+
 
 function App() {
   // organization page:
@@ -39,6 +41,7 @@ function App() {
       <Route path="/users/:userId/photos" element={<Photos />}></Route>
       <Route path="albums/new" element={<CreateAlbumForm />}></Route>
       <Route path="albums/:albumId" element={<AlbumPage />}></Route>
+      <Route path="photos/:photoId" element={<PhotoPage />}></Route>
     </Routes>
   );
 }

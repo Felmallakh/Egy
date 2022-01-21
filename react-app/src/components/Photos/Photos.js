@@ -14,7 +14,7 @@ function Photos() {
   const photos = useSelector((state) => state.photoReducer);
   const photo = Object.values(photos);
 
-  console.log("😣😣", photo)
+  // console.log("😣😣", photo)
   const dispatch = useDispatch();
 
   useEffect(() => {

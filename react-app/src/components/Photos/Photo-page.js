@@ -1,0 +1,118 @@
+import React, { useEffect, useState } from "react";
+import { NavLink, useNavigate, useParams } from "react-router-dom";
+import { useSelector, useDispatch } from "react-redux";
+import { logout } from "../store/session";
+import { getPhotosThunk,updateAlbumThunk, deletePhotoThunk } from "../store/photo";
+
+import "./photos.css";
+
+
+function PhotoPage() {
+  const hist = useNavigate();
+  const dispatch = useDispatch();
+  const session = useSelector((state) => state.session.user);
+  const photos = useSelector((state) => state.photoReducer);
+
+  const [title, setTitle] = useState("");
+  const [description, setDescription] = useState("");
+  const { photoId } = useParams();
+  const photo = photos?.[photoId];
+  const userId = session.id;
+  const id = photoId
+
+  console.log("😣😣", photo);
+
+
+  useEffect(() => {
+    dispatch(getPhotosThunk(userId));
+  }, [session]);
+
+
+  // const handleSubmit = async (e) => {
+  //   e.preventDefault();
+  //   if (photo.user_id !== userId)
+  //   return alert(`User not authorized to perform this action`);
+  //   await dispatch(deletePhotoThunk(photoId));
+  //   hist(`/photos`)
+  // };
+
+  // const editAlbum = e => {
+  //   e.preventDefault();
+  //   dispatch(updateAlbumThunk({
+  //     id,title,description
+  //   }));
+  // }
+
+  return session ? (
+    <div id="splash-container">
+      <nav className="album-nav">
+        <div className="album-left-Nav">
+          <button id="signout" onClick={() => hist(`/users/${userId}/albums`)}>
+            Back
+          </button>
+          <button id="signout" onClick>
+            Delete Photo
+          </button>
+        </div>
+        <div className="album-right-Nav">
+          <button
+            id="signout"
+            onClick={async () => {
+              await dispatch(logout());
+              hist("/");
+            }}
+          >
+            Log Out
+          </button>
+        </div>
+      </nav>
+      <div className="album-section-div">
+        Album Title: {photo?.title}
+        <div>Album description: {photo?.description}</div>
+        <div className="album_container">
+          <form className="albumForm">
+          {/* <form className="albumForm" onSubmit={editAlbum}> */}
+            <div className="album_content">Album Title</div>
+            <input
+              className="input-form"
+              onChange={(e) => setTitle(e.target.value)}
+              name="title"
+              type="text"
+              placeholder={photo?.title}
+              value={title}
+              required
+            />
+            <br />
+            <br />
+            <div className="album_content">Description</div>
+            <textarea
+              className="text-form"
+              onChange={(e) => setDescription(e.target.value)}
+              name="content"
+              type="text"
+              placeholder={photo?.description}
+              value={description}
+            />
+            <br />
+            <div className="album-buttons">
+              <button className="submit-button" type="submit">
+                Save Album <i className="far fa-save" />
+              </button>
+              <button
+                className="submit-button"
+                type="button"
+                onClick={(e) => {
+                  e.preventDefault();
+                  hist(`/photos/${photoId}`);
+                }}
+              >
+                Cancel
+              </button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  ) : null;
+}
+export default PhotoPage;
