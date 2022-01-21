@@ -16,7 +16,7 @@ function AlbumPage() {
   const dispatch = useDispatch();
   const session = useSelector((state) => state.session.user);
   const albums = useSelector((state) => state.albumReducer);
-  const photos = useSelector((state) => Object.values(state.photoReducer));
+  const photos = useSelector((state) => state.photoReducer);
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
   const { albumId } = useParams();
@@ -24,7 +24,8 @@ function AlbumPage() {
   const userId = session.id;
   const id = albumId
 
-  console.log("😣😣😣", photos)
+  const photoArr = Object.values(photos).filter(photo => photo.album_id === +id)
+  console.log("😣😣😣",photoArr);
 
   useEffect(() => {
     dispatch(getAlbumsThunk(userId));
@@ -76,6 +77,18 @@ function AlbumPage() {
           </button>
         </div>
       </nav>
+      <ul className="album-photo-grid-list">
+        {photoArr.map((photo) => (
+          <li className="photoLi" key={photo.id}>
+            <img className="img" src={photo.photoURL}></img>
+            <div id="home-photoMask">
+              <div className="mask-item">
+                <div>{photo.title}</div>
+              </div>
+            </div>
+          </li>
+        ))}
+      </ul>
       {/* <ul className="photo-grid-list">
         {photo &&
           photo?.map((photo) => {
