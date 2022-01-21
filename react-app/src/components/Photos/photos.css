@@ -1,6 +1,5 @@
 #photo-page {
-  background: url(../../../public/Egypt-Papyrus-background.png) no-repeat center
-    center fixed;
+  background: url(../../../public/Egypt-Papyrus-background.png) no-repeat center center fixed;
   background-repeat: no-repeat;
   background-size: cover;
 }
