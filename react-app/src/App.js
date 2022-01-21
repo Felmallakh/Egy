@@ -38,7 +38,7 @@ function App() {
       <Route path="/NotFound" element={<NotFound />}></Route>
       <Route path="/home" element={<Homepage />}></Route>
       <Route path="/users/:userId/albums" exact="true" element={<Albums />}></Route>
-      <Route path="/users/:userId/photos" element={<Photos />}></Route>
+      <Route path="/users/:userId/photos" exact="true" element={<Photos />}></Route>
       <Route path="albums/new" element={<CreateAlbumForm />}></Route>
       <Route path="albums/:albumId" element={<AlbumPage />}></Route>
       <Route path="photos/:photoId" element={<PhotoPage />}></Route>

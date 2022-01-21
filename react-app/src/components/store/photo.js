@@ -24,24 +24,70 @@ const deletePhoto = (photoId) => ({
 });
 
 // Get photo
-export const getPhotosThunk =(userId) => async (dispatch) => {
-    const res = await fetch(`/api/users/${userId}/photos`);
+export const getPhotosThunk = (userId) => async (dispatch) => {
+  const res = await fetch(`/api/users/${userId}/photos`);
+
+  if (res.ok) {
+    const photos = await res.json();
+    dispatch(getPhotos(photos));
+    return photos;
+  }
+};
+
+// Update photo thunk
+export const updatePhotoThunk = ({ id, title, description }) => async (dispatch) => {
+    const res = await fetch(`/api/photos/${id}`, {
+      method: "PUT",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        id,
+        title,
+        description,
+      }),
+    });
 
     if (res.ok) {
-      const photos = await res.json();
-      dispatch(getPhotos(photos));
-      return photos;
+      const updatedPoto = await res.json();
+      dispatch(updatePhoto(updatedPoto));
+      return updatedPoto;
     }
   };
 
+// Delete photo thunk
+export const deletePhotoThunk = (photoId) => async (dispatch) => {
+  const res = await fetch(`/api/photos/${photoId}`, {
+    method: "DELETE",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify({
+      photoId,
+    }),
+  });
 
+  if (res.ok) {
+    const photo = await res.json();
+    dispatch(deletePhoto(photo));
+    return "Deletion successful";
+  }
+};
 
 const photoReducer = (state = {}, action) => {
   // console.log("😣😣", action.photos)
+  const newState = { ...state };
   switch (action.type) {
     case GET_PHOTOS: {
-      const newState = { ...state };
       action.photos.photos.forEach((photo) => (newState[photo.id] = photo));
+      return newState;
+    }
+    case UPDATE_PHOTO: {
+      newState[action.photo.id] = action.photo;
+      return newState;
+    }
+    case DELETE_PHOTO: {
+      delete newState[action.photo.id];
       return newState;
     }
     default:

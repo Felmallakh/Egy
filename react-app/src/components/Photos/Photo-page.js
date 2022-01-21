@@ -2,10 +2,9 @@ import React, { useEffect, useState } from "react";
 import { NavLink, useNavigate, useParams } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import { logout } from "../store/session";
-import { getPhotosThunk,updatePhotoThunk, deletePhotoThunk } from "../store/photo";
+import { getPhotosThunk, updatePhotoThunk, deletePhotoThunk } from "../store/photo";
 
 import "./photos.css";
-
 
 function PhotoPage() {
   const hist = useNavigate();
@@ -18,7 +17,7 @@ function PhotoPage() {
   const { photoId } = useParams();
   const photo = photos?.[photoId];
   const userId = session.id;
-  const id = photoId
+  const id = photoId;
 
   useEffect(() => {
     dispatch(getPhotosThunk(userId));
@@ -29,24 +28,34 @@ function PhotoPage() {
   //   if (photo.user_id !== userId)
   //   return alert(`User not authorized to perform this action`);
   //   await dispatch(deletePhotoThunk(photoId));
-  //   hist(`/photos`)
+  //   // hist(`/users/${userId}/photos`);
   // };
 
-  // const editPhoto = e => {
-  //   e.preventDefault();
-  //   dispatch(updatePhotoThunk({
-  //     id,title,description
-  //   }));
-  // }
+  const editPhoto = (e) => {
+    e.preventDefault();
+    dispatch(
+      updatePhotoThunk({
+        id,
+        title,
+        description,
+      })
+    );
+  };
+
+  const back = e => {
+    e.preventDefault();
+    hist(`/users/${userId}/photos`);
+  }
 
   return session ? (
     <div id="photo-page">
       <nav className="album-nav">
         <div className="album-left-Nav">
-          <button id="signout" onClick={() => hist(`/users/${userId}/photos`)}>
+          <button id="signout" onClick={back}>
             Back
           </button>
-          <button id="signout" onClick>
+          <button id="signout" >
+          {/* <button id="signout" onClick={handleSubmit}> */}
             Delete Photo
           </button>
         </div>
@@ -73,9 +82,8 @@ function PhotoPage() {
         Album Title: {photo?.title}
         <div>Album description: {photo?.description}</div>
         <div className="album_container">
-          <form className="albumForm">
-            {/* <form className="albumForm" onSubmit={editAlbum}> */}
-            <div className="album_content">Album Title</div>
+          <form className="albumForm" onSubmit={editPhoto}>
+            <div className="album_content">Photo Title</div>
             <input
               className="input-form"
               onChange={(e) => setTitle(e.target.value)}
@@ -99,7 +107,8 @@ function PhotoPage() {
             <br />
             <div className="album-buttons">
               <button className="submit-button" type="submit">
-                Save Album <i className="far fa-save" />
+                Save
+                <i className="far fa-save" />
               </button>
               <button
                 className="submit-button"
