@@ -12,10 +12,10 @@ function PhotoPage() {
   const session = useSelector((state) => state.session.user);
   const photos = useSelector((state) => state.photoReducer);
 
-  const [title, setTitle] = useState("");
-  const [description, setDescription] = useState("");
   const { photoId } = useParams();
   const photo = photos?.[photoId];
+  const [title, setTitle] = useState(photo?.title);
+  const [description, setDescription] = useState(photo?.description);
   const userId = session.id;
   const id = photoId;
 
