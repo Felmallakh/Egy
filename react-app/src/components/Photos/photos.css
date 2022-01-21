@@ -1,5 +1,6 @@
 #photo-page {
-  background: url(../../../public/Egypt-Papyrus-background.png) no-repeat center center fixed;
+  background: url(../../../public/Egypt-Papyrus-background.png) no-repeat center
+    center fixed;
   background-repeat: no-repeat;
   background-size: cover;
 }
@@ -38,11 +39,12 @@
 
 .photo-container {
   text-align: center;
-  margin-top:50px;
+  margin-top: 50px;
 }
 
 .single-image {
   width: 70%;
   border-style: outset;
   border-radius: 15px;
+  box-shadow: 0 7px 10px rgb(0 0 0 / 45%);
 }
