@@ -16,7 +16,7 @@ function PhotoPage() {
   const photo = photos?.[photoId];
   const [title, setTitle] = useState(photo?.title);
   const [description, setDescription] = useState(photo?.description);
-  const userId = session.id;
+  const userId = session?.id;
   const id = photoId;
 
   useEffect(() => {
@@ -115,7 +115,7 @@ function PhotoPage() {
                 type="button"
                 onClick={(e) => {
                   e.preventDefault();
-                  hist(`/photos/${photoId}`);
+                  hist(`/users/${userId}/photos`);
                 }}
               >
                 Cancel
