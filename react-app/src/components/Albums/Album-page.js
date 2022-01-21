@@ -32,9 +32,11 @@ function AlbumPage() {
     hist(`/users/${userId}/albums`)
   };
 
-  const editAlbum = e => {
+  const editAlbum = async (e) => {
     e.preventDefault();
-    dispatch(updateAlbumThunk({
+    if (album.user_id !== userId)
+    return alert(`User not authorized to perform this action`);
+    await dispatch(updateAlbumThunk({
       id,title,description
     }));
   }
