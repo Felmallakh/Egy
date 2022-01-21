@@ -101,6 +101,9 @@ hurt to run it again.
    ```bash
    heroku container:push web -a {NAME_OF_HEROKU_APP}
    ```
+   heroku container:push web -a egypt-dest
+   heroku container:release web -a egypt-dest
+
 
 9. Release your docker container to heroku
 

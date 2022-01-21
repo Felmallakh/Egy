@@ -79,8 +79,6 @@ function PhotoPage() {
         <h3>{photo?.description}</h3>
       </div>
       <div className="album-section-div">
-        Album Title: {photo?.title}
-        <div>Album description: {photo?.description}</div>
         <div className="album_container">
           <form className="albumForm" onSubmit={editPhoto}>
             <div className="album_content">Photo Title</div>
