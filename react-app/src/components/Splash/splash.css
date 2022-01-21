@@ -15,8 +15,13 @@
 #splash-container {
   background: url(../../../public/splash-page.jpg) no-repeat center center fixed;
   height: 100vh;
-  overflow: hidden;
+  /* overflow: hidden; */
+
 }
+::-webkit-scrollbar-thumb {
+  background-color: rgba(70, 67, 67, 0.432);
+}
+
 
 .logo {
   background: transparent;
