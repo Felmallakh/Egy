@@ -1,9 +1,10 @@
 import React, { useEffect, useState } from "react";
-import { NavLink, useNavigate, useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import { logout } from "../store/session";
-
 import { getAlbumsThunk, updateAlbumThunk, deleteAlbumThunk } from "../store/album";
+import { getPhotosThunk } from "../store/photo";
+
 import "./albums.css";
 
 function AlbumPage() {
@@ -11,17 +12,25 @@ function AlbumPage() {
   const dispatch = useDispatch();
   const session = useSelector((state) => state.session.user);
   const albums = useSelector((state) => state.albumReducer);
-  // const album = Object.values(albums);
-  const [title, setTitle] = useState("");
-  const [description, setDescription] = useState("");
+  const photos = useSelector((state) => state.photoReducer);
   const { albumId } = useParams();
   const album = albums?.[albumId];
-  const userId = session.id;
+  const userId = session?.id;
   const id = albumId
+  const [title, setTitle] = useState(album?.title);
+  const [description, setDescription] = useState(album?.description);
+
+  const photoArr = Object.values(photos).filter(photo => photo.album_id === +id)
+
 
   useEffect(() => {
     dispatch(getAlbumsThunk(userId));
   }, [session]);
+
+  useEffect(() => {
+    dispatch(getPhotosThunk(userId));
+  }, [session]);
+
 
 
   const handleSubmit = async (e) => {
@@ -42,7 +51,7 @@ function AlbumPage() {
   }
 
   return session ? (
-    <div id="splash-container">
+    <div id="album-splash-container">
       <nav className="album-nav">
         <div className="album-left-Nav">
           <button id="signout" onClick={() => hist(`/users/${userId}/albums`)}>
@@ -55,7 +64,8 @@ function AlbumPage() {
         <div className="album-right-Nav">
           <button
             id="signout"
-            onClick={async () => {
+            onClick={async (e) => {
+              e.preventDefault()
               await dispatch(logout());
               hist("/");
             }}
@@ -64,6 +74,24 @@ function AlbumPage() {
           </button>
         </div>
       </nav>
+      <ul className="album-photo-grid-list">
+        {photoArr.map((photo) => (
+          <li className="photoLi" key={photo.id}>
+            <img className="img" src={photo.photoURL}></img>
+            <div id="photo-mask">
+              <div className="img-title">
+                <div>{photo.title}</div>
+              </div>
+            </div>
+          </li>
+        ))}
+      </ul>
+      {/* <ul className="photo-grid-list">
+        {photo &&
+          photo?.map((photo) => {
+            return <img src={photo.album_id == albumId} />
+          })}
+      </ul> */}
       <div className="album-section-div">
         Album Title: {album?.title}
         <div>Album description: {album?.description}</div>
@@ -100,7 +128,7 @@ function AlbumPage() {
                 type="button"
                 onClick={(e) => {
                   e.preventDefault();
-                  hist(`/albums/${albumId}`);
+                  hist(`/users/${userId}/albums`);
                 }}
               >
                 Cancel

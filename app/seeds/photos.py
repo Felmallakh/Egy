@@ -27,6 +27,22 @@ def seed_photos():
         description="Pyramids-Camel"
     )
 
+    demo10 = Photo(
+        user_id=1,
+        album_id=1,
+        photoURL='https://cdn.discordapp.com/attachments/919391399269515305/932226949030494328/0122.jpg',
+        title='Pyramids view',
+        description="Pyramids-Camel"
+    )
+
+    demo11 = Photo(
+        user_id=1,
+        album_id=1,
+        photoURL="https://cdn.discordapp.com/attachments/919391399269515305/932226922216312892/013.jpg",
+        title='Pyramids view',
+        description="Pyramids-Camel"
+    )
+
     demo4 = Photo(
         user_id=1,
         album_id=2,
@@ -75,7 +91,8 @@ def seed_photos():
         description="Luxor"
     )
 
-    all_photos = [demo1, demo2, demo3, demo4, demo5, demo6, demo7, demo8, demo9]
+    all_photos = [demo1, demo2, demo3, demo4,
+                  demo5, demo6, demo7, demo8, demo9, demo10, demo11]
 
     for album in all_photos:
         db.session.add(album)

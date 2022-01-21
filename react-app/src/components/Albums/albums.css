@@ -1,6 +1,14 @@
 #splash-container {
   overflow: scroll;
 }
+
+#album-splash-container {
+  background: url(../../../public/Egypt-Papyrus-background.png) no-repeat center
+  center fixed;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
 .album-nav {
  /* position: fixed; */
  gap: 1000px;
@@ -12,7 +20,8 @@
 }
 
 .album-section-div {
-  margin-top: 100px;
+  margin-top: 50px;
+  margin-bottom: 50px;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -101,3 +110,69 @@ a {
   background-color: #3f5f6d;
   color: #bb8c75;
 }
+
+/* Single Album-page */
+
+.album-photo-grid-list {
+    /* display: flex; */
+    padding-top: 70px;
+    align-items:center;
+    padding-left: 50px;
+    padding-right: 50px;
+    column-count: 3;
+    /* margin-left: 230px;
+    margin-top: 100px; */
+    /* box-sizing: border-box; */
+    /* justify-content: flex-end; */
+    gap:0px;
+    border-radius: 10px;
+  }
+
+  .photoLi {
+    position: relative;
+    height: 400px;
+    margin: 0px 10px 20px 40px;
+    overflow: hidden;
+  }
+
+  .img {
+    /* padding: 20px; */
+    height: 400px;
+    width: 400px;
+    border-style: outset;
+    border-radius: 20px;
+    /* box-sizing: border-box; */
+    /* justify-content: flex-end; */
+    /* height: 200px; */
+    /* width: 500px;
+    padding: 20px;
+    margin: 10px;
+    border-radius: 10px;
+    box-shadow: 0 5px 10px rgb(0 0 0 / 72%); */
+}
+
+
+#photo-mask {
+    color: rgba(255, 255, 255, 0);
+    display: flex;
+    align-items: flex-end;
+    width: 400px;
+    height: 400px;
+    position: absolute;
+    top: 0px;
+    transition: all 0.50s linear;
+    border-style: outset;
+    border-radius: 20px;
+}
+
+.photoLi:hover > #photo-mask {
+    background-color: rgba(0, 0, 0, 0.5);
+    color: white;
+}
+
+.img-title {
+    font-size: 18px;
+    margin: 10px 5px 10px 15px;
+}
+
+

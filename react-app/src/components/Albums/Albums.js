@@ -23,7 +23,7 @@ function Albums() {
   // }
 
   useEffect(() => {
-    dispatch(getAlbumsThunk(session.id));
+    dispatch(getAlbumsThunk(session?.id));
   }, [session]);
 
   const addAlbum = async (e) => {

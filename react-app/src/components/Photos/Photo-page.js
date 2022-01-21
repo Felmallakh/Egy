@@ -2,11 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import { logout } from "../store/session";
-import {
-  getPhotosThunk,
-  updatePhotoThunk,
-  deletePhotoThunk,
-} from "../store/photo";
+import { getPhotosThunk, updatePhotoThunk, deletePhotoThunk } from "../store/photo";
 
 import "./photos.css";
 
@@ -16,11 +12,11 @@ function PhotoPage() {
   const session = useSelector((state) => state.session.user);
   const photos = useSelector((state) => state.photoReducer);
 
-  const [title, setTitle] = useState("");
-  const [description, setDescription] = useState("");
   const { photoId } = useParams();
   const photo = photos?.[photoId];
-  const userId = session.id;
+  const [title, setTitle] = useState(photo?.title);
+  const [description, setDescription] = useState(photo?.description);
+  const userId = session?.id;
   const id = photoId;
 
   useEffect(() => {
@@ -119,7 +115,7 @@ function PhotoPage() {
                 type="button"
                 onClick={(e) => {
                   e.preventDefault();
-                  hist(`/photos/${photoId}`);
+                  hist(`/users/${userId}/photos`);
                 }}
               >
                 Cancel
