@@ -40,8 +40,6 @@ body {
 
 .single-image {
   width: 70%;
-  margin: 10%;
   border-style: outset;
   border-radius: 15px;
-  margin-bottom: 0;
 }
