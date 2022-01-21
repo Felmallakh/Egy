@@ -1,3 +1,19 @@
+#not-found {
+  background-image: url("../../../public/not-found.jpg");
+  background-repeat: no-repeat;
+  height: 100vh;
+}
+
+.Hieroglyphics {
+  background-image: url("../../../public/Page-not-found.jpg");
+  background-repeat: no-repeat;
+  display: flex;
+  flex-direction: column;
+  background-position-x: center;
+  height: 500px;
+  font-weight: 700;
+}
+
 .container {
   height: 100vh;
   font-family: "Montserrat", "sans-serif";
@@ -8,21 +24,25 @@
   flex-direction: column;
 }
 
-.container a {
-  color: rgb(224, 206, 206);
-}
-
 .container h1 {
   width: fit-content;
-  color: antiquewhite;
+  color: crimson;
+  margin-top: 346px;
+  overflow: hidden;
+  margin-left:130px;
 }
 
-.Hieroglyphics {
-  background-image: url("../../../public/Page-not-found.jpg");
-  background-repeat: no-repeat;
-    display: flex;
-    flex-direction: column;
-    background-position-x: center;
-    height: 500px;
-    font-weight: 700;
+.container a {
+  color: red;
+  align-items: center;
+  border-style: groove;
+  border-radius: 8px;
+  padding: 10px;
+  margin-left: 130px;
+
+}
+
+.container a:hover {
+  color: crimson;
+  background-color: rgb(99, 17, 34);;
 }

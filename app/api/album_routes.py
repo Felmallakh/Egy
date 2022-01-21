@@ -50,6 +50,7 @@ def updateAlbum(id):
 
 
 
+
 # Delete Album
 @album_routes.route('/<int:albumId>', methods=['DELETE'])
 @login_required

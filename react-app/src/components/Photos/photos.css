@@ -1,3 +1,10 @@
+#photo-page {
+  background: url(../../../public/Egypt-Papyrus-background.png) no-repeat center
+    center fixed;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
 .img-grid {
   box-sizing: border-box;
   /* justify-content: flex-end; */
@@ -12,6 +19,10 @@
   box-shadow: 0 5px 10px rgb(0 0 0 / 72%);
 }
 
+.img-grid:hover {
+  box-shadow: -2px -2px 10px rgb(0 0 0 / 72%);
+}
+
 .album-wrap {
   display: flex;
   flex-wrap: wrap;
@@ -20,6 +31,20 @@
   margin: 20px;
 }
 
-body{
-    overflow: scroll;
+.photoGrid {
+  column-count: 4;
+  margin-left: 230px;
+  margin-top: 100px;
+}
+
+.photo-container {
+  text-align: center;
+  margin-top: 50px;
+}
+
+.single-image {
+  width: 70%;
+  border-style: outset;
+  border-radius: 15px;
+  box-shadow: 0 7px 10px rgb(0 0 0 / 45%);
 }

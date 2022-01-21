@@ -27,7 +27,7 @@ function AuthPage() {
     navigate('/home');
   };
   return (
-    <div className="wrapper authwrapper">
+    <div className="authwrapper">
       <div className="auth">
         <div className="namelogo">
           <Link to="/">
@@ -61,7 +61,7 @@ function AuthPage() {
             required
           />
           <button>Sign In</button>
-          <button onClick={demoLogin}>Demo User</button>
+          <button onClick={demoLogin}>Guest</button>
         </form>
       </div>
     </div>

@@ -2,52 +2,60 @@ import React, { useEffect, useState } from "react";
 import { NavLink, useNavigate, useParams } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import { logout } from "../store/session";
+import { getPhotosThunk, updatePhotoThunk, deletePhotoThunk } from "../store/photo";
 
-import { getAlbumsThunk, updateAlbumThunk, deleteAlbumThunk } from "../store/album";
-import "./albums.css";
+import "./photos.css";
 
-function AlbumPage() {
+function PhotoPage() {
   const hist = useNavigate();
   const dispatch = useDispatch();
   const session = useSelector((state) => state.session.user);
-  const albums = useSelector((state) => state.albumReducer);
-  // const album = Object.values(albums);
+  const photos = useSelector((state) => state.photoReducer);
+
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
-  const { albumId } = useParams();
-  const album = albums?.[albumId];
+  const { photoId } = useParams();
+  const photo = photos?.[photoId];
   const userId = session.id;
-  const id = albumId
+  const id = photoId;
 
   useEffect(() => {
-    dispatch(getAlbumsThunk(userId));
+    dispatch(getPhotosThunk(userId));
   }, [session]);
-
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    if (album.user_id !== userId)
+    if (photo.user_id !== userId)
     return alert(`User not authorized to perform this action`);
-    await dispatch(deleteAlbumThunk(albumId));
-    hist(`/users/${userId}/albums`)
+    await dispatch(deletePhotoThunk(photoId));
+    hist(`/users/${userId}/photos`);
   };
 
-  const editAlbum = e => {
+  const editPhoto = (e) => {
     e.preventDefault();
-    dispatch(updateAlbumThunk({
-      id,title,description
-    }));
+    dispatch(
+      updatePhotoThunk({
+        id,
+        title,
+        description,
+      })
+    );
+  };
+
+  const back = e => {
+    e.preventDefault();
+    hist(`/users/${userId}/photos`);
   }
 
   return session ? (
-    <div id="splash-container">
+    <div id="photo-page">
       <nav className="album-nav">
         <div className="album-left-Nav">
-          <button id="signout" onClick={() => hist(`/users/${userId}/albums`)}>
+          <button id="signout" onClick={back}>
             Back
           </button>
           <button id="signout" onClick={handleSubmit}>
-            Delete Album
+            Delete Photo
           </button>
         </div>
         <div className="album-right-Nav">
@@ -62,18 +70,25 @@ function AlbumPage() {
           </button>
         </div>
       </nav>
+      <div className="photo-container">
+        <img className="single-image" src={photo?.photoURL} />
+        <h2 className="image-content">Title</h2>
+        <h3>{photo?.title}</h3>
+        <h2 className="image-content">Description</h2>
+        <h3>{photo?.description}</h3>
+      </div>
       <div className="album-section-div">
-        Album Title: {album?.title}
-        <div>Album description: {album?.description}</div>
+        Album Title: {photo?.title}
+        <div>Album description: {photo?.description}</div>
         <div className="album_container">
-          <form className="albumForm" onSubmit={editAlbum}>
-            <div className="album_content">Album Title</div>
+          <form className="albumForm" onSubmit={editPhoto}>
+            <div className="album_content">Photo Title</div>
             <input
               className="input-form"
               onChange={(e) => setTitle(e.target.value)}
               name="title"
               type="text"
-              placeholder={album?.title}
+              placeholder={photo?.title}
               value={title}
               required
             />
@@ -85,20 +100,21 @@ function AlbumPage() {
               onChange={(e) => setDescription(e.target.value)}
               name="content"
               type="text"
-              placeholder={album?.description}
+              placeholder={photo?.description}
               value={description}
             />
             <br />
             <div className="album-buttons">
               <button className="submit-button" type="submit">
-                Save Album <i className="far fa-save" />
+                Save
+                <i className="far fa-save" />
               </button>
               <button
                 className="submit-button"
                 type="button"
                 onClick={(e) => {
                   e.preventDefault();
-                  hist(`/albums/${albumId}`);
+                  hist(`/photos/${photoId}`);
                 }}
               >
                 Cancel
@@ -110,4 +126,4 @@ function AlbumPage() {
     </div>
   ) : null;
 }
-export default AlbumPage;
+export default PhotoPage;

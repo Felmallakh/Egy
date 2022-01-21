@@ -1,13 +1,9 @@
 .homepage {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  /* background: url(../../../public/Egypt-Papyrus-background.png); */
-     background-repeat: no-repeat;
-    background-size:cover;
-    /* width: 100vw; */
-    /* height: 100vh; */
+  background: url(../../../public/splash-page.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  width: 100vw;
+  height: 100vh;
 }
 
 .homepage-hero-div {
@@ -21,7 +17,7 @@
   flex-wrap: wrap;
   align-items: center;
   justify-content: center;
-  margin: 20px;
+  margin: 50px;
 }
 
 #signout {
@@ -69,8 +65,8 @@
   height: 65vh; */
   background-color: #fff;
   /* box-shadow: 18px 18px 48px 18px rgba(39, 4, 4, 0.849); */
-    transform: translate(3%, -3%);
-    transition: 1s all;
+  transform: translate(3%, -3%);
+  transition: 1s all;
 }
 
 .homepage-mission-box {
@@ -104,8 +100,8 @@
   color: black;
 }
 
-#explore{
-  margin-left:100px;
+#explore {
+  margin-left: 100px;
 }
 
 @media all and (max-width: 600px) {
