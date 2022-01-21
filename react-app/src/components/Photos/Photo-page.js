@@ -24,6 +24,7 @@ function PhotoPage() {
     dispatch(getPhotosThunk(userId));
   }, [session]);
 
+  console.log("😣😣", photo)
 
   // const handleSubmit = async (e) => {
   //   e.preventDefault();
