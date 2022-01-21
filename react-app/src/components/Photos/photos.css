@@ -24,10 +24,6 @@
   margin: 20px;
 }
 
-body {
-  overflow: scroll;
-}
-
 .photoGrid {
   column-count: 4;
   margin-left: 230px;

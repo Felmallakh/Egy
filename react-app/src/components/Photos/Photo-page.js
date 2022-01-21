@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { NavLink, useNavigate, useParams } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import { logout } from "../store/session";
-import { getPhotosThunk,updateAlbumThunk, deletePhotoThunk } from "../store/photo";
+import { getPhotosThunk,updatePhotoThunk, deletePhotoThunk } from "../store/photo";
 
 import "./photos.css";
 
@@ -24,8 +24,6 @@ function PhotoPage() {
     dispatch(getPhotosThunk(userId));
   }, [session]);
 
-  console.log("😣😣", photo)
-
   // const handleSubmit = async (e) => {
   //   e.preventDefault();
   //   if (photo.user_id !== userId)
@@ -34,9 +32,9 @@ function PhotoPage() {
   //   hist(`/photos`)
   // };
 
-  // const editAlbum = e => {
+  // const editPhoto = e => {
   //   e.preventDefault();
-  //   dispatch(updateAlbumThunk({
+  //   dispatch(updatePhotoThunk({
   //     id,title,description
   //   }));
   // }
