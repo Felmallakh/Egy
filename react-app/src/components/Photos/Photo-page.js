@@ -23,13 +23,13 @@ function PhotoPage() {
     dispatch(getPhotosThunk(userId));
   }, [session]);
 
-  // const handleSubmit = async (e) => {
-  //   e.preventDefault();
-  //   if (photo.user_id !== userId)
-  //   return alert(`User not authorized to perform this action`);
-  //   await dispatch(deletePhotoThunk(photoId));
-  //   // hist(`/users/${userId}/photos`);
-  // };
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    if (photo.user_id !== userId)
+    return alert(`User not authorized to perform this action`);
+    await dispatch(deletePhotoThunk(photoId));
+    hist(`/users/${userId}/photos`);
+  };
 
   const editPhoto = (e) => {
     e.preventDefault();
@@ -54,8 +54,7 @@ function PhotoPage() {
           <button id="signout" onClick={back}>
             Back
           </button>
-          <button id="signout" >
-          {/* <button id="signout" onClick={handleSubmit}> */}
+          <button id="signout" onClick={handleSubmit}>
             Delete Photo
           </button>
         </div>

@@ -18,9 +18,9 @@ const updatePhoto = (photo) => ({
   photo,
 });
 
-const deletePhoto = (photoId) => ({
+const deletePhoto = (photo) => ({
   type: DELETE_PHOTO,
-  photoId,
+  photo,
 });
 
 // Get photo
