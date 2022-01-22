@@ -80,6 +80,7 @@ function PhotoPage() {
       </div>
       <div className="album-section-div">
         <div className="album_container">
+          {photo.user_id === userId && (
           <form className="albumForm" onSubmit={editPhoto}>
             <div className="album_content">Photo Title</div>
             <input
@@ -120,6 +121,7 @@ function PhotoPage() {
               </button>
             </div>
           </form>
+          )}
         </div>
       </div>
     </div>

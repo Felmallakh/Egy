@@ -18,6 +18,7 @@ def updatePhoto(id):
     if form.validate_on_submit:
         photo.title = form.title.data
         photo.description = form.description.data
+        photoURL = form.photoURL.data
 
         db.session.commit()
         return photo.to_dict()

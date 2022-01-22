@@ -95,10 +95,10 @@ def addPhoto(albumId):
     if form.validate_on_submit():
         image = Photo(
             title=form.data['title'],
-            content=form.data['description'],
+            description=form.data['description'],
             photoURL=url,
             user_id=current_user.id,
-            album_id=albumId
+            album_id=form.data['album_id']
         )
 
         db.session.add(image)

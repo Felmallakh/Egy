@@ -35,11 +35,11 @@ export const getPhotosThunk = (userId) => async (dispatch) => {
 };
 
 // Add photo
-export const addPhotoThunk = (photo) => async (dispatch) => {
-  const albumId = photo.get('albumId')
+export const addPhotoThunk = (image) => async (dispatch) => {
+  const albumId = image.get('album_id');
   const res = await fetch(`/api/albums/${albumId}/photos/new`, {
     method: "POST",
-    body: photo
+    body: image
   });
 
   if (res.ok) {
