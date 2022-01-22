@@ -5,7 +5,7 @@ import "./splash.css";
 function Splash() {
   const slideShowArr = [];
   slideShowArr[0] =
-    "https://cdn.discordapp.com/attachments/919391399269515305/932226922589585448/011.jpg";
+    "https://cdn.discordapp.com/attachments/919391399269515305/932226922589585448/011.jpg"; 
   slideShowArr[1] =
     "https://cdn.discordapp.com/attachments/919391399269515305/932226922417647666/012.jpg";
   slideShowArr[2] =
