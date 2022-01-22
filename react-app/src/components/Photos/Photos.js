@@ -45,15 +45,12 @@ function Photos() {
       </nav>
       <div className="album-wrap">
           <ul className="photoGrid" key={photo.id} value={photo.id}>
-            {photo.map((photo) => {
+            {photo ? photo.map((photo) => {
               return <NavLink exact to={`/photos/${photo.id}`}>
                 <img className="img-grid" src={photo.photoURL} />
             </NavLink>
-            })}
+            }):null }
           </ul>
-      </div>
-      <div>
-        <img src="./3846.jpg" alt="image" />
       </div>
     </div>
   ) : null;
