@@ -79,7 +79,23 @@ const profile = (state = {}, action) => {
     const newState = { ...state }
     switch (action.type){
         case GET_PROFILE: {
-
+            action.profile.forEach(profile => {
+                newState[profile.id] = profile})
+            return newState;
         }
+        case GET_PHOTO: {
+            action.photo.photo.forEach(photo => (newState[photo.id == photo]));
+            return newState;
+        }
+        case ADD_PHOTO: {
+            newState[action.photo.id] = action.photo;
+            return newState;
+        }
+        case UPDATE_PHOTO: {
+            newState[action.photo.id] = action.photo;
+            return newState;
+        }
+        default:
+            return state;
     }
 }
