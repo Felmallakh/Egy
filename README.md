@@ -118,6 +118,8 @@ There is a layer in the Dockerfile that will install psycopg2 (not binary) for u
     ```bash
     heroku container:push web -a egypt-dest
     heroku container:release web -a egypt-dest
+    DONE
+    
     heroku run -a egypt-dest flask db upgrade
     heroku run -a egypt-dest flask seed all
     ```
