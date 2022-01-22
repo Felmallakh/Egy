@@ -32,7 +32,7 @@ export const getProfileThunk = (userId) => async (dispatch) => {
         dispatch(getProfile(profile));
         return profile;
     }
-}
+};
 
 // Get Profile Photo
 export const getProfilePhotoThunk = (userId) => async (dispatch) => {
@@ -43,6 +43,7 @@ export const getProfilePhotoThunk = (userId) => async (dispatch) => {
         dispatch(getPhoto(photo));
         return photo;
     }
+};
 
 // Add Profile Photo
 export const AddProfilePhotoThunk = (image) => async (dispatch) => {
@@ -57,4 +58,4 @@ export const AddProfilePhotoThunk = (image) => async (dispatch) => {
         dispatch(addPhoto(photo));
         return photo;
     }
-}
+};
