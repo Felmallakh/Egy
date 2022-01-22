@@ -1,5 +1,6 @@
 #photo-page {
-  background: url(../../../public/Egypt-Papyrus-background.png) no-repeat center center fixed;
+  background: url(../../../public/Egypt-Papyrus-background.png) no-repeat center
+    center fixed;
   background-repeat: no-repeat;
   background-size: cover;
   overflow: scroll;
@@ -53,4 +54,14 @@
   border-style: outset;
   border-radius: 15px;
   box-shadow: 0 7px 10px rgb(0 0 0 / 45%);
+}
+
+.img-upload {
+  display: none;
+}
+
+.material-icons {
+  align-self: center;
+  color: white;
+  cursor: pointer;
 }

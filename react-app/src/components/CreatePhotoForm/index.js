@@ -26,6 +26,7 @@ function CreatePhotoForm() {
     formData.append("album_id", albumId);
     formData.append("userId", session.id);
     await dispatch(addPhotoThunk(formData));
+    hist(`/albums/${albumId}`);
   };
   // // Handle submit function
   // const addPhoto = async (e) => {
@@ -69,10 +70,20 @@ function CreatePhotoForm() {
                 ))}
               </ul>
             )}
+            <label
+              className="material-icons"
+              htmlFor="imageUpload"
+              style={{ fontSize: "70px" }}
+            >
+              cloud_upload
+            </label>
+
             <input
-              className="img"
+              className="img-upload"
+              id="imageUpload"
               type="file"
               accept=".jpg, .jpeg, .png, .gif"
+              required
               onChange={(e) => setImage(e.target.files[0])}
             />
             <input
@@ -90,7 +101,7 @@ function CreatePhotoForm() {
               value={description}
               onChange={(e) => setDescription(e.target.value)}
             />
-            <button type="submit">Create Album</button>
+            <button type="submit">Create Photo</button>
           </form>
         </div>
       </div>

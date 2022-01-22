@@ -25,7 +25,7 @@ function PhotoPage() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    if (photo.user_id !== userId)
+    if (photo?.user_id !== userId)
       return alert(`User not authorized to perform this action`);
     await dispatch(deletePhotoThunk(photoId));
     hist(`/users/${userId}/photos`);
@@ -55,9 +55,11 @@ function PhotoPage() {
           <button id="signout" onClick={back}>
             Back
           </button>
+          {photo ?photo.user_id === userId && (
           <button id="signout" onClick={handleSubmit}>
             Delete Photo
           </button>
+          ): null}
         </div>
         <div className="album-right-Nav">
           <button
@@ -80,7 +82,7 @@ function PhotoPage() {
       </div>
       <div className="album-section-div">
         <div className="album_container">
-          {photo.user_id === userId && (
+          {photo ?photo.user_id === userId && (
           <form className="albumForm" onSubmit={editPhoto}>
             <div className="album_content">Photo Title</div>
             <input
@@ -121,7 +123,7 @@ function PhotoPage() {
               </button>
             </div>
           </form>
-          )}
+          ): null}
         </div>
       </div>
     </div>
