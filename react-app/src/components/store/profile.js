@@ -46,7 +46,7 @@ export const getProfilePhotoThunk = (userId) => async (dispatch) => {
 };
 
 // Add Profile Photo
-export const AddProfilePhotoThunk = (image) => async (dispatch) => {
+export const addProfilePhotoThunk = (image) => async (dispatch) => {
     const userId = image.get("id");
     const res = await fetch(`/api/users/${userId}/profile`, {
         method: "POST",
@@ -59,3 +59,27 @@ export const AddProfilePhotoThunk = (image) => async (dispatch) => {
         return photo;
     }
 };
+
+// Update Profile Photo
+export const updateProfilePhotoThunk = ({ userId, username, profile_picture }) => async (dispatch) => {
+    const res = await fetch(`api/users/${userId}/profile`, {
+      method: "PUT",
+      headers: { content: "application/json" },
+      body: JSON.stringify({ userId, username, profile_picture }),
+    });
+
+    if (res.ok) {
+        const updatedPhoto = await res.json();
+        dispatch(updatePhoto(updatedPhoto));
+        return updatedPhoto;
+    }
+}
+
+const profile = (state = {}, action) => {
+    const newState = { ...state }
+    switch (action.type){
+        case GET_PROFILE: {
+
+        }
+    }
+}
