@@ -105,6 +105,12 @@
   margin-left: 100px;
 }
 
+#explore:hover {
+  background-color: rgb(208 149 73);
+  color: white;
+
+}
+
 @media all and (max-width: 600px) {
   .homepage-hero-description {
     font-weight: 400;
