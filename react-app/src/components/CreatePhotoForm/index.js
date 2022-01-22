@@ -14,18 +14,26 @@ function CreatePhotoForm() {
 
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
+  const [image, setImage] = useState("");
   const [errors, setErrors] = useState([]);
 
-
-
-  // Handle submit function
-  const addPhoto = async (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    const userId = session.id;
-
-    await dispatch(addPhotoThunk({ userId, title, description }));
-    // hist(`/albums/${albumId}`);
+    const formData = new FormData();
+    formData.append("photoURL", image);
+    formData.append("title", title);
+    formData.append("description", description);
+    formData.append("album_id", albumId);
+    formData.append("userId", session.id);
+    await dispatch(addPhotoThunk(formData));
   };
+  // // Handle submit function
+  // const addPhoto = async (e) => {
+  //   e.preventDefault();
+  //   const userId = session.id;
+
+  //   // hist(`/albums/${albumId}`);
+  // };
 
   return (
     <div className="authwrapper">
@@ -48,7 +56,7 @@ function CreatePhotoForm() {
         </ul>
         <div id="createAlbum-form-background">
           <form
-            onSubmit={addPhoto}
+            onSubmit={handleSubmit}
             className="form-container"
             id="createAlbum-form-container"
           >
@@ -62,11 +70,17 @@ function CreatePhotoForm() {
               </ul>
             )}
             <input
+              className="img"
+              type="file"
+              accept=".jpg, .jpeg, .png, .gif"
+              onChange={(e) => setImage(e.target.files[0])}
+            />
+            <input
               className="form-field"
               type="text"
               placeholder="Title"
               value={title}
-              required
+              // required
               onChange={(e) => setTitle(e.target.value)}
             />
             <input
