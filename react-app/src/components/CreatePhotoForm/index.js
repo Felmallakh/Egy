@@ -26,7 +26,7 @@ function CreatePhotoForm() {
     formData.append("album_id", albumId);
     formData.append("userId", session.id);
     await dispatch(addPhotoThunk(formData));
-    hist(`/users/${session.id}/albums`);
+    hist(`/albums/${albumId}`);
   };
   // // Handle submit function
   // const addPhoto = async (e) => {
@@ -74,6 +74,7 @@ function CreatePhotoForm() {
               className="img"
               type="file"
               accept=".jpg, .jpeg, .png, .gif"
+              required
               onChange={(e) => setImage(e.target.files[0])}
             />
             <input
