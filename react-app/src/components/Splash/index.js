@@ -4,7 +4,7 @@ import "./splash.css";
 
 function Splash() {
   const slideShowArr = [];
-  slideShowArr[0] ="https://cdn.discordapp.com/attachments/919391399269515305/932226922589585448/011.jpg"; 
+  slideShowArr[0] ="https://cdn.discordapp.com/attachments/919391399269515305/932226922589585448/011.jpg";
   slideShowArr[1] ="https://cdn.discordapp.com/attachments/919391399269515305/932226922417647666/012.jpg";
   slideShowArr[2] ="https://cdn.discordapp.com/attachments/919391399269515305/932226922216312892/013.jpg";
   slideShowArr[3] ="https://cdn.discordapp.com/attachments/919391399269515305/932226921973035058/014.jpg";
@@ -58,49 +58,49 @@ function Splash() {
 
   const hist = useNavigate();
   return (
-    <div id="splash-container">
-      <nav>
-        <div className="leftNav">
-          <img
-            src="https://cdn.discordapp.com/attachments/919391399269515305/932090523496370277/logo-removebg-preview.png"
-            alt="logo"
-          ></img>
-          <h2>Egypt Destinations</h2>
-        </div>
-        <div className="rightNav">
+      <div id="splash-container">
+        <nav>
+          <div className="leftNav">
+            <img
+              src="https://cdn.discordapp.com/attachments/919391399269515305/932090523496370277/logo-removebg-preview.png"
+              alt="logo"
+            ></img>
+            <h2>Egypt Destinations</h2>
+          </div>
+          <div className="rightNav">
+            <button
+              id="signin"
+              onClick={() => {
+                hist("/login");
+              }}
+            >
+              SIGN IN
+            </button>
+          </div>
+        </nav>
+        <div className="titleContent">
+          <h1>Find your next destination</h1>
           <button
-            id="signin"
+            id="explore"
             onClick={() => {
-              hist("/login");
+              hist("/signup");
             }}
           >
-            SIGN IN
+            EXPLORE
           </button>
         </div>
-      </nav>
-      <div className="titleContent">
-        <h1>Find your next destination</h1>
-        <button
-          id="explore"
-          onClick={() => {
-            hist("/signup");
-          }}
-        >
-          EXPLORE
-        </button>
-      </div>
       <footer>
+        <a href="https://www.linkedin.com/in/fady-el-mallakh-05a84329">
+          <i className="fab fa-linkedin-in"></i>
+        </a>
         <a href="https://github.com/felmallakh">
           <i className="fab fa-github"></i>
-        </a>
-        <a href="https://https://www.linkedin.com/in/fady-el-mallakh-05a84329">
-          <i className="fab fa-linkedin-in"></i>
         </a>
         <a href="https://angel.co/u/fady-el-mallakh">
           <i className="fab fa-angellist"></i>
         </a>
       </footer>
-    </div>
+      </div>
   );
 }
 export default Splash;

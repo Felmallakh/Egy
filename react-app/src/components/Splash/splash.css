@@ -114,19 +114,16 @@ nav img {
 
 footer {
     position: -webkit-sticky;
-    /* bottom: 0; */
     display: flex;
-    /* align-items: center; */
     justify-content: flex-end;
-    /* padding-right: 2vw; */
-    height: 7vh;
-    width: 100vw;
+    margin-top: 250px;
+    margin-right: 40px;
 }
 
 footer a i {
-  background-color: #309c6d;
-  color: #ffffff;
-  padding: 6px;
+  background-color: #304e9c;
+  color:white;
+  padding: 8px;
   border-radius: 15px;
   margin: 0 20px 0 20px;
 }
