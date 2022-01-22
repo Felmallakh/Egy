@@ -4,17 +4,19 @@ import "./splash.css";
 
 function Splash() {
   const slideShowArr = [];
-  slideShowArr[0] = "./Images/pic1.jpg";
-  slideShowArr[1] = "./Images/pic2.jpg";
-  slideShowArr[2] = "./Images/pic3.jpg";
-  slideShowArr[3] = "./Images/pic4.jpg";
-  slideShowArr[4] = "./Images/pic5.jpg";
-  slideShowArr[5] = "./Images/pic6.jpg";
-  slideShowArr[6] = "./Images/pic7.jpg";
-  slideShowArr[7] = "./Images/pic8.jpg";
-  slideShowArr[8] = "./Images/pic9.jpg";
-  slideShowArr[9] = "./Images/pic10.jpg";
-  slideShowArr[10] = "./Images/pic11.jpg";
+  slideShowArr[0] ="https://cdn.discordapp.com/attachments/919391399269515305/932226922589585448/011.jpg"; 
+  slideShowArr[1] ="https://cdn.discordapp.com/attachments/919391399269515305/932226922417647666/012.jpg";
+  slideShowArr[2] ="https://cdn.discordapp.com/attachments/919391399269515305/932226922216312892/013.jpg";
+  slideShowArr[3] ="https://cdn.discordapp.com/attachments/919391399269515305/932226921973035058/014.jpg";
+  slideShowArr[4] ="https://cdn.discordapp.com/attachments/919391399269515305/932226921754935316/015.jpg";
+  slideShowArr[5] ="https://cdn.discordapp.com/attachments/919391399269515305/932226921452933171/016.jpg";
+  slideShowArr[6] ="https://cdn.discordapp.com/attachments/919391399269515305/932226921209688135/017.jpg";
+  slideShowArr[7] ="https://cdn.discordapp.com/attachments/919391399269515305/932226921012559892/018.jpg";
+  slideShowArr[8] ="https://cdn.discordapp.com/attachments/919391399269515305/932226920790241310/019.jpg";
+  slideShowArr[9] ="https://cdn.discordapp.com/attachments/919391399269515305/932226920534392912/0110.jpeg";
+  slideShowArr[10] ="https://cdn.discordapp.com/attachments/919391399269515305/932226948816580618/0111.jpg";
+  slideShowArr[11] ="https://cdn.discordapp.com/attachments/919391399269515305/932226949030494328/0122.jpg";
+
 
   // Background slideshow
   let i = 0;
