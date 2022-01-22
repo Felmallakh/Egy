@@ -26,6 +26,7 @@ function CreatePhotoForm() {
     formData.append("album_id", albumId);
     formData.append("userId", session.id);
     await dispatch(addPhotoThunk(formData));
+    hist(`/users/${session.id}/albums`);
   };
   // // Handle submit function
   // const addPhoto = async (e) => {
@@ -90,7 +91,7 @@ function CreatePhotoForm() {
               value={description}
               onChange={(e) => setDescription(e.target.value)}
             />
-            <button type="submit">Create Album</button>
+            <button type="submit">Create Photo</button>
           </form>
         </div>
       </div>

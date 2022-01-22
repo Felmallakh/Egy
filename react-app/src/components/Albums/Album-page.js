@@ -57,10 +57,10 @@ function AlbumPage() {
           <button id="signout" onClick={() => hist(`/users/${userId}/albums`)}>
             Back
           </button>
-          {album.user_id === userId && (
+          {album? album.user_id === userId && (
           <button id="signout" onClick={handleSubmit}>
             Delete Album
-          </button> )}
+          </button> ): null}
           <button id="signout" onClick={() => hist(`/albums/${albumId}/photos/new`)}>
             Add Photo
           </button>

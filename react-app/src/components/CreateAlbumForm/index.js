@@ -17,7 +17,7 @@ function CreateAlbumForm() {
   // Handle submit function
   const addAlbum = async (e) => {
     e.preventDefault();
-    const userId = session.id;
+    const userId = session?.id;
 
     await dispatch(addAlbumThunk({ userId, title, description }));
     hist(`/users/${userId}/albums`);
