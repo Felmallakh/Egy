@@ -98,4 +98,6 @@ const profile = (state = {}, action) => {
         default:
             return state;
     }
-}
+};
+
+export default profile;
