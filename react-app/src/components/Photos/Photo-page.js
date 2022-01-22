@@ -2,7 +2,11 @@ import React, { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import { logout } from "../store/session";
-import { getPhotosThunk, updatePhotoThunk, deletePhotoThunk } from "../store/photo";
+import {
+  getPhotosThunk,
+  updatePhotoThunk,
+  deletePhotoThunk,
+} from "../store/photo";
 
 import "./photos.css";
 
@@ -25,17 +29,23 @@ function PhotoPage() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    if (photo?.user_id !== userId)
-      return alert(`User not authorized to perform this action`);
-    await dispatch(deletePhotoThunk(photoId));
-    hist(`/users/${userId}/photos`);
+    const confirmed = window.confirm(
+      "Are you sure you want to remove this Photo? This action cannot be undone."
+    );
+    if (confirmed) {
+      if (photo?.user_id !== userId)
+        return alert(`User not authorized to perform this action`);
+      await dispatch(deletePhotoThunk(photoId));
+      hist(`/users/${userId}/photos`);
+    }
   };
 
   const editPhoto = async (e) => {
     e.preventDefault();
     if (photo.user_id !== userId)
       return alert(`User not authorized to perform this action`);
-    dispatch(updatePhotoThunk({
+    dispatch(
+      updatePhotoThunk({
         id,
         title,
         description,
@@ -55,11 +65,13 @@ function PhotoPage() {
           <button id="signout" onClick={back}>
             Back
           </button>
-          {photo ?photo.user_id === userId && (
-          <button id="signout" onClick={handleSubmit}>
-            Delete Photo
-          </button>
-          ): null}
+          {photo
+            ? photo.user_id === userId && (
+                <button id="signout" onClick={handleSubmit}>
+                  Delete Photo
+                </button>
+              )
+            : null}
         </div>
         <div className="album-right-Nav">
           <button
@@ -82,48 +94,50 @@ function PhotoPage() {
       </div>
       <div className="album-section-div">
         <div className="album_container">
-          {photo ?photo.user_id === userId && (
-          <form className="albumForm" onSubmit={editPhoto}>
-            <div className="album_content">Photo Title</div>
-            <input
-              className="input-form"
-              onChange={(e) => setTitle(e.target.value)}
-              name="title"
-              type="text"
-              placeholder={photo?.title}
-              value={title}
-              required
-            />
-            <br />
-            <br />
-            <div className="album_content">Description</div>
-            <textarea
-              className="text-form"
-              onChange={(e) => setDescription(e.target.value)}
-              name="content"
-              type="text"
-              placeholder={photo?.description}
-              value={description}
-            />
-            <br />
-            <div className="album-buttons">
-              <button className="submit-button" type="submit">
-                Save
-                <i className="far fa-save" />
-              </button>
-              <button
-                className="submit-button"
-                type="button"
-                onClick={(e) => {
-                  e.preventDefault();
-                  hist(`/users/${userId}/photos`);
-                }}
-              >
-                Cancel
-              </button>
-            </div>
-          </form>
-          ): null}
+          {photo
+            ? photo.user_id === userId && (
+                <form className="albumForm" onSubmit={editPhoto}>
+                  <div className="album_content">Photo Title</div>
+                  <input
+                    className="input-form"
+                    onChange={(e) => setTitle(e.target.value)}
+                    name="title"
+                    type="text"
+                    placeholder={photo?.title}
+                    value={title}
+                    required
+                  />
+                  <br />
+                  <br />
+                  <div className="album_content">Description</div>
+                  <textarea
+                    className="text-form"
+                    onChange={(e) => setDescription(e.target.value)}
+                    name="content"
+                    type="text"
+                    placeholder={photo?.description}
+                    value={description}
+                  />
+                  <br />
+                  <div className="album-buttons">
+                    <button className="submit-button" type="submit">
+                      Save
+                      <i className="far fa-save" />
+                    </button>
+                    <button
+                      className="submit-button"
+                      type="button"
+                      onClick={(e) => {
+                        e.preventDefault();
+                        hist(`/users/${userId}/photos`);
+                      }}
+                    >
+                      Cancel
+                    </button>
+                  </div>
+                </form>
+              )
+            : null}
         </div>
       </div>
     </div>
