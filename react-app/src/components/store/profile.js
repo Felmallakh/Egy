@@ -17,4 +17,14 @@ const updatePhoto = (photo) => ({
     photo,
 });
 
+// Get Profile
+export const getProfileThunk = (userId) => async (dispatch) => {
+    const res = await fetch(`/api/users/${userId}/profile`);
+
+    if (res.ok) {
+        const profile = await res.json();
+        dispatch(getProfile(profile));
+        return profile;
+    }
+}
 

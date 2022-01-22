@@ -39,7 +39,7 @@ function App() {
       <Route path="/signup" element={<SignUp />}></Route>
       <Route path="/NotFound" element={<NotFound />}></Route>
       <Route path="/home" element={<Homepage />}></Route>
-      <Route path="/users/:userId" element={<Profile />}></Route>
+      <Route path="/users/:userId/profile" element={<Profile />}></Route>
       <Route path="/users/:userId/albums" exact="true" element={<Albums />}></Route>
       <Route path="/users/:userId/photos" exact element={<Photos />}></Route>
       <Route path="/albums/new" element={<CreateAlbumForm />}></Route>
