@@ -70,15 +70,17 @@ function CreatePhotoForm() {
                 ))}
               </ul>
             )}
-            <span
+            <label
               className="material-icons"
-              style={{ fontSize: "48px" }}
+              htmlFor="imageUpload"
+              style={{ fontSize: "70px" }}
             >
               cloud_upload
-            </span>
+            </label>
 
             <input
-              className="img"
+              className="img-upload"
+              id="imageUpload"
               type="file"
               accept=".jpg, .jpeg, .png, .gif"
               required

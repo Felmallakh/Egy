@@ -1,5 +1,6 @@
 #photo-page {
-  background: url(../../../public/Egypt-Papyrus-background.png) no-repeat center center fixed;
+  background: url(../../../public/Egypt-Papyrus-background.png) no-repeat center
+    center fixed;
   background-repeat: no-repeat;
   background-size: cover;
   overflow: scroll;
@@ -55,22 +56,12 @@
   box-shadow: 0 7px 10px rgb(0 0 0 / 45%);
 }
 
-.img {
-      display: none;
+.img-upload {
+  display: none;
 }
 
 .material-icons {
-    font-family: 'Material Icons';
-    font-weight: normal;
-    font-style: normal;
-    font-size: 24px;
-    line-height: 1;
-    letter-spacing: normal;
-    text-transform: none;
-    display: inline-block;
-    white-space: nowrap;
-    word-wrap: normal;
-    direction: ltr;
-    -webkit-font-feature-settings: 'liga';
-    -webkit-font-smoothing: antialiased;
+  align-self: center;
+  color: white;
+  cursor: pointer;
 }
