@@ -20,6 +20,21 @@ def user(id):
     user = User.query.get(id)
     return user.to_dict()
 
+
+# Get Profile
+@user_routes.route('/<int:id>/profile')
+@login_required
+def profile(id):
+    user = User.query.get(id)
+    return user.to_dict()
+
+
+# Profile Picture
+@user_routes.route('/<int:id>/profile')
+@login_required
+def profilePicture(id):
+
+
 # Get Albums
 @user_routes.route('/<int:id>/albums')
 @login_required

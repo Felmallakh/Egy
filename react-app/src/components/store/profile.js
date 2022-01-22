@@ -8,16 +8,6 @@ const getProfile = (profile) => ({
     profile,
 });
 
-const getPhoto = (photo) => ({
-    type: GET_PHOTO,
-    photo,
-});
-
-const addPhoto = (photo) => ({
-  type: ADD_PHOTO,
-  photo,
-});
-
 const updatePhoto = (photo) => ({
     type: UPDATE_PHOTO,
     photo,
@@ -31,32 +21,6 @@ export const getProfileThunk = (userId) => async (dispatch) => {
         const profile = await res.json();
         dispatch(getProfile(profile));
         return profile;
-    }
-};
-
-// Get Profile Photo
-export const getProfilePhotoThunk = (userId) => async (dispatch) => {
-    const res = await fetch(`/api/users/${userId}/profile`);
-
-    if (res.ok) {
-        const photo = await res.json();
-        dispatch(getPhoto(photo));
-        return photo;
-    }
-};
-
-// Add Profile Photo
-export const addProfilePhotoThunk = (image) => async (dispatch) => {
-    const userId = image.get("id");
-    const res = await fetch(`/api/users/${userId}/profile`, {
-        method: "POST",
-        body: image
-    });
-
-    if (res.ok) {
-        const photo = await res.json();
-        dispatch(addPhoto(photo));
-        return photo;
     }
 };
 
@@ -81,14 +45,6 @@ const profile = (state = {}, action) => {
         case GET_PROFILE: {
             action.profile.forEach(profile => {
                 newState[profile.id] = profile})
-            return newState;
-        }
-        case GET_PHOTO: {
-            action.photo.photo.forEach(photo => (newState[photo.id == photo]));
-            return newState;
-        }
-        case ADD_PHOTO: {
-            newState[action.photo.id] = action.photo;
             return newState;
         }
         case UPDATE_PHOTO: {
