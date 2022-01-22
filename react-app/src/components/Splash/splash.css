@@ -110,3 +110,22 @@ nav img {
   background-color: rgba(204, 167, 118, 0.66);
   color: white;
 }
+
+footer {
+    position: -webkit-sticky;
+    /* bottom: 0; */
+    display: flex;
+    /* align-items: center; */
+    justify-content: flex-end;
+    /* padding-right: 2vw; */
+    height: 7vh;
+    width: 100vw;
+}
+
+footer a i {
+  background-color: #309c6d;
+  color: #ffffff;
+  padding: 6px;
+  border-radius: 15px;
+  margin: 0 20px 0 20px;
+}

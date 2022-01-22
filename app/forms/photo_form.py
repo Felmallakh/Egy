@@ -5,6 +5,7 @@ class PhotoForm(FlaskForm):
     title = StringField('title')
     description = StringField('description')
     photoURL = StringField('photoURL')
+    album_id = StringField('album_id')
 
 
 class EditPhotoForm(FlaskForm):

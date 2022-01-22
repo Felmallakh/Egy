@@ -14,6 +14,7 @@ function CreatePhotoForm() {
 
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
+  const [image , setImage] = useState("");
   const [errors, setErrors] = useState([]);
 
 
@@ -62,11 +63,17 @@ function CreatePhotoForm() {
               </ul>
             )}
             <input
+              className="img"
+              type="file"
+              accept=".jpg, .jpeg, .png, .gif"
+              onChange={setImage}
+            />
+            <input
               className="form-field"
               type="text"
               placeholder="Title"
               value={title}
-              required
+              // required
               onChange={(e) => setTitle(e.target.value)}
             />
             <input
