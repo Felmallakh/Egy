@@ -83,8 +83,10 @@ const Bio = () => {
           preeminent civilization in the Mediterranean world.
         </h3>
       </div>
-      <div className="bio-images"></div>
-      <div className="bio-images"></div>
+      <div className="bio-images">
+        <div id="img-1"></div>
+        <div id="img-2"></div>
+      </div>
     </div>
   );
 };
