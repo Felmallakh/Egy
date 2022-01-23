@@ -11,7 +11,6 @@
   scrollbar-width: none;
   height: 100vh;
 }
-
 #home-button {
   cursor: pointer;
 }
@@ -26,12 +25,10 @@
   width: 60%;
   text-align: center;
 }
-
 .bio-images {
   text-align: -webkit-center;
   margin-bottom: 50px;
 }
-
 #img-1 {
   background-image: url("../images/Egyptian-pyramid.png");
   background-size: cover;
