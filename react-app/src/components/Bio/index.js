@@ -45,13 +45,19 @@ const Bio = () => {
           the religious leaders of their people. The word “pharaoh” means “Great
           House,” a reference to the palace where the pharaoh resides. While
           early Egyptian rulers were called “kings,” over time, the name
-          “pharaoh” stuck, Who are pharaohs and why are they important? The
-          ruler of ancient Egypt was called pharaoh . Pharaohs were looked upon
-          as more than rulers. They were Gods chosen to lead the people and
-          maintain order, and provided an important link between the Egyptian
-          people and their gods. Where did pharaohs come from? Pharaoh, (“great
-          house”), originally, the royal palace in ancient Egypt. The word came
-          to be used metonymically for the Egyptian king under the New Kingdom
+          “pharaoh” stuck.
+          </h3>
+          <span>Who are pharaohs and why are they important?</span>
+          <h3>
+          The ruler of
+          ancient Egypt was called pharaoh . Pharaohs were looked upon as more
+          than rulers. They were Gods chosen to lead the people and maintain
+          order, and provided an important link between the Egyptian people and
+          their gods. </h3>
+          <span>Where did pharaohs come from?</span>
+          <h3>Pharaoh, (“great house”),
+          originally, the royal palace in ancient Egypt. The word came to be
+          used metonymically for the Egyptian king under the New Kingdom
           (starting in the 18th dynasty, 1539–1292 bce), and by the 22nd dynasty
           (c. 945–c. 730 bce) it had been adopted as an epithet of respect.
         </h3>
