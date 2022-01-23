@@ -22,7 +22,7 @@ function Photos() {
 
   return session ? (
     <div id="photo-page">
-      <nav className="album-nav">
+      <nav className="photo-nav">
         <div className="album-left-Nav">
           <button id="signout" onClick={() => hist(`/home`)}>
             Back

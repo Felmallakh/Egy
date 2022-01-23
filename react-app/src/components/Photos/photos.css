@@ -16,6 +16,11 @@
   display: none;
 }
 
+.photo-nav{
+  gap: 1150px;
+  width: fit-content;
+}
+
 .img-grid {
   box-sizing: border-box;
   /* justify-content: flex-end; */
