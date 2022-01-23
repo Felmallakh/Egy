@@ -26,3 +26,7 @@
   width: 60%;
   text-align: center;
 }
+
+.bio-images {
+  background-image: url("../images/Egyptian-pyramid.png");
+}
