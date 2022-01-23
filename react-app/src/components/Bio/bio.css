@@ -28,7 +28,8 @@
 }
 
 .bio-images {
-  width: 80%;
+      text-align: -webkit-center;
+      margin-bottom: 50px;
 }
 
 #img-1 {
