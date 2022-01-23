@@ -58,7 +58,7 @@ function Splash() {
 
   const hist = useNavigate();
   return (
-      <div id="splash-container">
+      <div className="splash-container">
         <nav>
           <div className="leftNav">
             <img

@@ -1,4 +1,12 @@
 #splash-container {
+  background: url(../../../public/splash-page.jpg) no-repeat center
+  center fixed;
+  background-repeat: no-repeat;
+  background-size: cover;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  height: 100vh;
   overflow: scroll;
   scrollbar-width: none;
   -ms-overflow-style: none;
