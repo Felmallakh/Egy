@@ -99,8 +99,8 @@ function AlbumPage() {
       <br />
       <br />
       <div className="album-info">
-        <div>{album?.title}</div>
-        <div>{album?.description}</div>
+        <div className="album-info">{album?.title}</div>
+        <div id="album-desc">{album?.description}</div>
       </div>
       <ul className="album-photo-grid-list">
         {photoArr.map((photo) => (

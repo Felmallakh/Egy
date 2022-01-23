@@ -47,9 +47,15 @@
   flex-direction: column;
   align-items: center;
   gap: 10px;
-  font-family: cursive;
-  color: rgb(148, 139, 58);
+  color: rgb(44 44 40);
+  font-family: "Neonderthaw", cursive;
+  font-size: 70px;
+}
+
+#album-desc {
+  font-family: "Mochiy Pop P One", sans-serif;
   font-size: 25px;
+  color: #2c2222ba;
 }
 
 .album-section-div {
