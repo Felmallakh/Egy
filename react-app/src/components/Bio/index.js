@@ -85,6 +85,7 @@ const Bio = () => {
       </div>
       <div className="bio-images">
         <img id="img-1"></img>
+        <br />
         <img id="img-2"></img>
       </div>
     </div>

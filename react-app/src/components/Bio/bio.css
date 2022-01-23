@@ -28,8 +28,8 @@
 }
 
 .bio-images {
-      text-align: -webkit-center;
-      margin-bottom: 50px;
+  text-align: -webkit-center;
+  margin-bottom: 50px;
 }
 
 #img-1 {
@@ -46,9 +46,9 @@
   background-image: url("../images/Ancient-Egyptian-Timeline.jpg");
   background-size: cover;
   display: flex;
-  height: 513px;
+  height: 521px;
   width: 692px;
   margin: 10px;
   border-radius: 10px;
-  box-shadow: 0 5px 10px rgb(0 0 0 / 72%);
+  box-shadow: 0 5px 10px rgb(0 0 0 / 43%);
 }
