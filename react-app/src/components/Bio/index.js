@@ -37,6 +37,9 @@ const Bio = () => {
           </button>
         </div>
       </nav>
+      <br />
+      <br />
+      
     </div>
   );
 };
