@@ -44,17 +44,11 @@
 }
 #img-2 {
   background-image: url("../images/Ancient-Egyptian-Timeline.jpg");
+  background-size: cover;
   display: flex;
-  flex-direction: column;
-  box-sizing: border-box;
-  justify-content: flex-end;
-  height: 333px;
-  width: 245px;
-  padding: 20px;
+  height: 513px;
+  width: 692px;
   margin: 10px;
   border-radius: 10px;
-  background-size: cover;
-  font-weight: 700;
-  font-size: 16px;
-  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.719);
+  box-shadow: 0 5px 10px rgb(0 0 0 / 72%);
 }
