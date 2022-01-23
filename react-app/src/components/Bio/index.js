@@ -65,6 +65,7 @@ const Bio = () => {
           epithet of respect.
         </h3>
         <br />
+        <br />
         <h2>Ancient Egypt</h2>
         <h3>
           Ancient Egypt was a civilization of ancient Africa, concentrated along
@@ -78,6 +79,7 @@ const Bio = () => {
           the Early Bronze Age, the Middle Kingdom of the Middle Bronze Age and
           the New Kingdom of the Late Bronze Age.
         </h3>
+        <br />
         <span id="span">How old is Egypt ancient?</span>
         <h3>
           For almost 30 centuries—from its unification around 3100 B.C. to its

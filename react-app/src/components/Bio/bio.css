@@ -21,6 +21,10 @@
   margin-left: 127px;
   text-align: justify;
 }
+#span{
+    font-size: 22px;
+    font-weight: 600;
+}
 .bio-images {
   text-align: -webkit-center;
   margin-bottom: 50px;
