@@ -1,0 +1,91 @@
+.bio {
+  background: url(../../../public/Egypt-Papyrus-background.png) no-repeat center
+    center fixed;
+  background-repeat: no-repeat;
+  background-size: cover;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  -ms-overflow-style: none;
+  /* overflow: hidden; */
+  scrollbar-width: none;
+  height: 100vh;
+}
+#home-button {
+  cursor: pointer;
+}
+.bio-content {
+  display: flex;
+  flex-direction: column;
+  width: 80%;
+  margin-left: 127px;
+  text-align: justify;
+}
+#span{
+    font-size: 22px;
+    font-weight: 600;
+}
+.bio-images {
+  text-align: -webkit-center;
+  margin-bottom: 50px;
+}
+#img-1 {
+  background-image: url("../images/Egyptian-pyramid.png");
+  background-size: cover;
+  display: flex;
+  height: 450px;
+  width: 683px;
+  margin: 10px;
+  border-radius: 10px;
+  box-shadow: 0 5px 10px rgb(0 0 0 / 72%);
+}
+#img-2 {
+  background-image: url("../images/Ancient-Egyptian-Timeline.jpg");
+  background-size: cover;
+  display: flex;
+  height: 521px;
+  width: 692px;
+  margin: 10px;
+  border-radius: 10px;
+  box-shadow: 0 5px 10px rgb(0 0 0 / 43%);
+}
+#img-3 {
+  background-image: url("../images/image1.jpg");
+  background-size: cover;
+  display: flex;
+  height: 521px;
+  width: 692px;
+  margin: 10px;
+  border-radius: 10px;
+  box-shadow: 0 5px 10px rgb(0 0 0 / 43%);
+}
+#img-4 {
+  background-image: url("../images/image2.jpg");
+  background-size: cover;
+  display: flex;
+  height: 521px;
+  width: 692px;
+  margin: 10px;
+  border-radius: 10px;
+  box-shadow: 0 5px 10px rgb(0 0 0 / 43%);
+}
+#img-5 {
+  background-image: url("../images/image3.jpg");
+  background-size: cover;
+  display: flex;
+  height: 521px;
+  width: 692px;
+  margin: 10px;
+  border-radius: 10px;
+  box-shadow: 0 5px 10px rgb(0 0 0 / 43%);
+}
+#img-6 {
+  background-image: url("../images/image4.jpg");
+  background-size: cover;
+  display: flex;
+  height: 521px;
+  width: 692px;
+  margin: 10px;
+  border-radius: 10px;
+  box-shadow: 0 5px 10px rgb(0 0 0 / 43%);
+}
