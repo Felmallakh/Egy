@@ -47,14 +47,16 @@ const Bio = () => {
           early Egyptian rulers were called “kings,” over time, the name
           “pharaoh” stuck.
         </h3>
-        <span>Who are pharaohs and why are they important?</span>
+        <br />
+        <span id="span">Who are pharaohs and why are they important?</span>
         <h3>
           The ruler of ancient Egypt was called pharaoh . Pharaohs were looked
           upon as more than rulers. They were Gods chosen to lead the people and
           maintain order, and provided an important link between the Egyptian
           people and their gods.{" "}
         </h3>
-        <span>Where did pharaohs come from?</span>
+        <br />
+        <span id="span">Where did pharaohs come from?</span>
         <h3>
           Pharaoh, (“great house”), originally, the royal palace in ancient
           Egypt. The word came to be used metonymically for the Egyptian king
@@ -76,7 +78,7 @@ const Bio = () => {
           the Early Bronze Age, the Middle Kingdom of the Middle Bronze Age and
           the New Kingdom of the Late Bronze Age.
         </h3>
-        <span>How old is Egypt ancient?</span>
+        <span id="span">How old is Egypt ancient?</span>
         <h3>
           For almost 30 centuries—from its unification around 3100 B.C. to its
           conquest by Alexander the Great in 332 B.C.—ancient Egypt was the
