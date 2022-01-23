@@ -1,9 +1,8 @@
 import React, { useState, useEffect } from "react";
-import { useSelector, useDispatch } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import * as sessionActions from '../store/session';
 
-function ProfileButton() {
-  const user = useSelector((state) => state.session.user);
+function ProfileButton({ user }) {
   const dispatch = useDispatch();
   const [showMenu, setShowMenu] = useState(false);
 

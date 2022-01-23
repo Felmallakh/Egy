@@ -17,7 +17,7 @@ function Homepage() {
 
   let albums = <NavLink className="secondary-button" to={`/users/${user_session?.id}/albums`}>Albums</NavLink>;
   let photos = <NavLink className="secondary-button" to={`/users/${user_session?.id}/photos`}>Photos</NavLink>;
-  let Pharaohs = (<NavLink className="secondary-button" to={`/users/${user_session?.id}/bio`}>Pharaohs</NavLink>);
+  let Pharaohs = (<NavLink className="secondary-button" to={`/bio`}>Pharaohs</NavLink>);
 
 
 
