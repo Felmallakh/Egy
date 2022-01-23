@@ -4,6 +4,7 @@ import { useEffect } from 'react';
 import { useSelector, useDispatch } from "react-redux";
 import { logout } from "../store/session";
 import './homepage.css'
+import ProfileButton from "../Profile/ProfileButton"
 
 function Homepage() {
   const dispatch = useDispatch();
@@ -16,7 +17,8 @@ function Homepage() {
 
   let albums = <NavLink className="secondary-button" to={`/users/${user_session?.id}/albums`}>Albums</NavLink>;
   let photos = <NavLink className="secondary-button" to={`/users/${user_session?.id}/photos`}>Photos</NavLink>;
-  let profile
+  let Pharaohs = (<NavLink className="secondary-button" to={`/users/${user_session?.id}/bio`}>Pharaohs</NavLink>);
+
 
 
   return (
@@ -47,7 +49,7 @@ function Homepage() {
           <button className="secondary-button">{albums}</button>
         </div>
         <div className="homepage-profile-box">
-          <button className="secondary-button">Pharaohs</button>
+          <button className="secondary-button">{Pharaohs}</button>
         </div>
         <div className="homepage-photo-box">
           <button className="secondary-button">{photos}</button>

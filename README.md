@@ -123,7 +123,7 @@ There is a layer in the Dockerfile that will install psycopg2 (not binary) for u
 
     heroku container:push web -a egypt-dest
     heroku container:release web -a egypt-dest
-    Done
+    flask run
     ```
 
 11. Under Settings find "Config Vars" and add any additional/secret .env
