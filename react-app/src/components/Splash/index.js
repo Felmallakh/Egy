@@ -20,7 +20,7 @@ function Splash() {
 
   // Background slideshow
   let i = 0;
-  let time = 2000;
+  let time = 3200;
 
   const slideShow = () => {
     const splashContainer = document.body;
