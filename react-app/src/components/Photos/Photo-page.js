@@ -32,7 +32,7 @@ function PhotoPage() {
     if (photo?.user_id !== userId)
       return alert(`User not authorized to perform this action`);
     const confirmed = window.confirm(
-      "Are you sure you want to remove this listing? This action cannot be undone."
+      "Are you sure you want to remove this Photo? This action cannot be undone."
     );
     if (confirmed) {
       await dispatch(deletePhotoThunk(photoId));
