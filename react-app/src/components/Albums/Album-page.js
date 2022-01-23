@@ -2,7 +2,11 @@ import React, { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import { logout } from "../store/session";
-import { getAlbumsThunk, updateAlbumThunk, deleteAlbumThunk } from "../store/album";
+import {
+  getAlbumsThunk,
+  updateAlbumThunk,
+  deleteAlbumThunk,
+} from "../store/album";
 import { getPhotosThunk } from "../store/photo";
 
 import "./albums.css";
@@ -16,12 +20,13 @@ function AlbumPage() {
   const { albumId } = useParams();
   const album = albums?.[albumId];
   const userId = session?.id;
-  const id = albumId
+  const id = albumId;
   const [title, setTitle] = useState(album?.title);
   const [description, setDescription] = useState(album?.description);
 
-  const photoArr = Object.values(photos).filter(photo => photo.album_id === +id)
-
+  const photoArr = Object.values(photos).filter(
+    (photo) => photo.album_id === +id
+  );
 
   useEffect(() => {
     dispatch(getAlbumsThunk(userId));
@@ -31,24 +36,31 @@ function AlbumPage() {
     dispatch(getPhotosThunk(userId));
   }, [session]);
 
-
-
   const handleSubmit = async (e) => {
     e.preventDefault();
     if (album.user_id !== userId)
-    return alert(`User not authorized to perform this action`);
-    await dispatch(deleteAlbumThunk(albumId));
-    hist(`/users/${userId}/albums`)
+      return alert(`User not authorized to perform this action`);
+    const confirmed = window.confirm(
+      "Are you sure you want to remove this Album? This action cannot be undone."
+    );
+    if (confirmed) {
+      await dispatch(deleteAlbumThunk(albumId));
+      hist(`/users/${userId}/albums`);
+    }
   };
 
   const editAlbum = async (e) => {
     e.preventDefault();
     if (album.user_id !== userId)
-    return alert(`User not authorized to perform this action`);
-    await dispatch(updateAlbumThunk({
-      id,title,description
-    }));
-  }
+      return alert(`User not authorized to perform this action`);
+    await dispatch(
+      updateAlbumThunk({
+        id,
+        title,
+        description,
+      })
+    );
+  };
 
   return session ? (
     <div id="album-splash-container">
@@ -57,11 +69,17 @@ function AlbumPage() {
           <button id="signout" onClick={() => hist(`/users/${userId}/albums`)}>
             Back
           </button>
-          {album? album.user_id === userId && (
-          <button id="signout" onClick={handleSubmit}>
-            Delete Album
-          </button> ): null}
-          <button id="signout" onClick={() => hist(`/albums/${albumId}/photos/new`)}>
+          {album
+            ? album.user_id === userId && (
+                <button id="signout" onClick={handleSubmit}>
+                  Delete Album
+                </button>
+              )
+            : null}
+          <button
+            id="signout"
+            onClick={() => hist(`/albums/${albumId}/photos/new`)}
+          >
             Add Photo
           </button>
         </div>
