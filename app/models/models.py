@@ -114,7 +114,8 @@ class Comment(db.Model):
             'id' : self.id,
             'content' : self.title,
             'user_id' : self.user_id,
-            'photo_id' : self.photo_id
+            'photo_id' : self.photo_id,
+            'photos' : self.photos
         }
 
 class Favorite(db.Model):
