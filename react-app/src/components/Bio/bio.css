@@ -1,4 +1,4 @@
-.bio-main-div {
+.bio {
   background: url(../../../public/Egypt-Papyrus-background.png) no-repeat center
     center fixed;
   background-repeat: no-repeat;
@@ -7,11 +7,21 @@
   -moz-background-size: cover;
   -o-background-size: cover;
   -ms-overflow-style: none;
-  overflow: scroll;
+  overflow: hidden;
   scrollbar-width: none;
   height: 100vh;
 }
 
 #home-button {
   cursor: pointer;
+}
+.bio-content {
+  display: flex;
+  place-content: center;
+}
+
+#bio-text {
+  display: flex;
+  width: 60%;
+  text-align: center;
 }
