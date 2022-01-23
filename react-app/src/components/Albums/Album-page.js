@@ -164,7 +164,7 @@ function AlbumPage() {
                 Cancel
               </button>
             </div>
-          </form> )}
+          </form> ): null}
         </div>
       </div>
     </div>
