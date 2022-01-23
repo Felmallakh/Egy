@@ -7,13 +7,13 @@
   height: 100vh;
 }
 
-.homepage-hero-div {
+.homepage-main-div {
   display: flex;
   width: 100%;
   justify-content: space-between;
 }
 
-.homepage-howto-div {
+.homepage-div {
   display: flex;
   flex-wrap: wrap;
   align-items: center;
@@ -42,9 +42,9 @@
   color: white;
 }
 
-.homepage-mission-box,
-.homepage-share-box,
-.homepage-explore-box {
+.homepage-album-box,
+.homepage-photo-box,
+.homepage-profile-box {
   display: flex;
   flex-direction: column;
   box-sizing: border-box;
@@ -59,9 +59,9 @@
   font-size: 16px;
   box-shadow: 0 5px 10px rgba(0, 0, 0, 0.719);
 }
-.homepage-mission-box:hover,
-.homepage-share-box:hover,
-.homepage-explore-box:hover {
+.homepage-album-box:hover,
+.homepage-photo-box:hover,
+.homepage-profile-box:hover {
   /* width: 20vw;
   height: 65vh; */
   background-color: #fff;
@@ -70,15 +70,15 @@
   transition: 1s all;
 }
 
-.homepage-mission-box {
+.homepage-album-box {
   background-image: url("../images/Pyramids\ 02.jpg");
 }
 
-.homepage-share-box {
+.homepage-photo-box {
   background-image: url("../images/Pyramids\ 01.jpg");
 }
 
-.homepage-explore-box {
+.homepage-profile-box {
   background-image: url("../images/Pyramids\ 03.jpg");
 }
 
@@ -112,9 +112,5 @@
 }
 
 @media all and (max-width: 600px) {
-  .homepage-hero-description {
-    font-weight: 400;
-    font-size: 14px;
-    line-height: 1.5;
-  }
+  
 }

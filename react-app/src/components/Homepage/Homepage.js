@@ -21,7 +21,7 @@ function Homepage() {
 
   return (
     <div className="homepage">
-      <nav className="homepage-hero-div">
+      <nav className="homepage-main-div">
         <div className="leftNav">
           <img
             src="https://cdn.discordapp.com/attachments/919391399269515305/932090523496370277/logo-removebg-preview.png"
@@ -41,14 +41,14 @@ function Homepage() {
         </div>
       </nav>
 
-      <div className="homepage-howto-div">
-        <div className="homepage-mission-box">
+      <div className="homepage-div">
+        <div className="homepage-album-box">
           <button className="secondary-button">{albums}</button>
         </div>
-        <div className="homepage-share-box">
+        <div className="homepage-photo-box">
           <button className="secondary-button">{photos}</button>
         </div>
-        <div className="homepage-explore-box">
+        <div className="homepage-profile-box">
           <button className="secondary-button">Profile</button>
         </div>
       </div>
