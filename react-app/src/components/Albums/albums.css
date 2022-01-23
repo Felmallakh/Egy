@@ -27,6 +27,7 @@
 .album-nav {
  /* position: fixed; */
  gap: 1000px;
+ width: fit-content;
 }
 
 .album-lef-Nav {
