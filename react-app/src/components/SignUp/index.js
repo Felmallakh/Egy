@@ -15,7 +15,7 @@ function SignUp() {
 
   const demoLogin = async (e) => {
     e.preventDefault();
-    await dispatch(sessionActions.login("khufu@egypt", "Password1"));
+    await dispatch(sessionActions.login("khufu@egypt.co", "Password1"));
     navigate('/home')
   }
 

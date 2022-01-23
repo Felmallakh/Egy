@@ -13,7 +13,7 @@ function AuthPage() {
 
   const demoLogin = async (e) => {
     e.preventDefault();
-    await dispatch(login("khufu@egypt", "Password1"));
+    await dispatch(login("khufu@egypt.co", "Password1"));
     navigate('/home');
   }
 
