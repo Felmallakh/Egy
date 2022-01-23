@@ -32,13 +32,17 @@
 
 .album-nav {
   /* position: fixed; */
-  gap: 1000px;
+  gap: 1050px;
   width: fit-content;
 }
 
 .album-lef-Nav {
   display: flex;
   margin-block-end: auto;
+}
+
+.nav-delete {
+  margin-left: 50px;
 }
 
 .album-info {

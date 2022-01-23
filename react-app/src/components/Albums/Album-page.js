@@ -69,13 +69,6 @@ function AlbumPage() {
           <button id="signout" onClick={() => hist(`/users/${userId}/albums`)}>
             Back
           </button>
-          {album
-            ? album.user_id === userId && (
-                <button id="signout" onClick={handleSubmit}>
-                  Delete Album
-                </button>
-              )
-            : null}
           <button
             id="signout"
             onClick={() => hist(`/albums/${albumId}/photos/new`)}
@@ -83,6 +76,7 @@ function AlbumPage() {
             Add Photo
           </button>
         </div>
+
         <div className="album-right-Nav">
           <button
             id="signout"
@@ -96,6 +90,15 @@ function AlbumPage() {
           </button>
         </div>
       </nav>
+        <div className="nav-delete">
+          {album
+            ? album.user_id === userId && (
+                <button id="signout" onClick={handleSubmit}>
+                  Delete Album
+                </button>
+              )
+            : null}
+        </div>
       <br />
       <br />
       <div className="album-info">
