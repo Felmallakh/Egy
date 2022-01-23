@@ -84,8 +84,8 @@ const Bio = () => {
         </h3>
       </div>
       <div className="bio-images">
-        <div id="img-1"></div>
-        <div id="img-2"></div>
+        <img id="img-1"></img>
+        <img id="img-2"></img>
       </div>
     </div>
   );
