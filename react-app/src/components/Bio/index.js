@@ -91,6 +91,14 @@ const Bio = () => {
         <img id="img-1"></img>
         <br />
         <img id="img-2"></img>
+        <br />
+        <img id="img-3"></img>
+        <br />
+        <img id="img-4"></img>
+        <br />
+        <img id="img-5"></img>
+        <br />
+        <img id="img-6"></img>
       </div>
     </div>
   );
