@@ -125,7 +125,8 @@ function AlbumPage() {
       </ul> */}
       <div className="album-section-div">
         <div className="album_container">
-          <form className="albumForm" onSubmit={editAlbum}>
+          {album? album.user_id === userId && (
+            <form className="albumForm" onSubmit={editAlbum}>
             <div className="album_content">Album Title</div>
             <input
               className="input-form"
@@ -163,7 +164,7 @@ function AlbumPage() {
                 Cancel
               </button>
             </div>
-          </form>
+          </form> )}
         </div>
       </div>
     </div>
