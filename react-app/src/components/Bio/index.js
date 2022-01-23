@@ -46,20 +46,41 @@ const Bio = () => {
           House,” a reference to the palace where the pharaoh resides. While
           early Egyptian rulers were called “kings,” over time, the name
           “pharaoh” stuck.
-          </h3>
-          <span>Who are pharaohs and why are they important?</span>
-          <h3>
-          The ruler of
-          ancient Egypt was called pharaoh . Pharaohs were looked upon as more
-          than rulers. They were Gods chosen to lead the people and maintain
-          order, and provided an important link between the Egyptian people and
-          their gods. </h3>
-          <span>Where did pharaohs come from?</span>
-          <h3>Pharaoh, (“great house”),
-          originally, the royal palace in ancient Egypt. The word came to be
-          used metonymically for the Egyptian king under the New Kingdom
-          (starting in the 18th dynasty, 1539–1292 bce), and by the 22nd dynasty
-          (c. 945–c. 730 bce) it had been adopted as an epithet of respect.
+        </h3>
+        <span>Who are pharaohs and why are they important?</span>
+        <h3>
+          The ruler of ancient Egypt was called pharaoh . Pharaohs were looked
+          upon as more than rulers. They were Gods chosen to lead the people and
+          maintain order, and provided an important link between the Egyptian
+          people and their gods.{" "}
+        </h3>
+        <span>Where did pharaohs come from?</span>
+        <h3>
+          Pharaoh, (“great house”), originally, the royal palace in ancient
+          Egypt. The word came to be used metonymically for the Egyptian king
+          under the New Kingdom (starting in the 18th dynasty, 1539–1292 bce),
+          and by the 22nd dynasty (c. 945–c. 730 bce) it had been adopted as an
+          epithet of respect.
+        </h3>
+        <br />
+        <h2>Ancient Egypt</h2>
+        <h3>
+          Ancient Egypt was a civilization of ancient Africa, concentrated along
+          the lower reaches of the Nile River, situated in the place that is now
+          the country Egypt. Ancient Egyptian civilization followed prehistoric
+          Egypt and coalesced around 3100 BC (according to conventional Egyptian
+          chronology)[1] with the political unification of Upper and Lower Egypt
+          under Menes (often identified with Narmer).[2] The history of ancient
+          Egypt occurred as a series of stable kingdoms, separated by periods of
+          relative instability known as Intermediate Periods: the Old Kingdom of
+          the Early Bronze Age, the Middle Kingdom of the Middle Bronze Age and
+          the New Kingdom of the Late Bronze Age.
+        </h3>
+        <span>How old is Egypt ancient?</span>
+        <h3>
+          For almost 30 centuries—from its unification around 3100 B.C. to its
+          conquest by Alexander the Great in 332 B.C.—ancient Egypt was the
+          preeminent civilization in the Mediterranean world.
         </h3>
       </div>
     </div>
