@@ -1,6 +1,5 @@
 #splash-container {
-  background: url(../../../public/splash-page.jpg) no-repeat center
-  center fixed;
+  background: url(../../../public/splash-page.jpg) no-repeat center center fixed;
   background-repeat: no-repeat;
   background-size: cover;
   -webkit-background-size: cover;
@@ -13,12 +12,12 @@
 }
 
 #splash-container::-webkit-scrollbar {
-  display: none
+  display: none;
 }
 
 #album-splash-container {
   background: url(../../../public/Egypt-Papyrus-background.png) no-repeat center
-  center fixed;
+    center fixed;
   background-repeat: no-repeat;
   background-size: cover;
   -webkit-background-size: cover;
@@ -28,19 +27,29 @@
 }
 
 #album-splash-container::-webkit-scrollbar {
-  display: none
+  display: none;
 }
 
-
 .album-nav {
- /* position: fixed; */
- gap: 1000px;
- width: fit-content;
+  /* position: fixed; */
+  gap: 1000px;
+  width: fit-content;
 }
 
 .album-lef-Nav {
-        display: flex;
-        margin-block-end: auto;
+  display: flex;
+  margin-block-end: auto;
+}
+
+.album-info {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  font-family: cursive;
+  color: rgb(148, 139, 58);
+  font-size: 25px;
 }
 
 .album-section-div {
@@ -138,65 +147,62 @@ a {
 /* Single Album-page */
 
 .album-photo-grid-list {
-    /* display: flex; */
-    padding-top: 70px;
-    align-items:center;
-    padding-left: 50px;
-    padding-right: 50px;
-    column-count: 3;
-    /* margin-left: 230px;
+  /* display: flex; */
+  padding-top: 70px;
+  align-items: center;
+  padding-left: 50px;
+  padding-right: 50px;
+  column-count: 3;
+  /* margin-left: 230px;
     margin-top: 100px; */
-    /* box-sizing: border-box; */
-    /* justify-content: flex-end; */
-    gap:0px;
-    border-radius: 10px;
-  }
+  /* box-sizing: border-box; */
+  /* justify-content: flex-end; */
+  gap: 0px;
+  border-radius: 10px;
+}
 
-  .photoLi {
-    position: relative;
-    height: 400px;
-    margin: 0px 10px 20px 40px;
-    overflow: hidden;
-  }
+.photoLi {
+  position: relative;
+  height: 400px;
+  margin: 0px 10px 20px 40px;
+  overflow: hidden;
+}
 
-  .img {
-    /* padding: 20px; */
-    height: 400px;
-    width: 400px;
-    border-style: outset;
-    border-radius: 20px;
-    /* box-sizing: border-box; */
-    /* justify-content: flex-end; */
-    /* height: 200px; */
-    /* width: 500px;
+.img {
+  /* padding: 20px; */
+  height: 400px;
+  width: 400px;
+  border-style: outset;
+  border-radius: 20px;
+  /* box-sizing: border-box; */
+  /* justify-content: flex-end; */
+  /* height: 200px; */
+  /* width: 500px;
     padding: 20px;
     margin: 10px;
     border-radius: 10px;
     box-shadow: 0 5px 10px rgb(0 0 0 / 72%); */
 }
 
-
 #photo-mask {
-    color: rgba(255, 255, 255, 0);
-    display: flex;
-    align-items: flex-end;
-    width: 400px;
-    height: 400px;
-    position: absolute;
-    top: 0px;
-    transition: all 0.50s linear;
-    border-style: outset;
-    border-radius: 20px;
+  color: rgba(255, 255, 255, 0);
+  display: flex;
+  align-items: flex-end;
+  width: 400px;
+  height: 400px;
+  position: absolute;
+  top: 0px;
+  transition: all 0.5s linear;
+  border-style: outset;
+  border-radius: 20px;
 }
 
 .photoLi:hover > #photo-mask {
-    background-color: rgba(0, 0, 0, 0.5);
-    color: white;
+  background-color: rgba(0, 0, 0, 0.5);
+  color: white;
 }
 
 .img-title {
-    font-size: 18px;
-    margin: 10px 5px 10px 15px;
+  font-size: 18px;
+  margin: 10px 5px 10px 15px;
 }
-
-

@@ -96,6 +96,12 @@ function AlbumPage() {
           </button>
         </div>
       </nav>
+      <br />
+      <br />
+      <div className="album-info">
+        <div>{album?.title}</div>
+        <div>{album?.description}</div>
+      </div>
       <ul className="album-photo-grid-list">
         {photoArr.map((photo) => (
           <li className="photoLi" key={photo.id}>
@@ -115,8 +121,6 @@ function AlbumPage() {
           })}
       </ul> */}
       <div className="album-section-div">
-        Album Title: {album?.title}
-        <div>Album description: {album?.description}</div>
         <div className="album_container">
           <form className="albumForm" onSubmit={editAlbum}>
             <div className="album_content">Album Title</div>
