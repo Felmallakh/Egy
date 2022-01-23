@@ -30,14 +30,15 @@ function Homepage() {
           <h2>Egypt Destinations</h2>
         </div>
         <div className="rightNav">
-            <button id="signout"
-              onClick={async () => {
-                await dispatch(logout());
-                hist("/");
-              }}
-            >
-              Log Out
-            </button>
+          <button
+            id="signout"
+            onClick={async () => {
+              await dispatch(logout());
+              hist("/");
+            }}
+          >
+            Log Out
+          </button>
         </div>
       </nav>
 
@@ -45,11 +46,11 @@ function Homepage() {
         <div className="homepage-album-box">
           <button className="secondary-button">{albums}</button>
         </div>
+        <div className="homepage-profile-box">
+          <button className="secondary-button">Pharaohs</button>
+        </div>
         <div className="homepage-photo-box">
           <button className="secondary-button">{photos}</button>
-        </div>
-        <div className="homepage-profile-box">
-          <button className="secondary-button">Profile</button>
         </div>
       </div>
     </div>
