@@ -5,6 +5,8 @@ import { logout } from "../store/session";
 
 import { getAlbumsThunk, addAlbumThunk } from "../store/album";
 import PhotoGrid from "./PhotoGrid";
+import Search from "../Search";
+
 import "./albums.css";
 
 function Albums() {
@@ -43,6 +45,9 @@ function Albums() {
           <button id="signout" onClick={() => hist(`/albums/new`)}>
             Create Album
           </button>
+        </div>
+        <div className="searchContainer">
+          <Search />
         </div>
         <div className="album-right-Nav">
           {/* <button id="signout" onClick={addAlbum}>

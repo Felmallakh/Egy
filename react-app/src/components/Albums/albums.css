@@ -32,8 +32,13 @@
 
 .album-nav {
   /* position: fixed; */
-  gap: 1050px;
-  width: fit-content;
+  /* gap: 1050px;
+  width: fit-content; */
+  display: flex;
+    justify-content: space-between;
+    height: 150px;
+    /* overflow: hidden; */
+        overflow-x: visible;
 }
 
 .album-lef-Nav {

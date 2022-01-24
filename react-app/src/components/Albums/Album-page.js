@@ -65,7 +65,7 @@ function AlbumPage() {
 
   return session ? (
     <div id="album-splash-container">
-      <nav className="album-nav">
+      <nav className="albumPage-nav">
         <div className="album-left-Nav">
           <button id="signout" onClick={() => hist(`/users/${userId}/albums`)}>
             Back
