@@ -16,9 +16,6 @@ function CreateAlbumForm() {
   //   return oneAlbum
   // }
 
-
-
-
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
   const [errors, setErrors] = useState([]);
@@ -32,11 +29,10 @@ function CreateAlbumForm() {
   const addAlbum = async (e) => {
     e.preventDefault();
     const output = [];
-    // console.log("😣😣😣", titles)
     const userId = session?.id;
-    const oneAlbum = albums?.map((album) => album?.title);
+    const albumTitle = albums?.map((album) => album?.title);
 
-    if(oneAlbum.indexOf(title) > -1){
+    if(albumTitle.indexOf(title) > -1){
       output.push(`Album ${title} already exists`)
       return setErrors(output)
     }
