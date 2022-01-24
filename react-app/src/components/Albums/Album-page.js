@@ -60,6 +60,7 @@ function AlbumPage() {
         description,
       })
     );
+      // hist(`/users/${userId}/albums`);
   };
 
   return session ? (
