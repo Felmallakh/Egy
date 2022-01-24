@@ -1,8 +1,10 @@
 import { useState } from "react";
 import { useSelector } from "react-redux";
+import { useNavigate } from "react-router";
 import "./search.css";
 
 function Search() {
+    const hist = useNavigate()
     const { search } = window.location
     const query = new URLSearchParams(search).get('')
     const albums = Object.values(useSelector((state) => state.albumReducer));
@@ -38,7 +40,10 @@ function Search() {
             {searchQuery.length > 0 && <ul id="search-ul">
                 {searchQuery.length > 0 && (filteredAlbums.map(album => {
                     return (
-                        < li key={album.id} >
+                        < li key={album.id} onClick={e => {
+                            e.preventDefault();
+                            hist(`/albums/${album.id}`)
+                        }} >
                             {album.title}
                         </li>
                     )
