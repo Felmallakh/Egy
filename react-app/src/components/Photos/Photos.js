@@ -47,7 +47,7 @@ function Photos() {
           <ul className="photoGrid" key={photo.id} value={photo.id}>
             {photo ? photo.map((photo) => {
               return <NavLink exact to={`/photos/${photo.id}`}>
-                <img className="img-grid" src={photo.photoURL} />
+                <img className="img-grid" key={photo.id} src={photo.photoURL} />
             </NavLink>
             }):null }
           </ul>
