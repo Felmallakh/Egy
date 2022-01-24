@@ -36,7 +36,9 @@
   width: fit-content; */
   display: flex;
     justify-content: space-between;
-    height: 180px;
+    height: 150px;
+    /* overflow: hidden; */
+        overflow-x: visible;
 }
 
 .album-lef-Nav {

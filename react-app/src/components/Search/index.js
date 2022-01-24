@@ -35,7 +35,7 @@ function Search() {
                 name="s"
                 autoComplete="off"
             />
-            {searchQuery.length > 0 && <ul >
+            {searchQuery.length > 0 && <ul id="search-ul">
                 {searchQuery.length > 0 && (filteredAlbums.map(album => {
                     return (
                         < li key={album.id} >
