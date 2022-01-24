@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Link, useNavigate } from "react-router-dom";
 
@@ -9,16 +9,27 @@ function CreateAlbumForm() {
   const hist = useNavigate();
 
   const session = useSelector((state) => state.session.user);
+  const albums = Object.values(useSelector(state => state.albumReducer))
+
+
+
+  console.log("😣😣😣", albums)
 
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
   const [errors, setErrors] = useState([]);
 
+
+  useEffect(() => {
+    dispatch(getAlbumsThunk(session?.id));
+  }, [session]);
+
   // Handle submit function
   const addAlbum = async (e) => {
     e.preventDefault();
     const userId = session?.id;
-
+    // if (albums.map(album => album.title === {title}))
+    //   return errors.push(`Album ${e.target.value} already exists`)
     await dispatch(addAlbumThunk({ userId, title, description }));
     hist(`/users/${userId}/albums`);
   };
@@ -35,28 +46,21 @@ function CreateAlbumForm() {
           </Link>
         </div>
         <p>Create New Album</p>
-        <ul>
-          {errors.map((error, idx) => (
-            <li className="errors" key={idx}>
-              {error}
-            </li>
-          ))}
-        </ul>
+        {errors.length > 0 && (
+          <ul className="errors">
+            {errors.map((error, idx) => (
+              <li className="error" key={idx}>
+                {error}
+              </li>
+            ))}
+          </ul>
+        )}
         <div id="createAlbum-form-background">
           <form
             onSubmit={addAlbum}
             className="form-container"
             id="createAlbum-form-container"
           >
-            {errors.length > 0 && (
-              <ul className="errors-container">
-                {errors.map((error, idx) => (
-                  <li className="error" key={idx}>
-                    {error}
-                  </li>
-                ))}
-              </ul>
-            )}
             <input
               className="form-field"
               type="text"
