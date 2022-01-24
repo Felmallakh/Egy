@@ -18,7 +18,6 @@ function Search() {
 
         return albums.filter((album) => {
             const albumName = album.title.toLowerCase();
-            console.log("😣😣😣", albumName)
             return albumName.includes(query.toLowerCase());
         });
     };

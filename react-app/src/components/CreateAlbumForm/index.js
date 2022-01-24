@@ -11,9 +11,13 @@ function CreateAlbumForm() {
   const session = useSelector((state) => state.session.user);
   const albums = Object.values(useSelector(state => state.albumReducer))
 
+  // const albumArr = () => {
+  //   const oneAlbum = albums?.map(album => album?.title)
+  //   return oneAlbum
+  // }
 
 
-  console.log("😣😣😣", albums)
+
 
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
@@ -27,9 +31,15 @@ function CreateAlbumForm() {
   // Handle submit function
   const addAlbum = async (e) => {
     e.preventDefault();
+    const output = [];
+    // console.log("😣😣😣", titles)
     const userId = session?.id;
-    // if (albums.map(album => album.title === {title}))
-    //   return errors.push(`Album ${e.target.value} already exists`)
+    const oneAlbum = albums?.map((album) => album?.title);
+
+    if(oneAlbum.indexOf(title) > -1){
+      output.push(`Album ${title} already exists`)
+      return setErrors(output)
+    }
     await dispatch(addAlbumThunk({ userId, title, description }));
     hist(`/users/${userId}/albums`);
   };
