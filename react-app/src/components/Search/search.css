@@ -1,65 +1,66 @@
-.searchContainer > input{
-    background-color:#38373c;
-    color:rgb(212, 212, 212);
-    padding: 5px;
-    /* margin: 5px; */
-    /* margin: 0 auto; */
-    /* margin-left: 5px; */
-    border-radius:10px;
-    width: 95%;
-    pointer-events: all;
+.searchContainer > input {
+  background-color: #38373c;
+  color: rgb(212, 212, 212);
+  padding: 5px;
+  /* margin: 5px; */
+  /* margin: 0 auto; */
+  /* margin-left: 5px; */
+  margin-top: 7px;
+  border-radius: 10px;
+  width: 95%;
+  pointer-events: all;
 }
-.searchbar:focus{
-    border: 2px solid rgb(91, 134, 151);
+.searchbar:focus {
+  border: 2px solid rgb(91, 134, 151);
 }
 .searchContainer ul {
-    list-style: none;
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-    z-index: 1;
-    border: 1px solid rgba(54, 55, 59, 1);
-    border-radius: 5px;
-    padding-inline-start: 0px;
-    background-color: rgb(30, 34, 49);
-    max-height:200px;
-    overflow-y:auto;
-    overflow-x:hidden;
-    width: 100%;
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  z-index: 1;
+  border: 1px solid rgba(54, 55, 59, 1);
+  border-radius: 5px;
+  padding-inline-start: 0px;
+  background-color: rgb(30, 34, 49);
+  max-height: 200px;
+  overflow-y: auto;
+  overflow-x: hidden;
+  width: 100%;
 }
 .searchContainer ul > li {
-    margin: 0 auto;
-    color: lightgrey;
-    display: inline-block;
-    vertical-align: top;
-    padding: 8px 0px;
-    cursor: pointer;
-    position: relative;
-    border-bottom: 1px solid rgba(54, 55, 59, 1);
-    width: 100%;
-    pointer-events: all;
+  margin: 0 auto;
+  color: lightgrey;
+  display: inline-block;
+  vertical-align: top;
+  padding: 8px 0px;
+  cursor: pointer;
+  position: relative;
+  border-bottom: 1px solid rgba(54, 55, 59, 1);
+  width: 100%;
+  pointer-events: all;
 }
-.searchContainer li > div{
-    margin-left:20px;
+.searchContainer li > div {
+  margin-left: 20px;
 }
 .searchContainer ul > li:hover {
-    cursor: pointer;
-    background-color: rgb(41, 36, 87);
+  cursor: pointer;
+  background-color: rgb(41, 36, 87);
 }
 
 .searchContainer {
-    /* position: absolute; */
-    /* background-color: blue; */
-    display: flex;
-    flex-direction: column;
-    /* margin-left: 120px;
+  /* position: absolute; */
+  /* background-color: blue; */
+  display: flex;
+  flex-direction: column;
+  /* margin-left: 120px;
     margin-top: 220px; */
-    justify-content: space-between;
-    align-items: center;
-    width: 40%;
-    min-height: 250px;
-    /* height:300px; */
-    justify-content: flex-start !important;
-    z-index: 5;
-    pointer-events: none;
+  justify-content: space-between;
+  align-items: center;
+  width: 40%;
+  min-height: 250px;
+  /* height:300px; */
+  justify-content: flex-start !important;
+  z-index: 5;
+  pointer-events: none;
 }
