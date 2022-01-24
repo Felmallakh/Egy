@@ -1,14 +1,15 @@
 .searchContainer > input {
-  background-color: #38373c;
-  color: rgb(212, 212, 212);
-  padding: 5px;
-  /* margin: 5px; */
-  /* margin: 0 auto; */
-  /* margin-left: 5px; */
-  margin-top: 7px;
-  border-radius: 10px;
-  width: 95%;
-  pointer-events: all;
+  background-color: transparent;
+    color: rgb(255 255 255);
+    padding: 5px;
+    font: caption;
+    /* margin: 5px; */
+    /* margin: 0 auto; */
+    /* margin-left: 5px; */
+    margin-top: 7px;
+    border-radius: 10px;
+    width: 95%;
+    pointer-events: all;
 }
 .searchbar:focus {
   border: 2px solid rgb(91, 134, 151);
