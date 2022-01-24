@@ -12,7 +12,7 @@
   pointer-events: all;
 }
 .searchbar:focus {
-  border: 2px solid rgb(91, 134, 151);
+  /* border: 2px solid rgb(10, 11, 12); */
 }
 #search-ul {
   border: 1px solid rgba(54, 55, 59, 1);
@@ -24,12 +24,18 @@
   overflow-x: hidden;
   width: 97%;
 }
+#search-ul::-webkit-scrollbar{
+    /* -webkit-border-radius: 10px; */
+    /* border-radius: 10px; */
+    /* background: #3b3838; */
+    width:1px;
+}
 .searchContainer ul > li {
-  margin: 0 auto;
+  /* margin: 0 auto; */
   color: lightgrey;
   display: inline-block;
   vertical-align: top;
-  padding: 8px 0px;
+  padding: 8px 7px;
   cursor: pointer;
   position: relative;
   border-bottom: 1px solid rgba(54, 55, 59, 1);
