@@ -125,7 +125,6 @@ const albumReducer = (state = {}, action) => {
   switch (action.type) {
     case GET_ALBUMS: {
       action.albums.forEach(album => {
-        // console.log("👌👌", album);
         newState[album.id] = album})
       return newState;
     }
@@ -134,13 +133,14 @@ const albumReducer = (state = {}, action) => {
       return newState;
     }
     case UPDATE_ALBUM: {
-      // console.log("🎅🎅",action.album)
       newState[action.album.id] = action.album;
       return newState;
     }
     case DELETE_ALBUM: {
       delete newState[action.album.id];
       return newState;
+      // const states = Array.from(state)
+      // return (states.filter((album) => album.album.id === action.album.id));
     }
     default:
       return state;
