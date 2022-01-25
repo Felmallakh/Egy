@@ -14,12 +14,16 @@
 background-color: white;
     /* flex-direction: column; */
     position: absolute;
-    padding: 10px 9px;
+    padding: 10px 9px 5px 5px;
     right: 48px;
     /* top: 60px; */
     list-style: none;
     border-radius: 5px;
         font-size: 15px;
+}
+
+.profile-dropdown li {
+  padding: 8px 7px;
 }
 
 #NavLogout {
