@@ -114,19 +114,17 @@ function AlbumPage() {
               <div className="img-title">
                 <div>{photo.title}</div>
               </div>
-                  <div
-                    className="mask-button"
-                    onClick={(e) => {
-                      e.stopPropagation();
-                      hist(`/photos/${photo.id}`);
-                    }}
-                  >
-                    Edit
-                  </div>
-              {/* {photo.user_id === userId && ( */}
-                <div className="img-title">
+              {photo.user_id === userId && (
+                <div
+                  className="mask-button"
+                  onClick={(e) => {
+                    e.stopPropagation();
+                    hist(`/photos/${photo.id}`);
+                  }}
+                >
+                  Edit
                 </div>
-              {/* )} */}
+              )}
             </div>
           </li>
         ))}
