@@ -106,6 +106,8 @@ function AlbumPage() {
         <div className="album-info">{album?.title}</div>
         <div id="album-desc">{album?.description}</div>
       </div>
+      <br />
+      <br />
       <ul className="album-photo-grid-list">
         {photoArr.map((photo) => (
           <li className="photoLi" key={photo.id}>
