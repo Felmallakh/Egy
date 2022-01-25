@@ -1,9 +1,15 @@
 import React, { useState, useEffect } from "react";
-import { useDispatch } from 'react-redux';
-import * as sessionActions from '../store/session';
+import { useSelector, useDispatch } from "react-redux";
+import { useNavigate } from "react-router-dom";
+import { logout } from "../store/session";
+import './profile.css';
 
-function ProfileButton({ user }) {
+
+function ProfileButton({}) {
+  const hist = useNavigate();
   const dispatch = useDispatch();
+
+  const user = useSelector((state) => state.session.user);
   const [showMenu, setShowMenu] = useState(false);
 
   const openMenu = () => {
@@ -18,15 +24,11 @@ function ProfileButton({ user }) {
       setShowMenu(false);
     };
 
-    document.addEventListener('click', closeMenu);
+    document.addEventListener("click", closeMenu);
 
     return () => document.removeEventListener("click", closeMenu);
   }, [showMenu]);
 
-  const logout = (e) => {
-    e.preventDefault();
-    dispatch(sessionActions.logout());
-  };
 
   return (
     <>
@@ -35,13 +37,20 @@ function ProfileButton({ user }) {
         <i className="fas fa-user-graduate" aria-hidden="true" />
       </button>
       {showMenu && (
-        <ul className="profile-dropdown">
-          <li>{user.username}</li>
-          <li>{user.email}</li>
-          <li>
-            <button onClick={logout}>Log Out</button>
-          </li>
-        </ul>
+        <div className="profile-dropdown">
+          <div className="profileButtons">
+            <li>{user.username}</li>
+            <li>{user.email}</li>
+            <li>
+              <span className="NavHome point" id="NavLogout" onClick={async () => {
+              await dispatch(logout());
+              hist("/");
+            }}>
+                <i class="fas fa-sign-out-alt"></i>Log Out
+              </span>
+            </li>
+          </div>
+        </div>
       )}
     </>
   );

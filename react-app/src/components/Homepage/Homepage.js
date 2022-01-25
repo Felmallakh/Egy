@@ -11,6 +11,7 @@ function Homepage() {
   const hist = useNavigate()
 
   const user_session = useSelector((state) => state.session.user);
+  
   useEffect(() => {
     if (!user_session) return hist("/NotFound");
   }, []);
@@ -32,7 +33,7 @@ function Homepage() {
           <h2>Egypt Destinations</h2>
         </div>
         <div className="rightNav">
-          <button
+          <ProfileButton />{/* <button
             id="signout"
             onClick={async () => {
               await dispatch(logout());
@@ -40,7 +41,7 @@ function Homepage() {
             }}
           >
             Log Out
-          </button>
+          </button> */}
         </div>
       </nav>
 
