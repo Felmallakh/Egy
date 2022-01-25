@@ -32,3 +32,8 @@
   display: flex;
   gap: 3px;
 }
+
+.fa-sign-out-alt:before {
+    content: "\f2f5";
+    font-size: 17px;
+}
