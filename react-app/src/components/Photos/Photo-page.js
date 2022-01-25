@@ -60,7 +60,7 @@ function PhotoPage() {
 
   return session ? (
     <div id="photo-page">
-      <nav className="album-nav">
+      <nav className="albumPage-nav">
         <div className="album-left-Nav">
           <button id="signout" onClick={back}>
             Back
@@ -85,6 +85,8 @@ function PhotoPage() {
           </button>
         </div>
       </nav>
+      <br />
+      <br />
       <div className="photo-container">
         <div className="album-info">{photo?.title}</div>
         <div id="album-desc">{photo?.description}</div>
