@@ -22,11 +22,6 @@ background-color: white;
         font-size: 15px;
 }
 
-.profileButtons {
-  display: flex;
-  flex-direction: column;
-}
-
 #NavLogout {
   color: rgba(220, 20, 60, 0.952);
   cursor: pointer;

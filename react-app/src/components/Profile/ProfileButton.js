@@ -38,8 +38,8 @@ function ProfileButton({}) {
       </button>
       {showMenu && (
         <div className="profile-dropdown">
-          <div className="profileButtons">
-            <li>{user.username}</li>
+          <div>
+            <li>Welcome {user.username}</li>
             <li>{user.email}</li>
             <li>
               <span id="NavLogout" onClick={async () => {
