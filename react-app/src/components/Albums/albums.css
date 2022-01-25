@@ -203,6 +203,7 @@ a {
   color: rgba(255, 255, 255, 0);
   display: flex;
   align-items: flex-end;
+  justify-content: space-between;
   width: 400px;
   height: 400px;
   position: absolute;
@@ -215,6 +216,16 @@ a {
 .photoLi:hover > #photo-mask {
   background-color: rgba(0, 0, 0, 0.5);
   color: white;
+}
+
+.mask-button:hover {
+    cursor: pointer;
+}
+
+.mask-button {
+  font-size: 18px;
+  /* margin: 10px 5px 10px 15px; */
+  margin: 10px 5px 10px ;
 }
 
 .img-title {
