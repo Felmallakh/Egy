@@ -46,7 +46,7 @@ function ProfileButton({}) {
               await dispatch(logout());
               hist("/");
             }}>
-                <i class="fas fa-sign-out-alt"></i>Log Out
+                <i class="fas fa-sign-out-alt"></i> Log Out
               </span>
             </li>
           </div>
