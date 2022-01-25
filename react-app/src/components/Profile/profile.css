@@ -1,22 +1,14 @@
+#profile-button {
+  background-color: transparent;
+  border: 1px solid #000807;
+  border: none;
+  font-size: 30px;
+}
 .profile-dropdown {
-  /* z-index: 1;
-  display: flex;
-  color: rgb(0, 0, 0);
   background-color: white;
-  flex-direction: column;
-  position: absolute;
-  padding: 10px 0;
-  right: 20px;
-  top: 60px;
-  list-style: none;
-  border-radius: 5px;
-  font-size: 1rem; */
-  background-color: white;
-  /* flex-direction: column; */
   position: absolute;
   padding: 10px 9px 5px 5px;
   right: 49px;
-  /* top: 60px; */
   list-style: none;
   border-radius: 5px;
   font-size: 15px;
@@ -35,6 +27,6 @@
 }
 
 .fa-sign-out-alt:before {
-    content: "\f2f5";
-    font-size: 17px;
+  content: "\f2f5";
+  font-size: 17px;
 }
