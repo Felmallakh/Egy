@@ -1,0 +1,32 @@
+#profile-button {
+  background-color: transparent;
+  border: 1px solid #000807;
+  border: none;
+  font-size: 30px;
+}
+.profile-dropdown {
+  background-color: white;
+  position: absolute;
+  padding: 10px 9px 5px 5px;
+  right: 49px;
+  list-style: none;
+  border-radius: 5px;
+  font-size: 15px;
+}
+
+.profile-dropdown li {
+  padding: 8px 7px;
+}
+
+#NavLogout {
+  color: rgba(220, 20, 60, 0.952);
+  cursor: pointer;
+  display: flex;
+  gap: 3px;
+  font-weight: 550;
+}
+
+.fa-sign-out-alt:before {
+  content: "\f2f5";
+  font-size: 17px;
+}

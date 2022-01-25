@@ -60,7 +60,7 @@ function AlbumPage() {
         description,
       })
     );
-      // hist(`/users/${userId}/albums`);
+    // hist(`/users/${userId}/albums`);
   };
 
   return session ? (
@@ -91,21 +91,23 @@ function AlbumPage() {
           </button>
         </div>
       </nav>
-        <div className="nav-delete">
-          {album
-            ? album.user_id === userId && (
-                <button id="signout" onClick={handleSubmit}>
-                  Delete Album
-                </button>
-              )
-            : null}
-        </div>
+      <div className="nav-delete">
+        {album
+          ? album.user_id === userId && (
+              <button id="signout" onClick={handleSubmit}>
+                Delete Album
+              </button>
+            )
+          : null}
+      </div>
       <br />
       <br />
       <div className="album-info">
         <div className="album-info">{album?.title}</div>
         <div id="album-desc">{album?.description}</div>
       </div>
+      <br />
+      <br />
       <ul className="album-photo-grid-list">
         {photoArr.map((photo) => (
           <li className="photoLi" key={photo.id}>
@@ -114,6 +116,17 @@ function AlbumPage() {
               <div className="img-title">
                 <div>{photo.title}</div>
               </div>
+              {photo.user_id === userId && (
+                <div
+                  className="mask-button"
+                  onClick={(e) => {
+                    e.stopPropagation();
+                    hist(`/photos/${photo.id}`);
+                  }}
+                >
+                  Edit
+                </div>
+              )}
             </div>
           </li>
         ))}
@@ -126,46 +139,49 @@ function AlbumPage() {
       </ul> */}
       <div className="album-section-div">
         <div className="album_container">
-          {album? album.user_id === userId && (
-            <form className="albumForm" onSubmit={editAlbum}>
-            <div className="album_content">Album Title</div>
-            <input
-              className="input-form"
-              onChange={(e) => setTitle(e.target.value)}
-              name="title"
-              type="text"
-              placeholder={album?.title}
-              value={title}
-              required
-            />
-            <br />
-            <br />
-            <div className="album_content">Description</div>
-            <textarea
-              className="text-form"
-              onChange={(e) => setDescription(e.target.value)}
-              name="content"
-              type="text"
-              placeholder={album?.description}
-              value={description}
-            />
-            <br />
-            <div className="album-buttons">
-              <button className="submit-button" type="submit">
-                Save Album <i className="far fa-save" />
-              </button>
-              <button
-                className="submit-button"
-                type="button"
-                onClick={(e) => {
-                  e.preventDefault();
-                  hist(`/users/${userId}/albums`);
-                }}
-              >
-                Cancel
-              </button>
-            </div>
-          </form> ): null}
+          {album
+            ? album.user_id === userId && (
+                <form className="albumForm" onSubmit={editAlbum}>
+                  <div className="album_content">Album Title</div>
+                  <input
+                    className="input-form"
+                    onChange={(e) => setTitle(e.target.value)}
+                    name="title"
+                    type="text"
+                    placeholder={album?.title}
+                    value={title}
+                    required
+                  />
+                  <br />
+                  <br />
+                  <div className="album_content">Description</div>
+                  <textarea
+                    className="text-form"
+                    onChange={(e) => setDescription(e.target.value)}
+                    name="content"
+                    type="text"
+                    placeholder={album?.description}
+                    value={description}
+                  />
+                  <br />
+                  <div className="album-buttons">
+                    <button className="submit-button" type="submit">
+                      Save Album <i className="far fa-save" />
+                    </button>
+                    <button
+                      className="submit-button"
+                      type="button"
+                      onClick={(e) => {
+                        e.preventDefault();
+                        hist(`/users/${userId}/albums`);
+                      }}
+                    >
+                      Cancel
+                    </button>
+                  </div>
+                </form>
+              )
+            : null}
         </div>
       </div>
     </div>
