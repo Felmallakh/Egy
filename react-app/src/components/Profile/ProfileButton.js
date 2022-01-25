@@ -42,7 +42,7 @@ function ProfileButton({}) {
             <li>{user.username}</li>
             <li>{user.email}</li>
             <li>
-              <span className="NavHome point" id="NavLogout" onClick={async () => {
+              <span id="NavLogout" onClick={async () => {
               await dispatch(logout());
               hist("/");
             }}>
