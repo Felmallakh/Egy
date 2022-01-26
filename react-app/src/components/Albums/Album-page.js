@@ -93,7 +93,7 @@ function AlbumPage() {
       <div className="nav-delete">
         {album
           ? album.user_id === userId && (
-              <button id="signout" onClick={handleSubmit}>
+              <button id="albumdelete" onClick={handleSubmit}>
                 Delete Album <i class="fas fa-trash-alt"></i>
               </button>
             )

@@ -66,6 +66,27 @@
   margin-left: 50px;
 }
 
+#albumdelete {
+  color: white;
+  font-weight: 700;
+  padding: 12px;
+  width: max-content;
+  font-size: 15px;
+  background-color: transparent;
+  border: 1px solid #000807;
+  border: none;
+  border-radius: 7px;
+  /* transition-property: opacity; */
+  transition-property: background-color;
+  transition-duration: 1.2s;
+  /* opacity: 0.85; */
+}
+
+#albumdelete:hover {
+  background-color: rgb(208 149 73 / 66%);
+  color: rgb(248, 11, 11);
+}
+
 .album-info {
   width: 100%;
   display: flex;
