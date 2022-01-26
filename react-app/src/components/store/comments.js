@@ -43,4 +43,16 @@ export const addCommentThunk = (comment) => async (dispatch) => {
     return comments
 }
 
+// Edit comment
+export const editCommentThunk = (comment) => async (dispatch) => {
+    const { commentId, photoId, content } = comment;
+    const res = await fetch(`/api/photos/${photoId}/comments/${commentId}`, {
+      method: "PUT",
+      headers: { "Content-type": "application/json" },
+      body: JSON.stringify({ content }),
+    });
+    const comments = await res.json();
+    dispatch(updateComment(comments));
+    return comments;
+}
 
