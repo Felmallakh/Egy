@@ -25,6 +25,7 @@ export const getCommentsThunk = (photoId) => async (dispatch) => {
   const res = await fetch(`/api/photos/${photoId}/comments`);
   if (res.ok) {
     const comments = await res.json();
+    console.log("😣😣comments",comments);
     dispatch(getComments(comments));
     return comments;
   }

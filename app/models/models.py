@@ -112,10 +112,9 @@ class Comment(db.Model):
     def to_dict(self):
         return {
             'id' : self.id,
-            'content' : self.title,
+            'content' : self.content,
             'user_id' : self.user_id,
             'photo_id' : self.photo_id,
-            'photos' : self.photos
         }
 
 class Favorite(db.Model):

@@ -42,8 +42,8 @@ def deleteAlbum(photoId):
 def getComments(photoId):
     comments = Comment.query.filter(photoId == Comment.photo_id)
     # comments = Comment.query.all()
-    # return { 'comments' : [comment.to_dict() for comment in comments]}
-    return [comment.to_dict() for comment in comments]
+    return { 'comments' : [comment.to_dict() for comment in comments]}
+    # return [comment.to_dict() for comment in comments]
 
 # Add Comment
 @photo_routes.route('/<int:photoId>/comments', methods=['POST'])
