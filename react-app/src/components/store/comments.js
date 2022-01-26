@@ -19,3 +19,14 @@ const deleteComment = (comment) => ({
     type: DELETE_COMMENT,
     comment
 })
+
+// Get comments
+export const getCommentsThunk = (photoId) => async (dispatch) => {
+    const res = await fetch(`/api/photos/${photoId}/comments`);
+    if (res.ok){
+        const comments = await res.json();
+        dispatch(getComments(comments));
+        return comments;
+    }
+}
+
