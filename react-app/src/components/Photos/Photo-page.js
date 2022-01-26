@@ -66,7 +66,7 @@ function PhotoPage() {
       <nav className="albumPage-nav">
         <div className="album-left-Nav">
           <button id="signout" onClick={back}>
-            Back
+            <i className="fas fa-arrow-left"></i>
           </button>
           <button
             id="signout"
@@ -81,13 +81,13 @@ function PhotoPage() {
         </div>
         <div className="album-right-Nav">
           <button
-            id="signout"
+            id="nav-logout"
             onClick={async () => {
               await dispatch(logout());
               hist("/");
             }}
           >
-            Log Out
+            <i className="fas fa-sign-out-alt"></i> Log Out
           </button>
         </div>
       </nav>

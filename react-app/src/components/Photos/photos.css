@@ -16,9 +16,20 @@
   display: none;
 }
 
-.photo-nav {
-  /* gap: 1150px;
-  width: fit-content; */
+#nav-logout {
+  display: flex;
+  gap: 3px;
+  font-weight: 550;
+  color: white;
+  border: none;
+  border-radius: 7px;
+  transition-property: background-color;
+  transition-duration: 1.2s;
+}
+
+#nav-logout:hover {
+  background-color: rgb(208 149 73 / 66%);
+  color: rgba(220, 20, 60, 0.952);
 }
 
 .img-grid {
