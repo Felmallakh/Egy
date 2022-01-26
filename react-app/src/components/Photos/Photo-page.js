@@ -75,7 +75,7 @@ function PhotoPage() {
               dispatch(editPhotoOn());
             }}
           >
-            <i class="fas fa-edit"></i>
+            <i className="fas fa-edit"></i>
           </button>
           {/* {photo ? photo.user_id === userId && <EditPhotoForm /> : null} */}
         </div>

@@ -19,7 +19,6 @@ function EditPhotoFrom() {
   const { photoId } = useParams();
   const photo = photos?.[photoId];
   const [title, setTitle] = useState(photo?.title);
-  const [description, setDescription] = useState(photo?.description);
    const userId = user?.id;
    const id = photoId;
   const [errors, setErrors] = useState([]);
@@ -28,13 +27,7 @@ function EditPhotoFrom() {
     e.preventDefault();
     if (photo.user_id !== userId)
       return alert(`User not authorized to perform this action`);
-    dispatch(
-      updatePhotoThunk({
-        id,
-        title,
-        description,
-      })
-    );
+    dispatch(updatePhotoThunk({ id, title }));
   };
 
   const handleSubmit = async (e) => {
@@ -62,7 +55,7 @@ function EditPhotoFrom() {
       )}
       {showForm && (
         <form
-          className="channelForm"
+          className="editForm"
           onSubmit={editPhoto}
         >
           <div className="form1">
@@ -78,7 +71,7 @@ function EditPhotoFrom() {
             ></input>
           </div>
           <div id="channelButton">
-            <div className="delete" id={id} onClick={handleSubmit}>
+            <div className="delete" onClick={handleSubmit}>
               Delete <i className="fas fa-trash-alt"></i>
             </div>
             <p
