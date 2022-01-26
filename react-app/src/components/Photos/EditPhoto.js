@@ -63,6 +63,7 @@ function EditPhotoFrom() {
             <label>Photo title</label>
             <input
               placeholder={"Photo Title"}
+              type="text"
               value={title}
               onChange={(e) => {
                 setTitle(e.target.value);
@@ -70,7 +71,7 @@ function EditPhotoFrom() {
               required
             ></input>
           </div>
-          <div id="channelButton">
+          <div id="editPhotoButton">
             <div className="delete" onClick={handleSubmit}>
               Delete <i className="fas fa-trash-alt"></i>
             </div>

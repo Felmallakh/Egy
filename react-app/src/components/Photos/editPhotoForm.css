@@ -1,5 +1,5 @@
 .blackout {
-  position: absolute;
+  position: fixed;
   background-color: rgb(0, 0, 0, 0.5);
   height: 100%;
   width: 100%;
@@ -23,7 +23,7 @@
   animation: createBox 0.25s;
 }
 
-.editForm>div {
+.editForm > div {
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -34,6 +34,54 @@
     padding: 15px;
     width: 92%;
 }
+
+.editForm input {
+    background-color: #2b2f35;
+    border: 1px solid #000;
+    border-radius: 5px;
+    box-sizing: border-box;
+    color: #fff;
+    height: 30px;
+    margin-top: 5px;
+    padding: 5px;
+}
+
+input[type="text"]:focus {
+    outline : none;
+}
+
+#editPhotoButton {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  justify-content: flex-end;
+  background-color: #2b2f35;
+  border-bottom-left-radius: 5px;
+  border-bottom-right-radius: 5px;
+}
+#editPhotoButton button {
+  margin: 15px;
+  padding: 10px;
+}
+#editPhotoButton p {
+  display: flex;
+  align-items: center;
+  font-size: 13px;
+  margin-right: 10px;
+  cursor: pointer;
+}
+#editPhotoButton .cancel {
+  background-color: transparent;
+  border: none;
+  color: rgb(137, 196, 219);
+}
+#editPhotoButton .submit {
+  background-color: rgb(100, 154, 175);
+  border: none;
+  border-radius: 5px;
+}
+
+
 .delete {
     text-align: center;
     display: flex;
@@ -50,42 +98,4 @@
 
 .delete:hover {
     cursor: pointer;
-}
-
-
-
-.channelForm h5 {
-    text-align: center;
-    margin: 0px 0px 20px 0px;
-}
-
-.delete {
-    text-align: center;
-    display: flex;
-    align-items: center;
-    margin: 15px 160px 15px 0px;
-    font-size: 14px;
-    color: red;
-}
-
-.delete i {
-    padding: 0px 5px;
-    margin-right: 10px;
-}
-
-.delete:hover {
-    cursor: pointer;
-}
-
-.is{
-    display:flex;
-    justify-content: center;
-    align-items:center;
-    height:25px;
-    width:25px;
-    border-radius:5px;
-}
-.is:hover{
-    cursor: pointer;
-    background-color: lightskyblue;
 }
