@@ -1,6 +1,6 @@
-from flask import Blueprint, jsonify, request
-from flask_login import login_required, current_user
-from app.models import db, User, Album, Photo
+from flask import Blueprint, request
+from flask_login import login_required
+from app.models import db, Photo, Comment
 from app.forms import EditPhotoForm
 
 
@@ -34,3 +34,18 @@ def deleteAlbum(photoId):
     db.session.commit()
 
     return photo.to_dict()
+
+
+# Get Comments
+@photo_routes.route('/<int:photoId>/comments')
+@login_required
+def getComments(photoId):
+    comments = Comment.query.filter(photoId == Comment.photo_id)
+    return { 'comments' : [comment.to_dict() for comment in comments]}
+
+
+# Add Comment
+@photo_routes.route('/<int:photoId>/comments', methods=['POST'])
+@login_required
+def addComment(photoId):
+    
