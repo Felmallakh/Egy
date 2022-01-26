@@ -2,9 +2,8 @@ import React, { useState, useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { logout } from "../store/session";
 import { useNavigate, useParams } from "react-router-dom";
-
 import { getPhotosThunk, updatePhotoThunk, deletePhotoThunk } from "../store/photo";
-
+import { editPhotoOff } from "../store/showEditPhoto";
 import "../Profile/profile.css";
 
 function EditPhoto() {
