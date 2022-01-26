@@ -91,7 +91,6 @@ export const deletePhotoThunk = (photoId) => async (dispatch) => {
 };
 
 const photoReducer = (state = {}, action) => {
-  // console.log("😣😣", action.photos)
   const newState = { ...state };
   switch (action.type) {
     case GET_PHOTOS: {

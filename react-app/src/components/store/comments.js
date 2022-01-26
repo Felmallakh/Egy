@@ -67,24 +67,29 @@ export const deleteCommentThunk = (commentId) => async (dispatch) => {
 };
 
 export default function commentsReducer(state = {}, action) {
+  console.log("😣😣", action.comments)
   const newState = { ...state };
   switch (action.type) {
     case GET_COMMENTS: {
-      action.comments.forEach((comment) => (newState[comment.id] = comment));
+      action.comments.comments.forEach(
+        (comment) => (newState[comment.id] = comment)
+      );
       return newState;
     }
     case ADD_COMMENT: {
-        newState[action.comment.id] = action.comment;
-        return newState;
+      newState[action.comment.id] = action.comment;
+      return newState;
     }
     case UPDATE_COMMENT: {
-        newState[action.comment.id] = action.comment;
-        return newState;
+      newState[action.comment.id] = action.comment;
+      return newState;
     }
     case DELETE_COMMENT: {
-        delete newState[action.comment.id];
-        return newState;
+      delete newState[action.comment.id];
+      return newState;
     }
-    default: { return state }
+    default: {
+      return state;
+    }
   }
 }
