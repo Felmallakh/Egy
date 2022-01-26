@@ -76,10 +76,8 @@
   border: 1px solid #000807;
   border: none;
   border-radius: 7px;
-  /* transition-property: opacity; */
   transition-property: background-color;
   transition-duration: 1.2s;
-  /* opacity: 0.85; */
 }
 
 #albumdelete:hover {
