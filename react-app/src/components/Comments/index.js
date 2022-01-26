@@ -32,9 +32,11 @@ function Comments() {
         {comments
           ? comments.map((comment) => (
               <div key={comment.id} className="comments-div">
-                <h3 className="author" key={comment.id}>
-                  {comment.author.username}
-                </h3>
+                <div className="author-layout">
+                  <h3 id="author" key={comment.id}>
+                    {comment.author.username}
+                  </h3>
+                </div>
                 <p className="content">{comment.content}</p>
               </div>
             ))
