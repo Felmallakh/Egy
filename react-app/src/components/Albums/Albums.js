@@ -43,16 +43,13 @@ function Albums() {
             <i id="nav-size" className="fas fa-arrow-left"></i>
           </button>
           <button class="nav-add" onClick={() => hist(`/albums/new`)}>
-              Add Album  <i className="fas fa-plus"></i>
+            Add Album <i className="fas fa-plus"></i>
           </button>
         </div>
         <div className="searchContainer">
           <Search />
         </div>
         <div className="album-right-Nav">
-          {/* <button id="signout" onClick={addAlbum}>
-            Add Album
-          </button> */}
           <button
             class="nav-logout"
             onClick={async () => {
