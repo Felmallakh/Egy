@@ -22,22 +22,24 @@ function Comments() {
 
   return session ? (
     <div className="comments-container">
-      <div className="photo-comments">
+      <div className="comments-header">
         <h1>Comments</h1>
-        <h2 className="comments-title">
+        <div className="comments-title">
           {comments ? `${comments.length} Comments` : "0  Comments"}
-        </h2>
+        </div>
       </div>
-      {comments
-        ? comments.map((comment) => (
-            <div key={comment.id} className="comments-div">
-              <h3 className="author" key={comment.id}>
-                {comment.author?.username}
-              </h3>
-              <p className="content">{comment.content}</p>
-            </div>
-          ))
-        : null}
+      <ul className="photo-comments">
+        {comments
+          ? comments.map((comment) => (
+              <div key={comment.id} className="comments-div">
+                <h3 className="author" key={comment.id}>
+                  {comment.author.username}
+                </h3>
+                <p className="content">{comment.content}</p>
+              </div>
+            ))
+          : null}
+      </ul>
     </div>
   ) : null;
 }

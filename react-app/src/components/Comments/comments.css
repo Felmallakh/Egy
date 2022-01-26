@@ -1,12 +1,26 @@
-.comments-container{
-    display: flex;
+.comments-container {
+  display: flex;
+  flex-direction: column;
+  width: 60%;
+  border-radius: 15px;
+  background-color: white;
+  margin-bottom: 30px;
+  height: 500px;
+}
+.comments-title {
+  text-align: left;
+  padding-left: 15px;
+}
+.photo-comments{
+    display:flex;
     flex-direction: column;
-    width: 60%;
-    border-top: 1px black solid;
+    gap: 5px;
+}
+
+.comments-div {
+    border: 1px black solid;
     border-radius: 15px;
-    background-color: white;
-    align-items: center;
-    margin-bottom: 30px;
-    height: 500px;
+    text-align: left;
+    padding-left: 15px;
 
 }
