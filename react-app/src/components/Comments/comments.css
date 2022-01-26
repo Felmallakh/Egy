@@ -18,13 +18,14 @@
 
 .comments-count {
   text-align: left;
-  padding: 15px 0px 0px 20px;
+  padding: 15px 0px 0px 27px;
 }
 .photo-comments {
   display: flex;
   flex-direction: column;
   gap: 5px;
-  padding: 0px 15px 0px 15px;
+    padding: 0px 15px 0px 25px;
+    width: 32rem;
 }
 .comments-div {
   border: 1px black solid;
