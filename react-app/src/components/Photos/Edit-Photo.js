@@ -21,14 +21,6 @@ function EditPhoto() {
   const userId = user?.id;
   const id = photoId;
 
-  const openMenu = () => {
-    if (showMenu) return;
-    setShowMenu(true);
-  };
-
-  const closeMenu = () => {
-    setShowMenu(false);
-  };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -62,7 +54,7 @@ function EditPhoto() {
         <div
           className="blackout"
           onClick={(e) => {
-            dispatch(editOrgOff());
+            dispatch(editPhotoOff());
           }}
         ></div>
       )}

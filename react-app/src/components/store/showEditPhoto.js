@@ -25,4 +25,4 @@ const editPhotoFormReducer = (state = false, action) => {
     }
 }
 
-export default editOrgFormReducer
+export default editPhotoFormReducer;
