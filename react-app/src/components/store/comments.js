@@ -1,4 +1,4 @@
-const GET_COMMENTS = "comment/GET_COMMENTS";
+const GET_COMMENTS = "comments/GET_COMMENTS";
 const ADD_COMMENT = "comment/ADD_COMMENT";
 const UPDATE_COMMENT = "comment/UPDATE_COMMENT";
 const DELETE_COMMENT = "comment/DELETE_COMMENT";
@@ -26,7 +26,7 @@ export const getCommentsThunk = (photoId) => async (dispatch) => {
   if (res.ok) {
     const comments = await res.json();
     console.log("😣comments thunk", comments);
-    dispatch(getComments(comments));
+    dispatch(getComments(comments.comments));
     return comments;
   }
 };
@@ -69,12 +69,11 @@ export const deleteCommentThunk = (commentId) => async (dispatch) => {
 
 export default function commentsReducer(state = {}, action) {
   const newState = { ...state };
-  console.log("😣😣action.comments", action.comments)
+  // console.log("😣😣action.comments", action.comments)
   switch (action.type) {
     case GET_COMMENTS: {
-      action.comments.coments.forEach(
-        (comment) => (newState[comment.id] = comment)
-      );
+      action.comments.forEach((comment) => {
+        newState[comment.id] = comment})
       return newState;
     }
     case ADD_COMMENT: {
@@ -89,8 +88,7 @@ export default function commentsReducer(state = {}, action) {
       delete newState[action.comment.id];
       return newState;
     }
-    default: {
+    default:
       return state;
-    }
   }
 }
