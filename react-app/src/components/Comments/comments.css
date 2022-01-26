@@ -1,0 +1,12 @@
+.comments-container{
+    display: flex;
+    flex-direction: column;
+    width: 60%;
+    border-top: 1px black solid;
+    border-radius: 15px;
+    background-color: white;
+    align-items: center;
+    margin-bottom: 30px;
+    height: 500px;
+
+}
