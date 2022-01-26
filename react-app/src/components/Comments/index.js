@@ -11,6 +11,7 @@ function Comments() {
   const hist = useNavigate();
   const session = useSelector((state) => state.session.user);
   const comments = Object.values(useSelector((state) => state.commentsReducer));
+  console.log("😣😣",comments)
   const photoId = useParams().id
 
   const userId = session?.id;
@@ -22,8 +23,9 @@ function Comments() {
   return session ? (
     <div className="comments-container">
       <div className="photo-comments">
-        <h2 className="comments-title">
-            { comments ? `${comments.length} Comments` : '0  Comments'}</h2>
+          <h1>Comments</h1>
+        {/* <h2 className="comments-title">
+            { comments ? `${comments.length} Comments` : '0  Comments'}</h2> */}
       </div>
     </div>
   ) : null;

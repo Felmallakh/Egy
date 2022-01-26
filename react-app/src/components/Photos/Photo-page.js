@@ -146,7 +146,7 @@ function PhotoPage() {
             : null}
         </div> */}
       </div>
-      <Comments />
+      {/* <Comments /> */}
     </div>
   ) : null;
 }
