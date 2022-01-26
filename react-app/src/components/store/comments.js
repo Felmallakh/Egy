@@ -56,3 +56,12 @@ export const editCommentThunk = (comment) => async (dispatch) => {
     return comments;
 }
 
+// Delete comment
+export const deleteCommentThunk = (commentId) => async (dispatch) => {
+    const res = await fetch(`/api/comments/${commentId}`, {
+        method: "DELETE"
+    });
+    const comment = await res.json();
+    dispatch(deleteComment(comment));
+    return comment;
+}
