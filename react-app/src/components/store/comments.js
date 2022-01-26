@@ -30,3 +30,17 @@ export const getCommentsThunk = (photoId) => async (dispatch) => {
     }
 }
 
+// Add comment
+export const addCommentThunk = (comment) => async (dispatch) => {
+    const { photoId, content } = comment;
+    const res = await fetch(`/api/photos/${photoId}/comments`, {
+        method: 'POST',
+        headers: { 'Content-type': 'application/json'},
+        body: JSON.stringify({ content })
+    })
+    const comments = await res.json()
+    dispatch(addComment(comments))
+    return comments
+}
+
+
