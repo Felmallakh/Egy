@@ -13,7 +13,6 @@ function CreatePhotoForm() {
   const { albumId } = useParams();
 
   const [title, setTitle] = useState("");
-  const [description, setDescription] = useState("");
   const [image, setImage] = useState("");
   const [errors, setErrors] = useState([]);
 
@@ -22,7 +21,6 @@ function CreatePhotoForm() {
     const formData = new FormData();
     formData.append("photoURL", image);
     formData.append("title", title);
-    formData.append("description", description);
     formData.append("album_id", albumId);
     formData.append("userId", session.id);
     await dispatch(addPhotoThunk(formData));
@@ -93,13 +91,6 @@ function CreatePhotoForm() {
               value={title}
               // required
               onChange={(e) => setTitle(e.target.value)}
-            />
-            <input
-              className="form-field"
-              type="text"
-              placeholder="Description (optional)"
-              value={description}
-              onChange={(e) => setDescription(e.target.value)}
             />
             <button type="submit">Create Photo</button>
           </form>
