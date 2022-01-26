@@ -25,17 +25,6 @@ const Bio = () => {
           ></img>
           <h2>Pharaohs</h2>
         </div>
-        <div className="rightNav">
-          <button
-            id="signout"
-            onClick={async () => {
-              await dispatch(logout());
-              hist("/");
-            }}
-          >
-            Log Out
-          </button>
-        </div>
       </nav>
       <br />
       <br />
