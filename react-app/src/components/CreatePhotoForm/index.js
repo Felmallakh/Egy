@@ -89,7 +89,7 @@ function CreatePhotoForm() {
               type="text"
               placeholder="Title"
               value={title}
-              // required
+              required
               onChange={(e) => setTitle(e.target.value)}
             />
             <button type="submit">Create Photo</button>
