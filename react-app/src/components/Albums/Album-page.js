@@ -68,26 +68,26 @@ function AlbumPage() {
       <nav className="albumPage-nav">
         <div className="album-left-Nav">
           <button id="signout" onClick={() => hist(`/users/${userId}/albums`)}>
-            Back
+            <i id="nav-size" className="fas fa-arrow-left"></i>
           </button>
           <button
-            id="signout"
+            class="nav-add"
             onClick={() => hist(`/albums/${albumId}/photos/new`)}
           >
-            Add Photo
+            Add Photo <i className="fas fa-plus"></i>
           </button>
         </div>
 
         <div className="album-right-Nav">
           <button
-            id="signout"
+            class="nav-logout"
             onClick={async (e) => {
               e.preventDefault();
               await dispatch(logout());
               hist("/");
             }}
           >
-            Log Out
+            <i className="fas fa-sign-out-alt"></i> Log Out
           </button>
         </div>
       </nav>
