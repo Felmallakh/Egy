@@ -23,8 +23,8 @@ function Comments() {
   return session ? (
     <div className="comments-container">
       <div className="comments-header">
-        <h1>Comments</h1>
-        <div className="comments-title">
+        <h1 id="comment-title">Comments</h1>
+        <div className="comments-count">
           {comments ? `${comments.length} Comments` : "0  Comments"}
         </div>
       </div>
