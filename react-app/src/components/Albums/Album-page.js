@@ -60,7 +60,6 @@ function AlbumPage() {
         description,
       })
     );
-    // hist(`/users/${userId}/albums`);
   };
 
   return session ? (
@@ -95,7 +94,7 @@ function AlbumPage() {
         {album
           ? album.user_id === userId && (
               <button id="signout" onClick={handleSubmit}>
-                Delete Album
+                Delete Album <i class="fas fa-trash-alt"></i>
               </button>
             )
           : null}
