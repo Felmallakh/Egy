@@ -41,6 +41,10 @@
   width: 92%;
 }
 
+h2 {
+  align-self: center;
+}
+
 .editForm input {
   background-color: rgb(169 128 77 / 92%);
   border: 1px solid #000;
@@ -70,7 +74,6 @@ input[type="text"]:focus {
   padding: 10px;
   font-weight: 600;
   font-size: 15px;
-
 }
 #editPhotoButton p {
   display: flex;
@@ -102,12 +105,11 @@ input[type="text"]:focus {
   text-align: center;
   display: flex;
   align-items: center;
-  margin: 15px 160px 15px 0px;
+  margin: 15px 146px px 15px 0px;
   font-size: 14px;
   color: red;
   font-weight: 600;
   font-size: 15px;
-
 }
 
 .delete i {
