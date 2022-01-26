@@ -68,6 +68,7 @@ function PhotoPage() {
           <button id="signout" onClick={back}>
             <i id="nav-size" className="fas fa-arrow-left"></i>
           </button>
+          {photo ? photo.user_id === userId && (
           <button
             id="signout"
             onClick={(e) => {
@@ -76,7 +77,7 @@ function PhotoPage() {
             }}
           >
             <i id="nav-size" className="fas fa-edit"></i>
-          </button>
+          </button>): null}
           {/* {photo ? photo.user_id === userId && <EditPhotoForm /> : null} */}
         </div>
         <div className="album-right-Nav">
