@@ -10,9 +10,9 @@ function Comments() {
   const dispatch = useDispatch();
   const hist = useNavigate();
   const session = useSelector((state) => state.session.user);
-  const comment = Object.values(useSelector((state) => state.commentsReducer));
+  const comments = Object.values(useSelector((state) => state.commentsReducer));
   // console.log("😣😣",comments)
-  const photoId = useParams().photoId
+  const photoId = useParams().photoId;
 
   const userId = session?.id;
 
@@ -24,18 +24,20 @@ function Comments() {
     <div className="comments-container">
       <div className="photo-comments">
         <h1>Comments</h1>
-        {/* <h2 className="comments-title"> */}
-        {/* { comments ? `${comments.length} Comments` : '0  Comments'}</h2> */}
+        <h2 className="comments-title">
+          {comments ? `${comments.length} Comments` : "0  Comments"}
+        </h2>
       </div>
-      <ul className="photoGrid" key={comment.id} value={comment.id}>
-        {comment
-          ? comment.map((comment) => {
-              return (
-                  <p className="img-grid" key={comment.id}>{comment.content}</p>
-              );
-            })
-          : null}
-      </ul>
+      {comments
+        ? comments.map((comment) => (
+            <div key={comment.id} className="comments-div">
+              <h3 className="author" key={comment.id}>
+                {comment.author?.username}
+              </h3>
+              <p className="content">{comment.content}</p>
+            </div>
+          ))
+        : null}
     </div>
   ) : null;
 }

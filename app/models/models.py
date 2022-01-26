@@ -115,6 +115,7 @@ class Comment(db.Model):
             'content' : self.content,
             'user_id' : self.user_id,
             'photo_id' : self.photo_id,
+            'author' : self.user.to_dict()
         }
 
 class Favorite(db.Model):
