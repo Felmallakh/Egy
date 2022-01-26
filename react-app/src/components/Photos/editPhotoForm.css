@@ -1,0 +1,84 @@
+.channelForm h5 {
+    text-align: center;
+    margin: 0px 0px 20px 0px;
+}
+
+.delete {
+    text-align: center;
+    display: flex;
+    align-items: center;
+    margin: 15px 160px 15px 0px;
+    font-size: 14px;
+    color: red;
+}
+
+.delete i {
+    padding: 0px 5px;
+    margin-right: 10px;
+}
+
+.delete:hover {
+    cursor: pointer;
+}
+
+.blackout {
+  position: fixed;
+  background-color: black;
+  height: 100%;
+  width: 100%;
+  opacity: 0.5;
+  z-index: 100;
+}
+
+.channelForm {
+  color: white;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  border-radius: 5px;
+  position: fixed;
+  height: 300px;
+  width: 400px;
+  background-color: #373942;
+  z-index: 100;
+  align-self: center;
+  top: 100px;
+  animation: createBox 0.25s;
+}
+
+.channelForm h5 {
+    text-align: center;
+    margin: 0px 0px 20px 0px;
+}
+
+.delete {
+    text-align: center;
+    display: flex;
+    align-items: center;
+    margin: 15px 160px 15px 0px;
+    font-size: 14px;
+    color: red;
+}
+
+.delete i {
+    padding: 0px 5px;
+    margin-right: 10px;
+}
+
+.delete:hover {
+    cursor: pointer;
+}
+
+.is{
+    display:flex;
+    justify-content: center;
+    align-items:center;
+    height:25px;
+    width:25px;
+    border-radius:5px;
+}
+.is:hover{
+    cursor: pointer;
+    background-color: lightskyblue;
+}

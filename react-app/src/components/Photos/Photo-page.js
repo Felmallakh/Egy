@@ -7,7 +7,8 @@ import {
   updatePhotoThunk,
   deletePhotoThunk,
 } from "../store/photo";
-import EditPhoto from "./Edit-Photo";
+import EditPhotoForm from "./EditPhoto";
+import { editPhotoOn } from "../store/showEditPhoto";
 
 import "./photos.css";
 
@@ -61,12 +62,22 @@ function PhotoPage() {
 
   return session ? (
     <div id="photo-page">
+      <EditPhotoForm />
       <nav className="albumPage-nav">
         <div className="album-left-Nav">
           <button id="signout" onClick={back}>
             Back
           </button>
-          {photo ? photo.user_id === userId && <EditPhoto /> : null}
+          <button
+            id="signout"
+            onClick={(e) => {
+              e.stopPropagation();
+              dispatch(editPhotoOn());
+            }}
+          >
+            <i class="fas fa-edit"></i>
+          </button>
+          {/* {photo ? photo.user_id === userId && <EditPhotoForm /> : null} */}
         </div>
         <div className="album-right-Nav">
           <button

@@ -1,5 +1,5 @@
-const OFF = 'editOrg/OFF'
-const ON = 'editOrg/ON'
+const OFF = 'editPhoto/OFF'
+const ON = 'editPhoto/ON'
 
 export const editPhotoOn = () => {
     return {

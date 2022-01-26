@@ -62,15 +62,8 @@ function EditPhotoFrom() {
       )}
       {showForm && (
         <form
-          className="edit-Form"
-          onSubmit={async (e) => {
-            e.preventDefault();
-            if (title) {
-              dispatch(editPhotoOff());
-              await editOrg();
-            }
-            setTitle("");
-          }}
+          className="channelForm"
+          onSubmit={editPhoto}
         >
           <div className="form1">
             <h2>Edit Photo Title</h2>
