@@ -90,7 +90,7 @@ function PhotoPage() {
         <img className="single-image" src={photo?.photoURL} />
       </div>
       <div className="album-section-div">
-        <div className="album_container">
+        {/* <div className="album_container">
           {photo
             ? photo.user_id === userId && (
                 <form className="albumForm" onSubmit={editPhoto}>
@@ -135,7 +135,7 @@ function PhotoPage() {
                 </form>
               )
             : null}
-        </div>
+        </div> */}
       </div>
     </div>
   ) : null;

@@ -30,17 +30,10 @@ function EditPhoto() {
     setShowMenu(true);
   };
 
-  useEffect(() => {
-    if (!showMenu) return;
-
     const closeMenu = () => {
       setShowMenu(false);
     };
 
-    document.addEventListener("click", closeMenu);
-
-    return () => document.removeEventListener("click", closeMenu);
-  }, [showMenu]);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -71,11 +64,16 @@ function EditPhoto() {
 
 
   return (
-    <> 
-      <button id="profile-button" onClick={openMenu}>
-        {" "}
-        Edit
-      </button>
+    <>
+      {!showMenu ? (
+        <button id="profile-button" onClick={openMenu}>
+          Edit
+        </button>
+      ) : (
+        <button id="profile-button" onClick={closeMenu}>
+          Edit
+        </button>
+      )}
 
       {showMenu && (
         <form className="albumForm" onSubmit={editPhoto}>
@@ -102,7 +100,7 @@ function EditPhoto() {
           />
           <br />
           <div className="album-buttons">
-            <button className="submit-button" type="submit">
+            <button className="submit-button" type="submit" onClick={closeMenu}>
               Save
               <i className="far fa-save" />
             </button>

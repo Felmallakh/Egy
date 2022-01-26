@@ -35,10 +35,10 @@
   /* gap: 1050px;
   width: fit-content; */
   display: flex;
-    justify-content: space-between;
-    height: 150px;
-    /* overflow: hidden; */
-        overflow-x: visible;
+  justify-content: space-between;
+  height: 150px;
+  /* overflow: hidden; */
+  overflow-x: visible;
 }
 
 .album-lef-Nav {
@@ -115,7 +115,7 @@ a {
 }
 
 .input-form {
-  height: 30px;
+  /* height: 30px;
   width: fit-content;
   font-size: 18px;
   font-family: monospace;
@@ -123,11 +123,18 @@ a {
   border-radius: 10px;
   border-width: thick;
   resize: none;
-  padding: 10px;
+  padding: 10px; */
+  height: 30px;
+  width: -moz-fit-content;
+  font-size: 18px;
+  border: groove;
+  border-radius: 10px;
+  border-width: thick;
+  resize: none;
 }
 
 .text-form {
-  font-family: monospace;
+  /* font-family: monospace;
   font-size: 18px;
   height: 200px;
   width: 550px;
@@ -135,7 +142,14 @@ a {
   border-radius: 10px;
   border-width: thick;
   resize: none;
-  padding: 10px;
+  padding: 10px; */
+  font-size: 18px;
+  height: 73px;
+  width: 300px;
+  border: groove;
+  border-radius: 10px;
+  border-width: thick;
+  resize: none;
 }
 
 .album-buttons {
@@ -219,7 +233,7 @@ a {
 }
 
 .mask-button:hover {
-    cursor: pointer;
+  cursor: pointer;
 }
 
 .mask-button {
