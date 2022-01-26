@@ -1,8 +1,8 @@
 import React from "react";
 import { useNavigate, useParams } from "react-router-dom";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { getCommentsThunk } from "../store/comments";
+import { getCommentsThunk, addCommentThunk } from "../store/comments";
 
 import "./comments.css";
 
@@ -15,6 +15,15 @@ function Comments() {
   const photoId = useParams().photoId;
 
   const userId = session?.id;
+
+  const [content, setContent] = useState("");
+
+  const addComment = async (e) => {
+    e.preventDefault();
+
+    await dispatch(addCommentThunk({ userId, photoId, content }));
+    // hist(`/users/${userId}/albums`);
+  };
 
   useEffect(() => {
     dispatch(getCommentsThunk(photoId));
@@ -38,10 +47,29 @@ function Comments() {
                   </h3>
                 </div>
                 <p className="content">{comment.content}</p>
+                <div className="comments-buttons">
+                  {comment.user_id === userId && (
+                    <button id="edit-button"> EDIT</button>
+                  )}
+                </div>
               </div>
             ))
           : null}
       </ul>
+      <form className="albumForm" onSubmit={addComment}>
+        <div className="album_content">Album Title</div>
+        <textarea
+          className="text-form"
+          onChange={(e) => setContent(e.target.value)}
+          name="content"
+          type="text"
+          placeholder="Type your comment"
+          value={content}
+        />
+        <button className="submit-button" type="submit">
+          Add Comment
+        </button>
+      </form>
     </div>
   ) : null;
 }
