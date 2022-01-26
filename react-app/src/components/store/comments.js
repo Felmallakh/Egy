@@ -25,7 +25,7 @@ export const getCommentsThunk = (photoId) => async (dispatch) => {
   const res = await fetch(`/api/photos/${photoId}/comments`);
   if (res.ok) {
     const comments = await res.json();
-    console.log("😣😣comments",comments);
+    console.log("😣comments thunk", comments);
     dispatch(getComments(comments));
     return comments;
   }
@@ -68,11 +68,11 @@ export const deleteCommentThunk = (commentId) => async (dispatch) => {
 };
 
 export default function commentsReducer(state = {}, action) {
-  console.log("😣😣", action.comments)
   const newState = { ...state };
+  console.log("😣😣action.comments", action.comments)
   switch (action.type) {
     case GET_COMMENTS: {
-      action.comments.comments.forEach(
+      action.comments.coments.forEach(
         (comment) => (newState[comment.id] = comment)
       );
       return newState;
