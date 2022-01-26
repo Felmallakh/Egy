@@ -23,6 +23,17 @@
   animation: createBox 0.25s;
 }
 
+.editForm>div {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    position: relative;
+}
+
+.form1 {
+    padding: 15px;
+    width: 92%;
+}
 .delete {
     text-align: center;
     display: flex;
