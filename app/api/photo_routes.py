@@ -1,7 +1,7 @@
 from flask import Blueprint, request
-from flask_login import login_required
+from flask_login import login_required, current_user
 from app.models import db, Photo, Comment
-from app.forms import EditPhotoForm
+from app.forms import EditPhotoForm, CommentForm, EditCommentForm
 
 
 photo_routes = Blueprint('photos', __name__)
@@ -18,7 +18,7 @@ def updatePhoto(id):
     if form.validate_on_submit:
         photo.title = form.title.data
         photo.description = form.description.data
-        photoURL = form.photoURL.data
+        photo.photoURL = form.photoURL.data
 
         db.session.commit()
         return photo.to_dict()
@@ -48,4 +48,31 @@ def getComments(photoId):
 @photo_routes.route('/<int:photoId>/comments', methods=['POST'])
 @login_required
 def addComment(photoId):
-    form = 
+    form = CommentForm()
+    form['csrf_token'].data = request.cookies['csrf_token']
+    if form.validate_on_submit():
+        comment = Comment (
+            content = form.data['content'],
+            photo_id = photoId,
+            user_id = current_user.id
+        )
+        db.session.add(comment)
+        db.session.commit()
+        return comment.to_dict()
+
+
+# Edit Comment
+@photo_routes.route('/<int:photoId>/comments/<int:commentId>', methods=['PUT'])
+@login_required
+def updateComment(photoId, commentId):
+    comment = Comment.query.get(commentId)
+    form = EditCommentForm()
+    form['csrf_token'].data = request.cookies['csrf_token']
+
+    if form.validate_on_submit:
+        comment.content = form.data['content']
+        comment.photo_id = photoId
+        comment.user_id = current_user.id
+
+        db.session.commit()
+        return comment.to_dict()
