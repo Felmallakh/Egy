@@ -1,0 +1,122 @@
+.blackout {
+  position: fixed;
+  background-color: rgb(0, 0, 0, 0.5);
+  height: 100%;
+  width: 100%;
+  z-index: 1;
+}
+
+#edit-container {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.editForm {
+  color: white;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  border-radius: 15px;
+  position: fixed;
+  height: 300px;
+  width: 400px;
+  background-color: rgb(218 179 128 / 78%);
+  z-index: 100;
+  align-self: center;
+  top: 200px;
+  animation: createBox 0.25s;
+}
+
+.editForm > div {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  position: relative;
+}
+
+.form1 {
+  padding: 15px;
+  width: 92%;
+}
+
+h2 {
+  align-self: center;
+}
+
+.editForm input {
+  background-color: rgb(169 128 77 / 92%);
+  border: 1px solid #000;
+  border-radius: 5px;
+  box-sizing: border-box;
+  color: #fff;
+  height: 30px;
+  margin-top: 5px;
+  padding: 5px;
+}
+
+input[type="text"]:focus {
+  outline: none;
+}
+
+#editPhotoButton {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  justify-content: flex-end;
+  background-color: rgb(194 156 108 / 92%);
+  border-bottom-left-radius: 5px;
+  border-bottom-right-radius: 5px;
+}
+#editPhotoButton button {
+  margin: 15px;
+  padding: 10px;
+  font-weight: 600;
+  font-size: 15px;
+}
+#editPhotoButton p {
+  display: flex;
+  align-items: center;
+  font-size: 15px;
+  font-weight: bold;
+  margin-right: 10px;
+  cursor: pointer;
+}
+#editPhotoButton .cancel {
+  background-color: transparent;
+  border: none;
+  color: #ffffffb3;
+}
+#editPhotoButton .submit {
+  background-color: rgb(153 117 72 / 80%);
+  color: #ffffffb3;
+  border: none;
+  border-radius: 5px;
+}
+#editPhotoButton .submit:hover {
+  background-color: rgba(209, 141, 57, 0.8);
+  color: #ffffffb3;
+  border: none;
+  border-radius: 5px;
+}
+
+.delete {
+  text-align: center;
+  display: flex;
+  align-items: center;
+  margin: 15px 146px 15px 0px;
+  font-size: 14px;
+  color: red;
+  font-weight: 600;
+  font-size: 15px;
+}
+
+.delete i {
+  padding: 0px 5px;
+  margin-right: 10px;
+}
+
+.delete:hover {
+  cursor: pointer;
+}

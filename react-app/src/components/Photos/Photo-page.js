@@ -7,6 +7,8 @@ import {
   updatePhotoThunk,
   deletePhotoThunk,
 } from "../store/photo";
+import EditPhotoForm from "./EditPhoto";
+import { editPhotoOn } from "../store/showEditPhoto";
 
 import "./photos.css";
 
@@ -60,28 +62,33 @@ function PhotoPage() {
 
   return session ? (
     <div id="photo-page">
+      <EditPhotoForm />
       <nav className="albumPage-nav">
         <div className="album-left-Nav">
           <button id="signout" onClick={back}>
-            Back
+            <i id="nav-size" className="fas fa-arrow-left"></i>
           </button>
-          {photo
-            ? photo.user_id === userId && (
-                <button id="signout" onClick={handleSubmit}>
-                  Delete Photo
-                </button>
-              )
-            : null}
+          {photo ? photo.user_id === userId && (
+          <button
+            id="signout"
+            onClick={(e) => {
+              e.stopPropagation();
+              dispatch(editPhotoOn());
+            }}
+          >
+            <i id="nav-size" className="fas fa-edit"></i>
+          </button>): null}
+          {/* {photo ? photo.user_id === userId && <EditPhotoForm /> : null} */}
         </div>
         <div className="album-right-Nav">
           <button
-            id="signout"
+            class="nav-logout"
             onClick={async () => {
               await dispatch(logout());
               hist("/");
             }}
           >
-            Log Out
+            <i className="fas fa-sign-out-alt"></i> Log Out
           </button>
         </div>
       </nav>
@@ -95,7 +102,7 @@ function PhotoPage() {
         <img className="single-image" src={photo?.photoURL} />
       </div>
       <div className="album-section-div">
-        <div className="album_container">
+        {/* <div className="album_container">
           {photo
             ? photo.user_id === userId && (
                 <form className="albumForm" onSubmit={editPhoto}>
@@ -140,7 +147,7 @@ function PhotoPage() {
                 </form>
               )
             : null}
-        </div>
+        </div> */}
       </div>
     </div>
   ) : null;

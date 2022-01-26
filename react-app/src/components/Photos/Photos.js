@@ -25,7 +25,7 @@ function Photos() {
       <nav className="photo-nav">
         <div className="album-left-Nav">
           <button id="signout" onClick={() => hist(`/home`)}>
-            Back
+            <i id="nav-size" className="fas fa-arrow-left"></i>
           </button>
         </div>
         <div className="album-right-Nav">
@@ -33,24 +33,32 @@ function Photos() {
             Add Album
           </button> */}
           <button
-            id="signout"
+            class="nav-logout"
             onClick={async () => {
               await dispatch(logout());
               hist("/");
             }}
           >
-            Log Out
+            <i className="fas fa-sign-out-alt"></i> Log Out
           </button>
         </div>
       </nav>
       <div className="album-wrap">
-          <ul className="photoGrid" key={photo.id} value={photo.id}>
-            {photo ? photo.map((photo) => {
-              return <NavLink exact to={`/photos/${photo.id}`}>
-                <img className="img-grid" key={photo.id} src={photo.photoURL} />
-            </NavLink>
-            }):null }
-          </ul>
+        <ul className="photoGrid" key={photo.id} value={photo.id}>
+          {photo
+            ? photo.map((photo) => {
+                return (
+                  <NavLink exact to={`/photos/${photo.id}`}>
+                    <img
+                      className="img-grid"
+                      key={photo.id}
+                      src={photo.photoURL}
+                    />
+                  </NavLink>
+                );
+              })
+            : null}
+        </ul>
       </div>
     </div>
   ) : null;

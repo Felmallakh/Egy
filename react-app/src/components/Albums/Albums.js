@@ -40,27 +40,24 @@ function Albums() {
       <nav className="album-nav">
         <div className="album-left-Nav">
           <button id="signout" onClick={() => hist(`/home`)}>
-            Back
+            <i id="nav-size" className="fas fa-arrow-left"></i>
           </button>
-          <button id="signout" onClick={() => hist(`/albums/new`)}>
-            Create Album
+          <button class="nav-add" onClick={() => hist(`/albums/new`)}>
+            Add Album <i className="fas fa-plus"></i>
           </button>
         </div>
         <div className="searchContainer">
           <Search />
         </div>
         <div className="album-right-Nav">
-          {/* <button id="signout" onClick={addAlbum}>
-            Add Album
-          </button> */}
           <button
-            id="signout"
+            class="nav-logout"
             onClick={async () => {
               await dispatch(logout());
               hist("/");
             }}
           >
-            Log Out
+            <i className="fas fa-sign-out-alt"></i> Log Out
           </button>
         </div>
       </nav>

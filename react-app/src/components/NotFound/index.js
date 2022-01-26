@@ -14,7 +14,7 @@ function NotFound() {
     return (
       <div id="not-found">
         <nav className="Hieroglyphics">
-          <div class="container">
+          <div className="container">
             <h1>An error has occured</h1>
             <button className="not-back" onClick={back}>Go back</button>
           </div>
