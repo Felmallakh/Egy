@@ -57,7 +57,7 @@ function EditPhotoFrom() {
         <div id="edit-container">
           <form className="editForm" onSubmit={editPhoto}>
             <div className="form1">
-              <h2>Edit Photo Title</h2>
+              <h2>Edit Photo</h2>
               <label>Photo title</label>
               <input
                 placeholder={"Photo Title"}
