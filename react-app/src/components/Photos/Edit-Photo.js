@@ -3,11 +3,7 @@ import { useSelector, useDispatch } from "react-redux";
 import { logout } from "../store/session";
 import { useNavigate, useParams } from "react-router-dom";
 
-import { 
-  getPhotosThunk,
-  updatePhotoThunk,
-  deletePhotoThunk,
-} from "../store/photo";
+import { getPhotosThunk, updatePhotoThunk, deletePhotoThunk } from "../store/photo";
 
 import "../Profile/profile.css";
 
