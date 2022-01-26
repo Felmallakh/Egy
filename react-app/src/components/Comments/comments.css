@@ -3,7 +3,7 @@
   flex-direction: column;
   width: 40%;
   border-radius: 15px;
-  background-color: white;
+  background-color: #eee8e8c7;
   margin-bottom: 30px;
   height: 500px;
 }
@@ -13,7 +13,7 @@
     font-size: 50px;
     margin-bottom: 20px;
     text-align: -webkit-center;
-    color: rgb(226, 226, 145);
+    color: rgb(187, 187, 148);
 }
 
 .comments-count {
