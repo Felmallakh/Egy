@@ -3,7 +3,7 @@ import { useSelector, useDispatch } from "react-redux";
 import { logout } from "../store/session";
 import { useNavigate, useParams } from "react-router-dom";
 
-import {
+import { 
   getPhotosThunk,
   updatePhotoThunk,
   deletePhotoThunk,
@@ -17,6 +17,7 @@ function EditPhoto() {
 
   const user = useSelector((state) => state.session.user);
   const photos = useSelector((state) => state.photoReducer);
+  const showForm = useSelector((state) => state.editPhotoFormReducer)
   const { photoId } = useParams();
   const photo = photos?.[photoId];
   const [title, setTitle] = useState(photo?.title);
@@ -62,14 +63,13 @@ function EditPhoto() {
 
   return (
     <>
-      {!showMenu ? (
-        <button id="profile-button" onClick={openMenu}>
-          Edit
-        </button>
-      ) : (
-        <button id="profile-button" onClick={closeMenu}>
-          Edit
-        </button>
+      {showMenu && (
+        <div
+          className="blackout"
+          onClick={(e) => {
+            dispatch(editOrgOff());
+          }}
+        ></div>
       )}
 
       {showMenu && (
