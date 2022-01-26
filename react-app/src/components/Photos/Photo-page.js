@@ -66,7 +66,7 @@ function PhotoPage() {
       <nav className="albumPage-nav">
         <div className="album-left-Nav">
           <button id="signout" onClick={back}>
-            <i className="fas fa-arrow-left"></i>
+            <i id="nav-size" className="fas fa-arrow-left"></i>
           </button>
           <button
             id="signout"
@@ -75,13 +75,13 @@ function PhotoPage() {
               dispatch(editPhotoOn());
             }}
           >
-            <i className="fas fa-edit"></i>
+            <i id="nav-size" className="fas fa-edit"></i>
           </button>
           {/* {photo ? photo.user_id === userId && <EditPhotoForm /> : null} */}
         </div>
         <div className="album-right-Nav">
           <button
-            id="nav-logout"
+            class="nav-logout"
             onClick={async () => {
               await dispatch(logout());
               hist("/");

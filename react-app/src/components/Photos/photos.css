@@ -16,7 +16,8 @@
   display: none;
 }
 
-#nav-logout {
+
+.nav-logout {
   display: flex;
   gap: 3px;
   font-weight: 550;
@@ -25,13 +26,18 @@
   border-radius: 7px;
   transition-property: background-color;
   transition-duration: 1.2s;
+  font-size: 17px;
+
 }
 
-#nav-logout:hover {
+.nav-logout:hover {
   background-color: rgb(208 149 73 / 66%);
   color: rgba(220, 20, 60, 0.952);
 }
 
+#nav-size {
+  font-size: 22px;
+}
 .img-grid {
   box-sizing: border-box;
   /* justify-content: flex-end; */
