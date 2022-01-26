@@ -71,31 +71,53 @@ function EditPhoto() {
 
 
   return (
-    <>
+    <> 
       <button id="profile-button" onClick={openMenu}>
-        {/* #id { cursor: pointer;background: transparent;border: none;font-size: -webkit-xxx-large;} */}
-        <i className="fas fa-user-graduate" aria-hidden="true" />
+        {" "}
+        Edit
       </button>
+
       {showMenu && (
-        <div className="profile-dropdown">
-          <div>
-            <button id="signout" onClick={handleSubmit}>
-              Delete Photo
+        <form className="albumForm" onSubmit={editPhoto}>
+          <div className="album_content">Photo Title</div>
+          <input
+            className="input-form"
+            onChange={(e) => setTitle(e.target.value)}
+            name="title"
+            type="text"
+            placeholder={photo?.title}
+            value={title}
+            required
+          />
+          <br />
+          <br />
+          <div className="album_content">Description</div>
+          <textarea
+            className="text-form"
+            onChange={(e) => setDescription(e.target.value)}
+            name="content"
+            type="text"
+            placeholder={photo?.description}
+            value={description}
+          />
+          <br />
+          <div className="album-buttons">
+            <button className="submit-button" type="submit">
+              Save
+              <i className="far fa-save" />
             </button>
-            <li>{user.email}</li>
-            <li>
-              <span
-                id="NavLogout"
-                onClick={async () => {
-                  await dispatch(logout());
-                  hist("/");
-                }}
-              >
-                <i class="fas fa-sign-out-alt"></i> Log Out
-              </span>
-            </li>
+            <button
+              className="submit-button"
+              type="button"
+              onClick={(e) => {
+                e.preventDefault();
+                hist(`/users/${userId}/photos`);
+              }}
+            >
+              Cancel
+            </button>
           </div>
-        </div>
+        </form>
       )}
     </>
   );

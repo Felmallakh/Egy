@@ -7,6 +7,7 @@ import {
   updatePhotoThunk,
   deletePhotoThunk,
 } from "../store/photo";
+import EditPhoto from "./Edit-Photo";
 
 import "./photos.css";
 
@@ -65,13 +66,7 @@ function PhotoPage() {
           <button id="signout" onClick={back}>
             Back
           </button>
-          {photo
-            ? photo.user_id === userId && (
-                <button id="signout" onClick={handleSubmit}>
-                  Delete Photo
-                </button>
-              )
-            : null}
+          {photo ? photo.user_id === userId && <EditPhoto /> : null}
         </div>
         <div className="album-right-Nav">
           <button

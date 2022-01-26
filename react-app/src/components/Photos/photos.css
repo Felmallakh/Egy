@@ -51,11 +51,10 @@
   column-count: 4;
   margin-left: 30px;
   margin-top: 100px;
-  transition: all .2s ease;
+  transition: all 0.2s ease;
 }
 
 .photoGrid:hover {
-
   transform: translate(2px);
 }
 
@@ -78,4 +77,12 @@
   align-self: center;
   color: white;
   cursor: pointer;
+}
+
+.albumForm {
+  background-color: white;
+  position: absolute;
+  border-radius: 15px;
+  padding: 15px;
+  text-align-last: center;
 }
