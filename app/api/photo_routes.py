@@ -48,4 +48,4 @@ def getComments(photoId):
 @photo_routes.route('/<int:photoId>/comments', methods=['POST'])
 @login_required
 def addComment(photoId):
-    
+    form = 
