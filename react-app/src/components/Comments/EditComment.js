@@ -53,6 +53,7 @@ function EditCommentFrom() {
               <label>Comment content</label>
               <textarea
                 placeholder={"Comment"}
+                maxlength="70"
                 type="text"
                 value={content}
                 onChange={(e) => {

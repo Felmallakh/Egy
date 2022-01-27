@@ -73,11 +73,12 @@ function Comments() {
         <div className="album_content">Comment</div>
         <textarea
           className="text-form"
-          onChange={(e) => setContent(e.target.value)}
+          maxlength="70"
           name="content"
           type="text"
           placeholder="Type your comment"
           value={content}
+          onChange={(e) => setContent(e.target.value)}
         />
         <button className="submit-button" type="submit">
           Post Comment

@@ -59,3 +59,16 @@
   align-items: center;
   padding-bottom: 20px;
 }
+
+textarea {
+  resize: none;
+  border: none;
+  border-radius: 5px;
+  height: 83px;
+  opacity: 0.75;
+}
+
+textarea:focus {
+  outline: none;
+
+}
