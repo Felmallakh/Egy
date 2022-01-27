@@ -1,11 +1,7 @@
 import React, { useState, useRef, useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { useParams, useNavigate } from "react-router";
-import {
-  getPhotosThunk,
-  updatePhotoThunk,
-  deletePhotoThunk,
-} from "../store/photo";
+import { updatePhotoThunk, deletePhotoThunk } from "../store/photo";
 import { editPhotoOff } from "../store/showEditPhoto";
 import "./editPhotoForm.css";
 
