@@ -5,7 +5,7 @@ import { logout } from "../store/session";
 import { getPhotosThunk, updatePhotoThunk, deletePhotoThunk } from "../store/photo";
 import EditPhotoForm from "./EditPhoto";
 import { editPhotoOn } from "../store/showEditPhoto";
-import EditCommentForm from "./EditComment"
+import EditCommentForm from "../Comments/EditComment"
 import Comments from "../Comments"
 
 import "./photos.css";
@@ -81,7 +81,7 @@ function PhotoPage() {
         </div>
         <div className="album-right-Nav">
           <button
-            class="nav-logout"
+            className="nav-logout"
             onClick={async () => {
               await dispatch(logout());
               hist("/");

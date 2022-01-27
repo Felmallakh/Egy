@@ -94,6 +94,7 @@ class Photo(db.Model):
             'photoURL' : self.photoURL,
             'user_id' : self.user_id,
             'album_id' : self.album_id,
+            'comments' :[comment.to_dict() for comment in self.comments],
         }
 
 class Comment(db.Model):

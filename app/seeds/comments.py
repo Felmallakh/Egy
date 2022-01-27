@@ -4,16 +4,12 @@ def seed_comments():
     comment1 = Comment(
         user_id=2,
         photo_id=1,
-        content='''
-            WoW!
-        '''
+        content='WOW'
     )
     comment2 = Comment(
         user_id=1,
         photo_id=1,
-        content='''
-            Interesting...
-        '''
+        content='Interesting'
     )
 
     db.session.add(comment1)

@@ -33,7 +33,7 @@ function Photos() {
             Add Album
           </button> */}
           <button
-            class="nav-logout"
+            className="nav-logout"
             onClick={async () => {
               await dispatch(logout());
               hist("/");
@@ -44,11 +44,11 @@ function Photos() {
         </div>
       </nav>
       <div className="album-wrap">
-        <ul className="photoGrid" key={photo.id} value={photo.id}>
+        <ul className="photoGrid"  value={photo.id}>
           {photo
             ? photo.map((photo) => {
                 return (
-                  <NavLink exact to={`/photos/${photo.id}`}>
+                  <NavLink key={photo.id} exact to={`/photos/${photo.id}`}>
                     <img
                       className="img-grid"
                       key={photo.id}

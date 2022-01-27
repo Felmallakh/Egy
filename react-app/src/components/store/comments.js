@@ -45,12 +45,11 @@ export const addCommentThunk = (comment) => async (dispatch) => {
 };
 
 // Edit comment
-export const editCommentThunk = (comment) => async (dispatch) => {
-  const { commentId, photoId, content } = comment;
+export const editCommentThunk = ( photoId, commentId, content ) => async (dispatch) => {
   const res = await fetch(`/api/photos/${photoId}/comments/${commentId}`, {
     method: "PUT",
     headers: { "Content-type": "application/json" },
-    body: JSON.stringify({ content }),
+    body: JSON.stringify( {content} ),
   });
   const comments = await res.json();
   dispatch(updateComment(comments));
@@ -63,6 +62,7 @@ export const deleteCommentThunk = (commentId) => async (dispatch) => {
     method: "DELETE",
   });
   const comment = await res.json();
+  console.log("😣😣😣😣😣😣😣",comment);
   dispatch(deleteComment(comment));
   return comment;
 };

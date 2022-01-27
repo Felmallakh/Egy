@@ -42,7 +42,7 @@ function Albums() {
           <button id="signout" onClick={() => hist(`/home`)}>
             <i id="nav-size" className="fas fa-arrow-left"></i>
           </button>
-          <button class="nav-add" onClick={() => hist(`/albums/new`)}>
+          <button className="nav-add" onClick={() => hist(`/albums/new`)}>
             Add Album <i className="fas fa-plus"></i>
           </button>
         </div>
@@ -51,7 +51,7 @@ function Albums() {
         </div>
         <div className="album-right-Nav">
           <button
-            class="nav-logout"
+            className="nav-logout"
             onClick={async () => {
               await dispatch(logout());
               hist("/");

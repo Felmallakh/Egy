@@ -1,41 +1,36 @@
 import React, { useState, useRef, useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { useParams, useNavigate } from "react-router";
-import { updateCommentThunk, deleteCommentThunk } from "../store/photo";
-import { editPhotoOff } from "../store/showEditPhoto";
-import "./editPhotoForm.css";
+import { editCommentThunk, deleteCommentThunk } from "../store/comments";
+import { editCommentOff } from "../store/showEditComment";
+import "../Photos/editPhotoForm.css";
 
-function EditPhotoFrom() {
+function EditCommentFrom({ commentId }) {
   const dispatch = useDispatch();
   const hist = useNavigate();
 
-  const showForm = useSelector((state) => state.editPhotoFormReducer);
+  const showForm = useSelector((state) => state.editCommentFormReducer);
   const user = useSelector((state) => state.session.user);
-  const comment = useSelector((state) => state.commentsReducer);
-  const { commentId } = useParams();
-  const photo = comment?.[commentId];
-  const [content, setTitle] = useState(comment?.content);
+  const comments = useSelector((state) => state.commentsReducer);
+  console.log("😣", comments)
+  // const comment = comments?.[commentId];
+  const [content, setContent] = useState("");
   const userId = user?.id;
-  const id = commentId;
   const [errors, setErrors] = useState([]);
 
-  const editPhoto = async (e) => {
+  const editComment = async (e) => {
     e.preventDefault();
-    if (photo.user_id !== userId)
-      return alert(`User not authorized to perform this action`);
-    dispatch(updateCommentThunk({ id, content }));
+    dispatch(editCommentThunk( commentId ));
   };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    if (photo?.user_id !== userId)
-      return alert(`User not authorized to perform this action`);
     const confirmed = window.confirm(
       "Are you sure you want to remove this Photo? This action cannot be undone."
     );
     if (confirmed) {
       await dispatch(deleteCommentThunk(commentId));
-      hist(`/users/${userId}/comments`);
+      // hist(`/photos/${photo.id}`);
     }
   };
 
@@ -45,22 +40,22 @@ function EditPhotoFrom() {
         <div
           className="blackout"
           onClick={(e) => {
-            dispatch(editPhotoOff());
+            dispatch(editCommentOff());
           }}
         ></div>
       )}
       {showForm && (
         <div id="edit-container">
-          <form className="editForm" onSubmit={editPhoto}>
+          <form className="editForm" onSubmit={editComment}>
             <div className="form1">
-              <h2>Edit Photo</h2>
-              <label>Photo content</label>
+              <h2>Edit Comment</h2>
+              <label>Comment content</label>
               <input
-                placeholder={"Photo Title"}
+                placeholder={"Comment"}
                 type="text"
                 value={content}
                 onChange={(e) => {
-                  setTitle(e.target.value);
+                  setContent(e.target.value);
                 }}
                 required
               ></input>
@@ -72,8 +67,8 @@ function EditPhotoFrom() {
               <p
                 className="cancel"
                 onClick={(e) => {
-                  dispatch(editPhotoOff());
-                  setTitle("");
+                  dispatch(editCommentOff());
+                  setContent("");
                 }}
               >
                 Cancel
@@ -89,4 +84,4 @@ function EditPhotoFrom() {
   );
 }
 
-export default EditPhotoFrom;
+export default EditCommentFrom;
