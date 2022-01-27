@@ -45,7 +45,7 @@ function Comments() {
               <div key={comment.id} className="comments-div">
                 <div className="author-layout">
                   <h3 id="author" key={comment.id}>
-                    {/* {comment.author.username} */}
+                    {comment.author.username}
                   </h3>
                 </div>
                 <p className="content" id="contentid">
