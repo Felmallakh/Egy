@@ -3,6 +3,7 @@ import { useNavigate, useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { getCommentsThunk, addCommentThunk } from "../store/comments";
+import { editCommentOn } from "../store/showEditComment"
 
 import "./comments.css";
 
@@ -22,7 +23,6 @@ function Comments() {
     e.preventDefault();
 
     await dispatch(addCommentThunk({ userId, photoId, content }));
-    // hist(`/users/${userId}/albums`);
   };
 
   useEffect(() => {
@@ -46,10 +46,19 @@ function Comments() {
                     {comment.author.username}
                   </h3>
                 </div>
-                <p className="content">{comment.content}</p>
+                <p className="content" id="contentid">{comment.content}</p>
                 <div className="comments-buttons">
                   {comment.user_id === userId && (
-                    <button id="edit-button"> EDIT</button>
+                    <button
+            id="signout"
+            onClick={(e) => {
+              e.stopPropagation();
+              dispatch(editCommentOn());
+            }}
+          >
+            <i id="nav-size" className="fas fa-edit"></i>
+          </button>
+                    // <button id="edit-button" htmlFor="contentid"> EDIT</button>
                   )}
                 </div>
               </div>
@@ -57,7 +66,7 @@ function Comments() {
           : null}
       </ul>
       <form className="albumForm" onSubmit={addComment}>
-        <div className="album_content">Album Title</div>
+        <div className="album_content">Comment</div>
         <textarea
           className="text-form"
           onChange={(e) => setContent(e.target.value)}
