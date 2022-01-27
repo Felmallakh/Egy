@@ -51,15 +51,15 @@ function EditCommentFrom() {
             <div className="form1">
               <h2>Edit Comment</h2>
               <label>Comment content</label>
-              <input
+              <textarea
                 placeholder={"Comment"}
                 type="text"
-                value={comment.content}
+                value={content}
                 onChange={(e) => {
                   setContent(e.target.value);
                 }}
                 required
-              ></input>
+              ></textarea>
             </div>
             <div id="editPhotoButton">
               <div className="delete" onClick={handleSubmit}>
