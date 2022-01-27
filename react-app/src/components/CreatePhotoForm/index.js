@@ -1,8 +1,8 @@
 import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Link, useNavigate, useParams } from "react-router-dom";
-
 import { addPhotoThunk } from "../store/photo";
+import './photoform.css';
 
 function CreatePhotoForm() {
   const dispatch = useDispatch();
@@ -13,17 +13,40 @@ function CreatePhotoForm() {
   const { albumId } = useParams();
 
   const [title, setTitle] = useState("");
-  const [image, setImage] = useState("");
+  // const [image, setImage] = useState("");
+  const [imageFile, setImageFile] = useState("");
+  const [savedImageFile, setSavedImageFile] = useState("");
+  const [imagePreview, setImagePreview] = useState("");
+  const [savedImagePreview, setSavedImagePreview] = useState("");
   const [errors, setErrors] = useState([]);
+
+  const setImage = (e) => {
+    let file = e.target.files[0];
+
+    setImageFile(e.target.files[0]);
+    if (file) {
+      setSavedImageFile(file);
+
+      file = URL.createObjectURL(file);
+      setImagePreview(file);
+      setSavedImagePreview(file);
+    } else {
+      setImageFile(savedImageFile);
+      setImagePreview(savedImagePreview);
+    }
+  };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     const formData = new FormData();
-    formData.append("photoURL", image);
+    formData.append("photoURL", imageFile);
     formData.append("title", title);
     formData.append("album_id", albumId);
     formData.append("userId", session.id);
     await dispatch(addPhotoThunk(formData));
+    setTitle("");
+    setImageFile("");
+    setImagePreview("");
     hist(`/albums/${albumId}`);
   };
   // // Handle submit function
@@ -45,7 +68,7 @@ function CreatePhotoForm() {
             ></img>
           </Link>
         </div>
-        <p>Create New Photo</p>
+        <p>Add New Photo</p>
         <ul>
           {errors.map((error, idx) => (
             <li className="errors" key={idx}>
@@ -68,22 +91,30 @@ function CreatePhotoForm() {
                 ))}
               </ul>
             )}
-            <label
-              className="material-icons"
-              htmlFor="imageUpload"
-              style={{ fontSize: "70px" }}
-            >
-              cloud_upload
-            </label>
+            <div className="img-title-div">
+              <label className="image-upload" htmlFor="imageUpload">
+                {imagePreview ? (
+                  <img className="img-review" src={imagePreview} />
+                ) : (
+                  <span
+                    className="material-icons"
+                    htmlFor="imageUpload"
+                    style={{ fontSize: "70px" }}
+                  >
+                    cloud_upload{" "}
+                  </span>
+                )}
+              </label>
 
-            <input
-              className="img-upload"
-              id="imageUpload"
-              type="file"
-              accept=".jpg, .jpeg, .png, .gif"
-              required
-              onChange={(e) => setImage(e.target.files[0])}
-            />
+              <input
+                className="img-upload"
+                id="imageUpload"
+                type="file"
+                accept=".jpg, .jpeg, .png, .gif"
+                required
+                onChange={setImage}
+              />
+            </div>
             <input
               className="form-field"
               type="text"
