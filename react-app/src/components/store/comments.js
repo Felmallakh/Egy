@@ -40,6 +40,7 @@ export const addCommentThunk = (comment) => async (dispatch) => {
     body: JSON.stringify({ content }),
   });
   const comments = await res.json();
+  // console.log("😣🎅😣 res-comments", comments);
   dispatch(addComment(comments));
   return comments;
 };
@@ -69,12 +70,13 @@ export const deleteCommentThunk = (commentId) => async (dispatch) => {
 
 export default function commentsReducer(state = {}, action) {
   const newState = { ...state };
-  // console.log("😣😣action.comments", action.comments)
+  console.log("😣😣action.comments", action.comments)
   switch (action.type) {
     case GET_COMMENTS: {
-      action.comments.forEach((comment) => {
-        newState[comment.id] = comment})
-      return newState;
+      // action.comments.comments.forEach((comment) => {
+      //   console.log("🍎😒🍎🍎", comment)
+      //   newState[comment.id] = comment})
+      return action.comments;
     }
     case ADD_COMMENT: {
       newState[action.comment.id] = action.comment;
