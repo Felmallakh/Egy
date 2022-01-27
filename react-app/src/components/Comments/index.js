@@ -57,7 +57,7 @@ function Comments() {
                       id="signout"
                       onClick={(e) => {
                         e.stopPropagation();
-                        dispatch(editCommentOn(comment));
+                        dispatch(editCommentOn());
                       }}
                     >
                       <i id="nav-size" className="fas fa-edit"></i>
