@@ -60,6 +60,7 @@ function PhotoPage() {
   return session ? (
     <div id="photo-page">
       <EditPhotoForm />
+      <EditCommentForm />
       <nav className="albumPage-nav">
         <div className="album-left-Nav">
           <button id="signout" onClick={back}>
