@@ -23,7 +23,7 @@
 .photo-comments {
   display: flex;
   flex-direction: column;
-  gap: 5px;
+  gap: 10px;
   padding: 0px 15px 0px 25px;
   width: 90%;
   min-height: -webkit-fill-available;
@@ -34,7 +34,7 @@
   text-align: left;
   padding-bottom: 5px;
   margin-left: 5px;
-  
+
 }
 .author-layout {
   background: grey;
