@@ -34,7 +34,6 @@
   text-align: left;
   padding-bottom: 5px;
   margin-left: 5px;
-
 }
 .author-layout {
   background: grey;
@@ -52,4 +51,11 @@
 
 .comments-buttons {
   padding: 6px 0px 0px 15px;
+}
+
+.commentForm {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-bottom: 20px;
 }

@@ -69,7 +69,7 @@ function Comments() {
             ))
           : null}
       </ul>
-      <form className="albumForm" onSubmit={addComment}>
+      <form className="commentForm" onSubmit={addComment}>
         <div className="album_content">Comment</div>
         <textarea
           className="text-form"
@@ -80,7 +80,7 @@ function Comments() {
           value={content}
         />
         <button className="submit-button" type="submit">
-          Add Comment
+          Post Comment
         </button>
       </form>
     </div>
