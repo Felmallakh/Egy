@@ -5,10 +5,11 @@ import { editCommentThunk, deleteCommentThunk } from "../store/comments";
 import { editCommentOff } from "../store/showEditComment";
 import "../Photos/editPhotoForm.css";
 
-function EditCommentFrom({ commentId }) {
+function EditCommentFrom() {
   const dispatch = useDispatch();
   const hist = useNavigate();
-
+  const { id, commentId } = useParams();
+  console.log("🤷‍♀️🤷‍♀️❤🤷‍♀️", useParams())
   const showForm = useSelector((state) => state.editCommentFormReducer);
   const user = useSelector((state) => state.session.user);
   const comments = useSelector((state) => state.commentsReducer);

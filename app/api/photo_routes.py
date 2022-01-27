@@ -1,7 +1,7 @@
 from flask import Blueprint, request
 from flask_login import login_required, current_user
 from app.models import db, Photo, Comment
-from app.forms import EditPhotoForm, CommentForm, EditCommentForm
+from app.forms import EditPhotoForm, CommentForm
 
 
 photo_routes = Blueprint('photos', __name__)
@@ -42,7 +42,7 @@ def deleteAlbum(photoId):
 def getComments(photoId):
     # comments = Comment.query.filter(photo_id = photoId)
     comments = Comment.query.filter_by(photo_id=photoId).join(Photo).all()
-    
+
     return { 'comments' : [comment.to_dict() for comment in comments]}
     # return [comment.to_dict() for comment in comments]
 
@@ -59,23 +59,5 @@ def addComment(photoId):
             user_id = current_user.id
         )
         db.session.add(comment)
-        db.session.commit()
-        return comment.to_dict()
-
-
-# Edit Comment
-@photo_routes.route('/<int:photoId>/comments/<int:commentId>', methods=['PUT'])
-@login_required
-def updateComment(photoId, commentId):
-    print("😣😣🎅")
-    comment = Comment.query.get(commentId)
-    form = EditCommentForm()
-    form['csrf_token'].data = request.cookies['csrf_token']
-
-    if form.validate_on_submit:
-        comment.content = form.data['content']
-        comment.photo_id = photoId
-        comment.user_id = current_user.id
-
         db.session.commit()
         return comment.to_dict()

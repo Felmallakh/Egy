@@ -1,7 +1,7 @@
 const GET_COMMENTS = "comments/GET_COMMENTS";
-const ADD_COMMENT = "comment/ADD_COMMENT";
-const UPDATE_COMMENT = "comment/UPDATE_COMMENT";
-const DELETE_COMMENT = "comment/DELETE_COMMENT";
+const ADD_COMMENT = "comments/ADD_COMMENT";
+const UPDATE_COMMENT = "comments/UPDATE_COMMENT";
+const DELETE_COMMENT = "comments/DELETE_COMMENT";
 
 const getComments = (comments) => ({
   type: GET_COMMENTS,
@@ -11,9 +11,10 @@ const addComment = (comment) => ({
   type: ADD_COMMENT,
   comment,
 });
-const updateComment = (comment) => ({
+const updateComment = (commentId, content) => ({
   type: UPDATE_COMMENT,
-  comment,
+  commentId,
+  content,
 });
 const deleteComment = (comment) => ({
   type: DELETE_COMMENT,
@@ -40,21 +41,23 @@ export const addCommentThunk = (comment) => async (dispatch) => {
     body: JSON.stringify({ content }),
   });
   const comments = await res.json();
-  // console.log("😣🎅😣 res-comments", comments);
   dispatch(addComment(comments));
   return comments;
 };
 
 // Edit comment
-export const editCommentThunk = ( photoId, commentId, content ) => async (dispatch) => {
-  const res = await fetch(`/api/photos/${photoId}/comments/${commentId}`, {
+export const editCommentThunk = (commentId, content) => async (dispatch) => {
+  const res = await fetch(`/api/comments/${commentId}/edit`, {
     method: "PUT",
     headers: { "Content-type": "application/json" },
-    body: JSON.stringify( {content} ),
+    body: JSON.stringify({ content }),
   });
-  const comments = await res.json();
-  dispatch(updateComment(comments));
-  return comments;
+  if (res.ok) {
+    const comments = await res.json();
+    console.log("😣🎄🍎", comments)
+    dispatch(updateComment(comments, commentId));
+    return comments;
+  }
 };
 
 // Delete comment
@@ -63,14 +66,14 @@ export const deleteCommentThunk = (commentId) => async (dispatch) => {
     method: "DELETE",
   });
   const comment = await res.json();
-  console.log("😣😣😣😣😣😣😣",comment);
+  console.log("😣😣😣😣😣😣😣", comment);
   dispatch(deleteComment(comment));
   return comment;
 };
 
 export default function commentsReducer(state = {}, action) {
   const newState = { ...state };
-  console.log("😣😣action.comments", action.comments)
+  console.log("😣😣action.comments", action.comments);
   switch (action.type) {
     case GET_COMMENTS: {
       // action.comments.comments.forEach((comment) => {

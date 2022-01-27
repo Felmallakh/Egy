@@ -110,9 +110,15 @@ function AlbumPage() {
       <ul className="album-photo-grid-list">
         {photoArr.map((photo) => (
           <li className="photoLi" key={photo.id}>
-            <img className="img" src={photo.photoURL}></img>
+            <img className="img" key={photo.id} src={photo.photoURL}></img>
             <div id="photo-mask">
-              <div className="img-title">
+              <div
+                className="img-title"
+                onClick={(e) => {
+                  e.preventDefault();
+                  hist(`/photos/${photo.id}`);
+                }}
+              >
                 <div>{photo.title}</div>
               </div>
               {photo.user_id === userId && (
