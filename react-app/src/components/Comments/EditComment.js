@@ -54,7 +54,7 @@ function EditCommentFrom() {
               <input
                 placeholder={"Comment"}
                 type="text"
-                value={content}
+                value={comment.content}
                 onChange={(e) => {
                   setContent(e.target.value);
                 }}

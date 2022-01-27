@@ -11,10 +11,9 @@ const addComment = (comment) => ({
   type: ADD_COMMENT,
   comment,
 });
-const updateComment = (commentId, content) => ({
+const updateComment = (comment) => ({
   type: UPDATE_COMMENT,
-  commentId,
-  content,
+  comment
 });
 const deleteComment = (comment) => ({
   type: DELETE_COMMENT,
@@ -26,7 +25,7 @@ export const getCommentsThunk = (photoId) => async (dispatch) => {
   const res = await fetch(`/api/photos/${photoId}/comments`);
   if (res.ok) {
     const comments = await res.json();
-    console.log("😣comments thunk", comments);
+    console.log("😣get comments thunk", comments);
     dispatch(getComments(comments.comments));
     return comments;
   }
@@ -46,8 +45,8 @@ export const addCommentThunk = (comment) => async (dispatch) => {
 };
 
 // Edit comment
-export const editCommentThunk = (commentId, content) => async (dispatch) => {
-  const res = await fetch(`/api/comments/${commentId}/edit`, {
+export const editCommentThunk = ({id, content}) => async (dispatch) => {
+  const res = await fetch(`/api/comments/${id}/edit`, {
     method: "PUT",
     headers: { "Content-type": "application/json" },
     body: JSON.stringify({ content }),
@@ -55,7 +54,7 @@ export const editCommentThunk = (commentId, content) => async (dispatch) => {
   if (res.ok) {
     const comments = await res.json();
     console.log("😣🎄🍎", comments)
-    dispatch(updateComment(comments, commentId));
+    dispatch(updateComment(comments));
     return comments;
   }
 };
@@ -73,7 +72,7 @@ export const deleteCommentThunk = (commentId) => async (dispatch) => {
 
 export default function commentsReducer(state = {}, action) {
   const newState = { ...state };
-  console.log("😣😣action.comments", action.comments);
+  console.log("😣😣action.comment", action.comment);
   switch (action.type) {
     case GET_COMMENTS: {
       // action.comments.comments.forEach((comment) => {
