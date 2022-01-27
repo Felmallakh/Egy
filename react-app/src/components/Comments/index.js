@@ -3,7 +3,8 @@ import { useNavigate, useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { getCommentsThunk, addCommentThunk } from "../store/comments";
-import { editCommentOn } from "../store/showEditComment"
+import { editCommentOn } from "../store/showEditComment";
+import EditCommentForm from "../Comments/EditComment";
 
 import "./comments.css";
 
@@ -31,6 +32,7 @@ function Comments() {
 
   return session ? (
     <div className="comments-container">
+      <EditCommentForm />
       <div className="comments-header">
         <h1 id="comment-title">Comments</h1>
         <div className="comments-count">
@@ -46,18 +48,20 @@ function Comments() {
                     {/* {comment.author.username} */}
                   </h3>
                 </div>
-                <p className="content" id="contentid">{comment.content}</p>
+                <p className="content" id="contentid">
+                  {comment.content}
+                </p>
                 <div className="comments-buttons">
                   {comment.user_id === userId && (
                     <button
-            id="signout"
-            onClick={(e) => {
-              e.stopPropagation();
-              dispatch(editCommentOn());
-            }}
-          >
-            <i id="nav-size" className="fas fa-edit"></i>
-          </button>
+                      id="signout"
+                      onClick={(e) => {
+                        e.stopPropagation();
+                        dispatch(editCommentOn(comment));
+                      }}
+                    >
+                      <i id="nav-size" className="fas fa-edit"></i>
+                    </button>
                     // <button id="edit-button" htmlFor="contentid"> EDIT</button>
                   )}
                 </div>

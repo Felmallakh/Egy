@@ -5,7 +5,6 @@ import { logout } from "../store/session";
 import { getPhotosThunk, updatePhotoThunk, deletePhotoThunk } from "../store/photo";
 import EditPhotoForm from "./EditPhoto";
 import { editPhotoOn } from "../store/showEditPhoto";
-import EditCommentForm from "../Comments/EditComment"
 import Comments from "../Comments"
 
 import "./photos.css";
@@ -61,7 +60,6 @@ function PhotoPage() {
   return session ? (
     <div id="photo-page">
       <EditPhotoForm />
-      <EditCommentForm />
       <nav className="albumPage-nav">
         <div className="album-left-Nav">
           <button id="signout" onClick={back}>

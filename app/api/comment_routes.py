@@ -17,7 +17,7 @@ def updateComment(commentId):
     form['csrf_token'].data = request.cookies['csrf_token']
 
     if form.validate_on_submit:
-        comment.content = form.content.data
+        comment.content = form.data['content']
 
         db.session.commit()
         return comment.to_dict()

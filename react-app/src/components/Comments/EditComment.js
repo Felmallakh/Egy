@@ -8,20 +8,20 @@ import "../Photos/editPhotoForm.css";
 function EditCommentFrom() {
   const dispatch = useDispatch();
   const hist = useNavigate();
-  const { id, commentId } = useParams();
-  console.log("🤷‍♀️🤷‍♀️❤🤷‍♀️", useParams())
+
   const showForm = useSelector((state) => state.editCommentFormReducer);
-  const user = useSelector((state) => state.session.user);
-  const comments = useSelector((state) => state.commentsReducer);
-  console.log("😣", comments)
-  // const comment = comments?.[commentId];
+  const userId = useSelector((state) => state.session.user.id);
+  const comments = Object.values(useSelector((state) => state.commentsReducer));
+
+  const comment = comments.map((comment) => comment.content)
+  console.log("😣", comment)
+
   const [content, setContent] = useState("");
-  const userId = user?.id;
   const [errors, setErrors] = useState([]);
 
   const editComment = async (e) => {
     e.preventDefault();
-    dispatch(editCommentThunk( commentId ));
+    dispatch(editCommentThunk( comment ));
   };
 
   const handleSubmit = async (e) => {
@@ -30,7 +30,7 @@ function EditCommentFrom() {
       "Are you sure you want to remove this Photo? This action cannot be undone."
     );
     if (confirmed) {
-      await dispatch(deleteCommentThunk(commentId));
+      // await dispatch(deleteCommentThunk(commentId));
       // hist(`/photos/${photo.id}`);
     }
   };
