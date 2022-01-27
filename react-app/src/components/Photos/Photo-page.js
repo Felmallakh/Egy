@@ -5,6 +5,7 @@ import { logout } from "../store/session";
 import { getPhotosThunk, updatePhotoThunk, deletePhotoThunk } from "../store/photo";
 import EditPhotoForm from "./EditPhoto";
 import { editPhotoOn } from "../store/showEditPhoto";
+import EditCommentForm from "./EditComment"
 import Comments from "../Comments"
 
 import "./photos.css";
