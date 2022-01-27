@@ -1,0 +1,20 @@
+.img-title-div {
+  display: flex;
+  align-self: center;
+  height:200px;
+}
+
+.img-review{
+    min-width: 200px;
+    height: 200px;
+    border-style: groove;
+    border-radius: 15px;
+    min-height: -webkit-fill-available;
+    margin-bottom: 10px;
+    cursor: pointer;
+}
+
+.image-upload{
+    overflow:hidden;
+}
+
