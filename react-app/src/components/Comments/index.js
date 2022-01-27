@@ -32,7 +32,6 @@ function Comments() {
 
   return session ? (
     <div className="comments-container">
-      <EditCommentForm />
       <div className="comments-header">
         <h1 id="comment-title">Comments</h1>
         <div className="comments-count">
@@ -42,7 +41,8 @@ function Comments() {
       <ul className="photo-comments">
         {comments
           ? comments.map((comment) => (
-              <div key={comment.id} className="comments-div">
+            <div key={comment.id} className="comments-div">
+                <EditCommentForm comment={comment} />
                 <div className="author-layout">
                   <h3 id="author" key={comment.id}>
                     {comment.author.username}
@@ -54,9 +54,13 @@ function Comments() {
                 <div className="comments-buttons">
                   {comment.user_id === userId && (
                     <button
+                      key={comment.id}
+                      // data-commentId = {comment.id}
                       id="signout"
                       onClick={(e) => {
                         e.stopPropagation();
+                        //  console.log("😣🤷‍♀️😣", e.currentTarget.dataset.commentid);
+                        // dispatch(editCommentOn(e.currentTarget.dataset.commentid));
                         dispatch(editCommentOn());
                       }}
                     >

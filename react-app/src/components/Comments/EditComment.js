@@ -5,7 +5,7 @@ import { editCommentThunk, deleteCommentThunk } from "../store/comments";
 import { editCommentOff } from "../store/showEditComment";
 import "../Photos/editPhotoForm.css";
 
-function EditCommentFrom() {
+function EditCommentFrom({ comment }) {
   const dispatch = useDispatch();
   const hist = useNavigate();
 
@@ -13,15 +13,18 @@ function EditCommentFrom() {
   const userId = useSelector((state) => state.session.user.id);
   const comments = Object.values(useSelector((state) => state.commentsReducer));
 
-  const comment = comments.map((comment) => comment.content)
-  console.log("😣", comment)
+  // const comment = comments.map((comment) => comment.content)
 
+  const [oldcomment, setComment] = useState(comment)
   const [content, setContent] = useState("");
   const [errors, setErrors] = useState([]);
 
+  console.log("😣old comment", comment)
+
   const editComment = async (e) => {
+
     e.preventDefault();
-    dispatch(editCommentThunk( comment ));
+    dispatch(editCommentThunk( {content: oldcomment, commentId : comment.id, } ));
   };
 
   const handleSubmit = async (e) => {
@@ -30,8 +33,7 @@ function EditCommentFrom() {
       "Are you sure you want to remove this Photo? This action cannot be undone."
     );
     if (confirmed) {
-      // await dispatch(deleteCommentThunk(commentId));
-      // hist(`/photos/${photo.id}`);
+      await dispatch(deleteCommentThunk(comment.id));
     }
   };
 
@@ -55,9 +57,9 @@ function EditCommentFrom() {
                 placeholder={"Comment"}
                 maxlength="70"
                 type="text"
-                value={content}
+                value={oldcomment}
                 onChange={(e) => {
-                  setContent(e.target.value);
+                  setComment(e.target.value);
                 }}
                 required
               ></textarea>

@@ -8,19 +8,20 @@ comment_routes = Blueprint('comments', __name__)
 
 
 # Edit Comment
-@comment_routes.route('/<int:id>/edit', methods=['PUT'])
+@comment_routes.route('/<int:commentId>/edit', methods=['PUT'])
 @login_required
-def updateComment(id):
-    print("😣😣🎅")
-    comments = Comment.query.get(id)
+def updateComment(commentId):
+    comments = Comment.query.get(commentId)
     form = EditCommentForm()
     form['csrf_token'].data = request.cookies['csrf_token']
 
     if form.validate_on_submit:
         comments.content = form.data['content']
+        print("😣😣😣😣🎅", form.data)
 
+        db.session.add(comments)
         db.session.commit()
-        return {'comment': comment.to_dict() for comment in comments}
+        return comments.to_dict()
 
 # Delete Comment
 @comment_routes.route('/<int:commentId>', methods=['DELETE'])

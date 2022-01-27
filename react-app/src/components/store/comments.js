@@ -45,15 +45,15 @@ export const addCommentThunk = (comment) => async (dispatch) => {
 };
 
 // Edit comment
-export const editCommentThunk = ({id, content}) => async (dispatch) => {
-  const res = await fetch(`/api/comments/${id}/edit`, {
+export const editCommentThunk = ({commentId, content}) => async (dispatch) => {
+  console.log("😣🎄🍎", content)
+  const res = await fetch(`/api/comments/${commentId}/edit`, {
     method: "PUT",
     headers: { "Content-type": "application/json" },
     body: JSON.stringify({ content }),
   });
   if (res.ok) {
     const comments = await res.json();
-    console.log("😣🎄🍎", comments)
     dispatch(updateComment(comments));
     return comments;
   }
@@ -85,7 +85,7 @@ export default function commentsReducer(state = {}, action) {
       return newState;
     }
     case UPDATE_COMMENT: {
-      newState[action.comment.id] = action.comment;
+      newState[action.comment.id.content] = action.comment;
       return newState;
     }
     case DELETE_COMMENT: {
