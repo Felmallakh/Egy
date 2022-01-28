@@ -48,10 +48,10 @@ function Comments() {
                     {comment.author.username}
                   </h3>
                 </div>
+                <div className="author-comment">
                 <p className="content" id="contentid">
                   {comment.content}
                 </p>
-                <div className="comments-buttons">
                   {comment.user_id === userId && (
                     <button
                       key={comment.id}
