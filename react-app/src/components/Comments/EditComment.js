@@ -11,11 +11,10 @@ function EditCommentFrom({ comment }) {
 
   const showForm = useSelector((state) => state.editCommentFormReducer);
   const userId = useSelector((state) => state.session.user.id);
-  const comments = Object.values(useSelector((state) => state.commentsReducer));
-
+  console.log("😣 comment", comment);
   // const comment = comments.map((comment) => comment.content)
 
-  const [oldcomment, setComment] = useState(comment)
+  const [oldcomment, setComment] = useState(comment.content)
   const [content, setContent] = useState("");
   const [errors, setErrors] = useState([]);
 
@@ -24,7 +23,7 @@ function EditCommentFrom({ comment }) {
   const editComment = async (e) => {
 
     e.preventDefault();
-    dispatch(editCommentThunk( {content: oldcomment, commentId : comment.id, } ));
+    dispatch(editCommentThunk( {content: comment.content, commentId : comment.id, } ));
   };
 
   const handleSubmit = async (e) => {
@@ -77,7 +76,7 @@ function EditCommentFrom({ comment }) {
               >
                 Cancel
               </p>
-              <button className="submit" disabled={!content}>
+              <button className="submit">
                 Submit
               </button>
             </div>

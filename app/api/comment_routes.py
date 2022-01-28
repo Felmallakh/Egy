@@ -12,14 +12,14 @@ comment_routes = Blueprint('comments', __name__)
 @login_required
 def updateComment(commentId):
     comments = Comment.query.get(commentId)
+    print("😣😣😣😣🎅", comments.content)
     form = EditCommentForm()
     form['csrf_token'].data = request.cookies['csrf_token']
 
     if form.validate_on_submit:
         comments.content = form.data['content']
-        print("😣😣😣😣🎅", form.data)
 
-        db.session.add(comments)
+        # db.session.add(comments)
         db.session.commit()
         return comments.to_dict()
 
