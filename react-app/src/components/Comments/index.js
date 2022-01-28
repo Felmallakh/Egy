@@ -5,7 +5,7 @@ import { useSelector, useDispatch } from "react-redux";
 import { getCommentsThunk, addCommentThunk } from "../store/comments";
 import { editCommentOn } from "../store/showEditComment";
 import EditCommentForm from "../Comments/EditComment";
-
+import EditComment from "./Edit";
 import "./comments.css";
 
 function Comments() {
@@ -19,6 +19,9 @@ function Comments() {
   const userId = session?.id;
 
   const [content, setContent] = useState("");
+  const [editComment, setEditComment] = useState(false);
+  const [currentComment, setCurrentComment] = useState("");
+  const [currentCommentId, setCurrentCommentId] = useState("");
 
   const addComment = async (e) => {
     e.preventDefault();
@@ -32,6 +35,14 @@ function Comments() {
 
   return session ? (
     <div className="comments-container">
+      {editComment && (
+        <EditCommentForm
+          photoId={photoId}
+          setEditComment={setEditComment}
+          currentCommentId={currentCommentId}
+          currentComment={currentComment}
+        />
+      )}
       <div className="comments-header">
         <h1 id="comment-title">Comments</h1>
         <div className="comments-count">
@@ -41,27 +52,26 @@ function Comments() {
       <ul className="photo-comments">
         {comments
           ? comments.map((comment) => (
-            <div key={comment.id} className="comments-div">
-                <EditCommentForm comment={comment} />
+              <div key={comment.id} className="comments-div">
+                {/* <EditCommentForm comment={comment} /> */}
                 <div className="author-layout">
                   <h3 id="author" key={comment.id}>
                     {comment.author.username}
                   </h3>
                 </div>
                 <div className="author-comment">
-                <p className="content" id="contentid">
-                  {comment.content}
-                </p>
+                  <p className="content" id="contentid">
+                    {comment.content}
+                  </p>
                   {comment.user_id === userId && (
                     <button
                       key={comment.id}
                       // data-commentId = {comment.id}
                       id="signout"
-                      onClick={(e) => {
-                        e.stopPropagation();
-                        //  console.log("😣🤷‍♀️😣", e.currentTarget.dataset.commentid);
-                        // dispatch(editCommentOn(e.currentTarget.dataset.commentid));
-                        dispatch(editCommentOn());
+                      onClick={() => {
+                        setEditComment(true);
+                        setCurrentComment(comment.content);
+                        setCurrentCommentId(comment.id);
                       }}
                     >
                       <i id="nav-size" className="fas fa-edit"></i>
