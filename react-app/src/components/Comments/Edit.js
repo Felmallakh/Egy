@@ -5,7 +5,7 @@ import style from "./EditComment.module.css";
 import { editCommentThunk } from "../store/comments";
 
 export default function EditComment({
-  projectId,
+  photoId,
   setEditComment,
   currentComment,
   currentCommentId,
@@ -36,7 +36,7 @@ export default function EditComment({
 
     const editedComment = {
       user_id: user.id,
-      projectId,
+      photoId,
       commentId: currentCommentId,
       content: editContent,
     };

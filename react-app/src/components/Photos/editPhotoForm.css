@@ -120,3 +120,14 @@ input[type="text"]:focus {
 .delete:hover {
   cursor: pointer;
 }
+
+#edit-background {
+  position: fixed;
+  height: 100%;
+  width: 100%;
+  background: rgba(0, 0, 0, 0.8);
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 100;
+}
