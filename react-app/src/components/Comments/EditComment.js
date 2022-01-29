@@ -48,6 +48,7 @@ function EditCommentFrom({ setEditComment, currentComment, currentCommentId }) {
     if (confirmed) {
       await dispatch(deleteCommentThunk(currentCommentId));
   setEditComment(false);
+  
 
     }
   };
