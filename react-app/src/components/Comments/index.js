@@ -27,6 +27,7 @@ function Comments() {
     e.preventDefault();
 
     await dispatch(addCommentThunk({ userId, photoId, content }));
+    setContent("")
   };
 
   useEffect(() => {
