@@ -5,7 +5,7 @@ import { editCommentThunk, deleteCommentThunk } from "../store/comments";
 import { editCommentOff } from "../store/showEditComment";
 import "../Photos/editPhotoForm.css";
 
-function EditCommentFrom({ setEditComment, currentComment, currentCommentId }) {
+function EditCommentFrom({ photoId, setEditComment, currentComment, currentCommentId }) {
   const dispatch = useDispatch();
   const hist = useNavigate();
 
@@ -35,10 +35,15 @@ function EditCommentFrom({ setEditComment, currentComment, currentCommentId }) {
     if (errors && errors.length > 0) {
       return setErrors(errors);
     }
-
-  await dispatch(editCommentThunk({ content: content, commentId: currentCommentId }));
-  setEditComment(false)
-};
+    await dispatch(
+      editCommentThunk({
+        photoId,
+        content: content,
+        commentId: currentCommentId,
+      })
+    );
+    setEditComment(false);
+  };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -47,16 +52,16 @@ function EditCommentFrom({ setEditComment, currentComment, currentCommentId }) {
     );
     if (confirmed) {
       await dispatch(deleteCommentThunk(currentCommentId));
-  setEditComment(false);
-  
-
+      setEditComment(false);
     }
   };
 
   return (
     <>
-      <div className="comments-container" onClick={() => setEditComment(false)}>
-        </div>
+      <div
+        className="comments-container"
+        onClick={() => setEditComment(false)}
+      ></div>
       <div id="edit-container">
         <form className="editForm" onSubmit={editComment}>
           <div className="form1">
