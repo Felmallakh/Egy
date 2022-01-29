@@ -26,7 +26,7 @@ export const getCommentsThunk = (photoId) => async (dispatch) => {
   if (res.ok) {
     const comments = await res.json();
     console.log("😣get comments thunk", comments);
-    dispatch(getComments(comments.comments));
+    dispatch(getComments(comments));
     return comments;
   }
 };
@@ -40,13 +40,13 @@ export const addCommentThunk = (comment) => async (dispatch) => {
     body: JSON.stringify({ content }),
   });
   const comments = await res.json();
+
   dispatch(addComment(comments));
   return comments;
 };
 
 // Edit comment
 export const editCommentThunk = ({commentId, content}) => async (dispatch) => {
-  // console.log("😣🎄🍎", content)
   const res = await fetch(`/api/comments/${commentId}/edit`, {
     method: "PUT",
     headers: { "Content-type": "application/json" },
@@ -54,6 +54,8 @@ export const editCommentThunk = ({commentId, content}) => async (dispatch) => {
   });
   if (res.ok) {
     const comments = await res.json();
+    // console.log("😣🎄🍎", comments)
+
     dispatch(updateComment(comments));
     return comments;
   }
@@ -72,20 +74,20 @@ export const deleteCommentThunk = (commentId) => async (dispatch) => {
 
 export default function commentsReducer(state = {}, action) {
   const newState = { ...state };
-  console.log("😣😣action.comment", action.comment);
+  console.log("😣😣action.comments", action.comments);
   switch (action.type) {
     case GET_COMMENTS: {
-      // action.comments.comments.forEach((comment) => {
-      //   console.log("🍎😒🍎🍎", comment)
-      //   newState[comment.id] = comment})
-      return action.comments;
+      action.comments.forEach((comment) => {
+        // console.log("🍎😒🍎🍎", comment)
+        newState[comment.id] = comment})
+        return newState;
     }
     case ADD_COMMENT: {
       newState[action.comment.id] = action.comment;
       return newState;
     }
     case UPDATE_COMMENT: {
-      newState[action.comment.id.content] = action.comment;
+      newState[action.comment.id] = action.comment;
       return newState;
     }
     case DELETE_COMMENT: {

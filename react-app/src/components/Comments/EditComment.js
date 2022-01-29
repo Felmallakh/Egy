@@ -21,7 +21,7 @@ function EditCommentFrom({ photoId, setEditComment, currentComment, currentComme
   const validate = () => {
     const validation = [];
     if (!content) validation.push("Your comment is empty");
-    if (content.length > 70) validation.push("Your comment is too long.");
+    if (content.length > 70) validation.push("Your comment must not be more than 70 characters long");
 
     return validation;
   };
@@ -58,16 +58,12 @@ function EditCommentFrom({ photoId, setEditComment, currentComment, currentComme
 
   return (
     <>
-      <div
-        className="comments-container"
-        onClick={() => setEditComment(false)}
-      ></div>
-      <div id="edit-container">
+      <div>
         <form className="editForm" onSubmit={editComment}>
           <div className="form1">
             <h2>Edit Comment</h2>
             <label>Comment content</label>
-            <label className="errors" htmlFor="editComment">
+            {/* <label className="errors" htmlFor="editComment">
               <span className="">
                 {errors.length > 0 &&
                 errors.map((error) => error.includes("comment"))
@@ -76,7 +72,7 @@ function EditCommentFrom({ photoId, setEditComment, currentComment, currentComme
                     )
                   : null}
               </span>
-            </label>
+            </label> */}
             <textarea
               placeholder={"Comment"}
               id="editComment"
@@ -106,7 +102,6 @@ function EditCommentFrom({ photoId, setEditComment, currentComment, currentComme
           </div>
         </form>
       </div>
-      )}
     </>
   );
 }

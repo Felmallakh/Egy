@@ -1,4 +1,4 @@
-from flask import Blueprint, request
+from flask import Blueprint, request, jsonify
 from flask_login import login_required, current_user
 from app.models import db, Photo, Comment
 from app.forms import EditPhotoForm, CommentForm
@@ -42,8 +42,10 @@ def deleteAlbum(photoId):
 def getComments(photoId):
     # comments = Comment.query.filter(photo_id = photoId)
     comments = Comment.query.filter_by(photo_id=photoId).join(Photo).all()
-
-    return { 'comments' : [comment.to_dict() for comment in comments]}
+    print("🤷‍♀️🤷‍♀️", comments)
+    allcomment = [comment.to_dict() for comment in comments]
+    return jsonify(allcomment)
+    # return { 'comments' : [comment.to_dict() for comment in comments]}
     # return [comment.to_dict() for comment in comments]
 
 # Add Comment

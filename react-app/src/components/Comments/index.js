@@ -27,12 +27,32 @@ function Comments() {
     e.preventDefault();
 
     await dispatch(addCommentThunk({ userId, photoId, content }));
-    setContent("")
+    setContent("");
   };
 
   useEffect(() => {
     dispatch(getCommentsThunk(photoId));
   }, [dispatch, photoId]);
+
+  useEffect(() => {
+    const select = document.querySelector(".editForm");
+    const textArea = document.getElementById("editComment")
+    if (!editComment) {
+      return
+    }
+    const closeMenu = (e) => {
+      if (e.target != select && e.target != textArea) setEditComment(false);
+    };
+    document.addEventListener("click", closeMenu);
+    return () => document.removeEventListener("click", closeMenu);
+  }, [dispatch, editComment])
+
+
+  const editButton = (comment) => {
+    setEditComment(true);
+    setCurrentComment(comment.content);
+    setCurrentCommentId(comment.id);
+  };
 
   return session ? (
     <div className="comments-container">
@@ -56,9 +76,7 @@ function Comments() {
               <div key={comment.id} className="comments-div">
                 {/* <EditCommentForm comment={comment} /> */}
                 <div className="author-layout">
-                  <h3 id="author" key={comment.id}>
-                    {comment.author.username}
-                  </h3>
+                  <h3 id="author">{comment?.author.username}</h3>
                 </div>
                 <div className="author-comment">
                   <p className="content" id="contentid">
@@ -69,11 +87,7 @@ function Comments() {
                       key={comment.id}
                       // data-commentId = {comment.id}
                       id="signout"
-                      onClick={() => {
-                        setEditComment(true);
-                        setCurrentComment(comment.content);
-                        setCurrentCommentId(comment.id);
-                      }}
+                      onClick={() => editButton(comment)}
                     >
                       <i id="nav-size" className="fas fa-edit"></i>
                     </button>
