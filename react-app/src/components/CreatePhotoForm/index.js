@@ -145,10 +145,7 @@ function CreatePhotoForm() {
             <div className="error">
               {errors.length > 0 &&
               errors.map((error) => error.includes("title"))
-                ? errors.map((error) =>
-                    error.includes("title") ? `${error.split(":")[1]}` : null
-                  )
-                : null}
+                ? errors.map((error) => error.includes("title") ? `${error.split(":")[1]}` : null) : null}
             </div>
             <input
               className="form-field"
