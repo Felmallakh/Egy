@@ -4,6 +4,7 @@ import { Link, useNavigate, useParams } from "react-router-dom";
 import { addPhotoThunk } from "../store/photo";
 import './photoform.css';
 
+
 function CreatePhotoForm() {
   const dispatch = useDispatch();
   const hist = useNavigate();
@@ -18,7 +19,7 @@ function CreatePhotoForm() {
   const [savedImageFile, setSavedImageFile] = useState("");
   const [imagePreview, setImagePreview] = useState("");
   const [savedImagePreview, setSavedImagePreview] = useState("");
-  const [errors, setErrors] = useState([]);
+  const [errors, setErrors] = useState("");
 
   const setImage = (e) => {
     let file = e.target.files[0];
@@ -36,14 +37,32 @@ function CreatePhotoForm() {
     }
   };
 
+  const validate = () => {
+    const errors = [];
+
+    if (!imageFile) errors.push("photoURL : Please select an image.");
+    if (!title) errors.push("title : Please enter title for image.");
+
+    return errors;
+  };
+
   const handleSubmit = async (e) => {
     e.preventDefault();
+
+    const errors = validate();
+
+    if (errors && errors.length > 0) return setErrors(errors);
+
     const formData = new FormData();
+
     formData.append("photoURL", imageFile);
     formData.append("title", title);
     formData.append("album_id", albumId);
     formData.append("userId", session.id);
+
     await dispatch(addPhotoThunk(formData));
+    setErrors([]);
+
     setTitle("");
     setImageFile("");
     setImagePreview("");
@@ -69,20 +88,20 @@ function CreatePhotoForm() {
           </Link>
         </div>
         <p>Add New Photo</p>
-        <ul>
+        {/* <ul>
           {errors.map((error, idx) => (
             <li className="errors" key={idx}>
               {error}
             </li>
           ))}
-        </ul>
+        </ul> */}
         <div id="createAlbum-form-background">
           <form
             onSubmit={handleSubmit}
             className="form-container"
             id="createAlbum-form-container"
           >
-            {errors.length > 0 && (
+            {/* {errors.length > 0 && (
               <ul className="errors-container">
                 {errors.map((error, idx) => (
                   <li className="error" key={idx}>
@@ -90,7 +109,7 @@ function CreatePhotoForm() {
                   </li>
                 ))}
               </ul>
-            )}
+            )} */}
             <div className="img-title-div">
               <label className="image-upload" htmlFor="imageUpload">
                 {imagePreview ? (
@@ -104,23 +123,40 @@ function CreatePhotoForm() {
                     cloud_upload{" "}
                   </span>
                 )}
+                <div className="addImageError">
+                  {errors.length > 0 &&
+                  errors.map((error) => error.includes("photoURL"))
+                    ? errors.map((error) =>
+                        error.includes("photoURL")
+                          ? `${error.split(":")[1]}`
+                          : null
+                      )
+                    : null}
+                </div>
               </label>
-
               <input
                 className="img-upload"
                 id="imageUpload"
                 type="file"
                 accept=".jpg, .jpeg, .png, .gif"
-                required
+                // required
                 onChange={setImage}
               />
+            </div>
+            <div className="addImageError">
+              {errors.length > 0 &&
+              errors.map((error) => error.includes("title"))
+                ? errors.map((error) =>
+                    error.includes("title") ? `${error.split(":")[1]}` : null
+                  )
+                : null}
             </div>
             <input
               className="form-field"
               type="text"
               placeholder="Title"
               value={title}
-              required
+              // required
               onChange={(e) => setTitle(e.target.value)}
             />
             <button type="submit">Create Photo</button>
