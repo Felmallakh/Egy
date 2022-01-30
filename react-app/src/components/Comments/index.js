@@ -5,7 +5,6 @@ import { useSelector, useDispatch } from "react-redux";
 import { getCommentsThunk, addCommentThunk } from "../store/comments";
 import { editCommentOn } from "../store/showEditComment";
 import EditCommentForm from "../Comments/EditComment";
-import EditComment from "./Edit";
 import "./comments.css";
 
 function Comments() {
