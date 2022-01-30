@@ -93,7 +93,8 @@ class Photo(db.Model):
             'description' : self.description,
             'photoURL' : self.photoURL,
             'user_id' : self.user_id,
-            'album_id' : self.album_id
+            'album_id' : self.album_id,
+            'comments' :[comment.to_dict() for comment in self.comments],
         }
 
 class Comment(db.Model):
@@ -112,10 +113,10 @@ class Comment(db.Model):
     def to_dict(self):
         return {
             'id' : self.id,
-            'content' : self.title,
+            'content' : self.content,
             'user_id' : self.user_id,
             'photo_id' : self.photo_id,
-            'photos' : self.photos
+            'author' : self.user.to_dict()
         }
 
 class Favorite(db.Model):

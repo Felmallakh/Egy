@@ -70,7 +70,7 @@ function AlbumPage() {
             <i id="nav-size" className="fas fa-arrow-left"></i>
           </button>
           <button
-            class="nav-add"
+            className="nav-add"
             onClick={() => hist(`/albums/${albumId}/photos/new`)}
           >
             Add Photo <i className="fas fa-plus"></i>
@@ -79,7 +79,7 @@ function AlbumPage() {
 
         <div className="album-right-Nav">
           <button
-            class="nav-logout"
+            className="nav-logout"
             onClick={async (e) => {
               e.preventDefault();
               await dispatch(logout());
@@ -94,7 +94,7 @@ function AlbumPage() {
         {album
           ? album.user_id === userId && (
               <button id="albumdelete" onClick={handleSubmit}>
-                Delete Album <i class="fas fa-trash-alt"></i>
+                Delete Album <i className="fas fa-trash-alt"></i>
               </button>
             )
           : null}
@@ -110,9 +110,15 @@ function AlbumPage() {
       <ul className="album-photo-grid-list">
         {photoArr.map((photo) => (
           <li className="photoLi" key={photo.id}>
-            <img className="img" src={photo.photoURL}></img>
+            <img className="img" key={photo.id} src={photo.photoURL}></img>
             <div id="photo-mask">
-              <div className="img-title">
+              <div
+                className="img-title"
+                onClick={(e) => {
+                  e.preventDefault();
+                  hist(`/photos/${photo.id}`);
+                }}
+              >
                 <div>{photo.title}</div>
               </div>
               {photo.user_id === userId && (

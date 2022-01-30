@@ -10,6 +10,7 @@
   overflow: scroll;
   scrollbar-width: none;
   height: 100vh;
+  text-align: -webkit-center;
 }
 
 #photo-page::-webkit-scrollbar {

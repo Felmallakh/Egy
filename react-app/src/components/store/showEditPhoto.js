@@ -2,15 +2,11 @@ const OFF = 'editPhoto/OFF'
 const ON = 'editPhoto/ON'
 
 export const editPhotoOn = () => {
-    return {
-        type: ON
-    }
+    return { type: ON }
 }
 
 export const editPhotoOff = () => {
-    return {
-        type: OFF
-    }
+    return { type: OFF }
 }
 
 
