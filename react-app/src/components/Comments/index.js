@@ -12,7 +12,6 @@ function Comments() {
   const hist = useNavigate();
   const session = useSelector((state) => state.session.user);
   const comments = Object.values(useSelector((state) => state.commentsReducer));
-  // console.log("😣😣",comments)
   const photoId = useParams().photoId;
 
   const userId = session?.id;
