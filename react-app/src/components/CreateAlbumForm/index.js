@@ -44,7 +44,7 @@ function CreateAlbumForm() {
     <div className="authwrapper">
       <div className="auth">
         <div className="namelogo">
-          <Link to="/">
+          <Link to="/users/${userId}/albums">
             <img
               src="https://cdn.discordapp.com/attachments/919391399269515305/932090523496370277/logo-removebg-preview.png"
               alt="logo"
