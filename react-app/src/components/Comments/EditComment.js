@@ -88,7 +88,7 @@ function EditCommentFrom({ photoId, setEditComment, currentComment, currentComme
             >
               Cancel
             </p>
-            <button className="submit">Submit</button>
+            <button id="form-submit" className="submit">Submit</button>
           </div>
         </form>
 
