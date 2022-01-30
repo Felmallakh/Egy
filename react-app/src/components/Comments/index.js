@@ -34,18 +34,18 @@ function Comments() {
     dispatch(getCommentsThunk(photoId));
   }, [dispatch, photoId]);
 
-  useEffect(() => {
-    const select = document.querySelector(".editForm");
-    const textArea = document.getElementById("editComment")
-    if (!editComment) {
-      return
-    }
-    const closeMenu = (e) => {
-      if (e.target != select && e.target != textArea) setEditComment(false);
-    };
-    document.addEventListener("click", closeMenu);
-    return () => document.removeEventListener("click", closeMenu);
-  }, [dispatch, editComment])
+  // useEffect(() => {
+  //   const select = document.querySelector(".editForm");
+  //   const textArea = document.getElementById("editComment")
+  //   if (!editComment) {
+  //     return
+  //   }
+  //   const closeMenu = (e) => {
+  //     if (e.target != select && e.target != textArea) setEditComment(false);
+  //   };
+  //   document.addEventListener("click", closeMenu);
+  //   return () => document.removeEventListener("click", closeMenu);
+  // }, [dispatch, editComment])
 
 
   const editButton = (comment) => {
