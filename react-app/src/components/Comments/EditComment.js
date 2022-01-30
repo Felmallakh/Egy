@@ -11,10 +11,7 @@ function EditCommentFrom({ photoId, setEditComment, currentComment, currentComme
 
   const showForm = useSelector((state) => state.editCommentFormReducer);
   const userId = useSelector((state) => state.session.user.id);
-  // console.log("😣 comment", comment);
-  // const comment = comments.map((comment) => comment.content)
 
-  // const [oldcomment, setComment] = useState(comment.content)
   const [content, setContent] = useState(currentComment);
   const [errors, setErrors] = useState("");
 
