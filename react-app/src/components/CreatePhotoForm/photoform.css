@@ -19,3 +19,11 @@
   flex-direction: column;
   overflow: hidden;
 }
+.error {
+  color: black;
+  background-color: rgba(255, 0, 0, 0.462);
+  border: 1px rgba(197, 98, 98, 0.6);
+  border-radius: 10px;
+  padding: 0px 12px;
+  align-items: center;
+}

@@ -2,8 +2,7 @@ import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Link, useNavigate, useParams } from "react-router-dom";
 import { addPhotoThunk } from "../store/photo";
-import './photoform.css';
-
+import "./photoform.css";
 
 function CreatePhotoForm() {
   const dispatch = useDispatch();
@@ -80,7 +79,7 @@ function CreatePhotoForm() {
     <div className="authwrapper">
       <div className="auth">
         <div className="namelogo">
-          <Link to="/">
+          <Link to={`/albums/${albumId}`}>
             <img
               src="https://cdn.discordapp.com/attachments/919391399269515305/932090523496370277/logo-removebg-preview.png"
               alt="logo"
@@ -123,7 +122,7 @@ function CreatePhotoForm() {
                     cloud_upload{" "}
                   </span>
                 )}
-                <div className="addImageError">
+                <div className="error">
                   {errors.length > 0 &&
                   errors.map((error) => error.includes("photoURL"))
                     ? errors.map((error) =>
@@ -143,7 +142,7 @@ function CreatePhotoForm() {
                 onChange={setImage}
               />
             </div>
-            <div className="addImageError">
+            <div className="error">
               {errors.length > 0 &&
               errors.map((error) => error.includes("title"))
                 ? errors.map((error) =>
@@ -159,6 +158,7 @@ function CreatePhotoForm() {
               // required
               onChange={(e) => setTitle(e.target.value)}
             />
+
             <button type="submit">Create Photo</button>
           </form>
         </div>

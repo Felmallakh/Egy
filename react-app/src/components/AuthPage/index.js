@@ -49,7 +49,7 @@ function AuthPage() {
           <input
             type="text"
             placeholder={"Email"}
-            required
+            // required
             value={email}
             onChange={(e) => setEmail(e.target.value)}
           />
@@ -58,7 +58,7 @@ function AuthPage() {
             placeholder={"Password"}
             value={password}
             onChange={(e) => setPassword(e.target.value)}
-            required
+            // required
           />
           <button>Sign In</button>
           <button onClick={demoLogin}>Guest</button>
