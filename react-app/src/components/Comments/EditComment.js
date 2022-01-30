@@ -6,11 +6,6 @@ import "../Photos/editPhotoForm.css";
 
 function EditCommentFrom({ photoId, setEditComment, currentComment, currentCommentId }) {
   const dispatch = useDispatch();
-  const hist = useNavigate();
-
-  const showForm = useSelector((state) => state.editCommentFormReducer);
-  const userId = useSelector((state) => state.session.user.id);
-
   const [content, setContent] = useState(currentComment);
   const [errors, setErrors] = useState("");
 
