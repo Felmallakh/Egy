@@ -55,7 +55,6 @@ function EditCommentFrom({ photoId, setEditComment, currentComment, currentComme
 
   return (
     <>
-      <div>
         <form className="editForm" onSubmit={editComment}>
           <div className="form1">
             <h2>Edit Comment</h2>
@@ -98,7 +97,7 @@ function EditCommentFrom({ photoId, setEditComment, currentComment, currentComme
             <button className="submit">Submit</button>
           </div>
         </form>
-      </div>
+      
     </>
   );
 }
