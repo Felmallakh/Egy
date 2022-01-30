@@ -2,7 +2,6 @@ import React, { useState, useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { useParams, useNavigate } from "react-router";
 import { editCommentThunk, deleteCommentThunk } from "../store/comments";
-import { editCommentOff } from "../store/showEditComment";
 import "../Photos/editPhotoForm.css";
 
 function EditCommentFrom({ photoId, setEditComment, currentComment, currentCommentId }) {
@@ -97,7 +96,7 @@ function EditCommentFrom({ photoId, setEditComment, currentComment, currentComme
             <button className="submit">Submit</button>
           </div>
         </form>
-      
+
     </>
   );
 }
