@@ -1,6 +1,6 @@
 .authwrapper {
   background: url(../../../public/splash-page.jpg) no-repeat center center fixed;
-    -webkit-background-size: cover;
+  -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
   display: flex;
@@ -20,6 +20,8 @@
 .auth form {
   display: flex;
   flex-direction: column;
+  align-items: center;
+  gap: 8px;
 }
 .auth form > input {
   border: 1px solid rgb(126, 117, 117);
@@ -42,8 +44,6 @@
   transition-duration: 0.5s;
   padding: 10px;
   margin-top: 10px;
-  margin-left: 65px;
-  /* margin-bottom: 30px; */
 }
 .auth form > button:hover {
   opacity: 0.8;
@@ -53,7 +53,6 @@
   margin: 20px;
   color: antiquewhite;
   overflow: hidden;
-
 }
 .auth a {
   margin-bottom: 20px;
@@ -76,7 +75,6 @@
   margin-top: 4px;
   margin-left: 5px;
 }
-
 
 .errors {
   list-style: none;

@@ -1,0 +1,29 @@
+.img-title-div {
+  display: flex;
+  align-self: center;
+  height: 200px;
+}
+
+.img-review {
+  min-width: 200px;
+  height: 200px;
+  border-style: groove;
+  border-radius: 15px;
+  min-height: -webkit-fill-available;
+  margin-bottom: 10px;
+  cursor: pointer;
+}
+
+.image-upload {
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+.error {
+  color: black;
+  background-color: rgba(255, 0, 0, 0.462);
+  border: 1px rgba(197, 98, 98, 0.6);
+  border-radius: 10px;
+  padding: 0px 12px;
+  align-items: center;
+}
