@@ -5,7 +5,6 @@ import albumReducer from "./album";
 import photoReducer from "./photo";
 import commentsReducer from './comments';
 import editPhotoFormReducer from './showEditPhoto';
-import editCommentFormReducer from './showEditComment';
 
 const rootReducer = combineReducers({
   session,
@@ -13,7 +12,6 @@ const rootReducer = combineReducers({
   photoReducer,
   commentsReducer,
   editPhotoFormReducer,
-  editCommentFormReducer,
 });
 
 
