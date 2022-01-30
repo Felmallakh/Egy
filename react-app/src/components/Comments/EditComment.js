@@ -1,6 +1,5 @@
 import React, { useState } from "react";
-import { useSelector, useDispatch } from "react-redux";
-import { useParams, useNavigate } from "react-router";
+import { useDispatch } from "react-redux";
 import { editCommentThunk, deleteCommentThunk } from "../store/comments";
 import "../Photos/editPhotoForm.css";
 
