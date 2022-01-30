@@ -106,6 +106,7 @@ function Comments() {
           type="text"
           placeholder="Type your comment"
           value={content}
+          required
           onChange={(e) => setContent(e.target.value)}
         />
         <button className="submit-button" type="submit">
