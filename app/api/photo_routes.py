@@ -40,12 +40,13 @@ def deleteAlbum(photoId):
 @photo_routes.route('/<int:photoId>/comments')
 @login_required
 def getComments(photoId):
-    # comments = Comment.query.filter(photo_id = photoId)
-    comments = Comment.query.filter_by(photo_id=photoId).join(Photo).all()
-    print("🤷‍♀️🤷‍♀️", comments)
-    allcomment = [comment.to_dict() for comment in comments]
-    return jsonify(allcomment)
-    # return { 'comments' : [comment.to_dict() for comment in comments]}
+    # comments = Comment.query.filter(Comment.photo_id == photoId)
+    # comments = Comment.query.filter_by(photo_id=photoId).join(Photo).all()
+    # print("🤷‍♀️🤷‍♀️", comments)
+    # allcomment = [comment.to_dict() for comment in comments]
+    # return jsonify(allcomment)
+    comments = Comment.query.all()
+    return { 'comments' : [comment.to_dict() for comment in comments]}
     # return [comment.to_dict() for comment in comments]
 
 # Add Comment

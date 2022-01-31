@@ -65,7 +65,7 @@ function EditCommentFrom({ photoId, setEditComment, currentComment, currentComme
             <textarea
               placeholder={"Comment"}
               id="editComment"
-              maxlength="70"
+              maxLength="70"
               type="text"
               value={content}
               onChange={(e) => {

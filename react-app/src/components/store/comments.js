@@ -26,7 +26,7 @@ export const getCommentsThunk = (photoId) => async (dispatch) => {
   if (res.ok) {
     const comments = await res.json();
     console.log("😣get comments thunk", comments);
-    dispatch(getComments(comments));
+    dispatch(getComments(comments.comments));
     return comments;
   }
 };
@@ -78,7 +78,7 @@ export default function commentsReducer(state = {}, action) {
   switch (action.type) {
     case GET_COMMENTS: {
       action.comments.forEach((comment) => {
-        // console.log("🍎😒🍎🍎", comment)
+        console.log("🍎😒🍎🍎", comment)
         newState[comment.id] = comment})
         return newState;
     }
