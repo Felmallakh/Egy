@@ -24,6 +24,8 @@ function Albums() {
   //   }
   // }
 
+  
+
   useEffect(() => {
     dispatch(getAlbumsThunk(session?.id));
   }, [session]);

@@ -8,6 +8,8 @@ const Bio = () => {
   const dispatch = useDispatch();
   const hist = useNavigate();
 
+  
+
   const back = (e) => {
     e.preventDefault();
     hist(`/home`);

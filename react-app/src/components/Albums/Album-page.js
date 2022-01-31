@@ -28,6 +28,8 @@ function AlbumPage() {
     (photo) => photo.album_id === +id
   );
 
+  
+
   useEffect(() => {
     dispatch(getAlbumsThunk(userId));
   }, [session]);

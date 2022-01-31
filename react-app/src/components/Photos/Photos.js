@@ -16,6 +16,8 @@ function Photos() {
   const dispatch = useDispatch();
   const userId = session?.id
 
+  
+
   useEffect(() => {
     dispatch(getPhotosThunk(userId));
   }, [session]);

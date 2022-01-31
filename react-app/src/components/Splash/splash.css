@@ -85,8 +85,9 @@ nav img {
   flex-grow: 1;
 }
 .titleContent {
-  /* width: 500px;
-  margin-left: 50px; */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 .titleContent p {
   margin: 0px;
@@ -105,7 +106,7 @@ nav img {
   transition-property: background-color;
   transition-duration: 0.8s;
   opacity: 0.85;
-  margin-left: 20px;
+  /* margin-left: 20px; */
 }
 
 .titleContent button:hover {
@@ -114,16 +115,16 @@ nav img {
 }
 
 footer {
-    position: -webkit-sticky;
-    display: flex;
-    justify-content: flex-end;
-    margin-top: 250px;
-    margin-right: 40px;
+  position: -webkit-sticky;
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 250px;
+  margin-right: 40px;
 }
 
 footer a i {
   background-color: #304e9c;
-  color:white;
+  color: white;
   padding: 8px;
   border-radius: 15px;
   margin: 0 20px 0 20px;

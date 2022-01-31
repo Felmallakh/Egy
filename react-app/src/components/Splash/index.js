@@ -48,13 +48,13 @@ function Splash() {
     imagesLoaded = true;
   });
 
-  // useEffect(() => {
-  //   if ((imagesLoaded = true)) {
-  //     const slideShowTimer = setInterval(slideShow, time);
+  useEffect(() => {
+    if ((imagesLoaded = true)) {
+      const slideShowTimer = setInterval(slideShow, time);
 
-  //     return () => clearInterval(slideShowTimer);
-  //   }
-  // }, [imagesLoaded]);
+      return () => clearInterval(slideShowTimer);
+    }
+  }, [imagesLoaded]);
 
   const hist = useNavigate();
   return (

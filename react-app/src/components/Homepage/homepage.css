@@ -101,9 +101,6 @@
   color: black;
 }
 
-#explore {
-  margin-left: 100px;
-}
 
 #explore:hover {
   background-color: rgb(208 149 73);

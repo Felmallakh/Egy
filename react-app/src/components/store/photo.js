@@ -29,7 +29,7 @@ export const getPhotosThunk = (userId) => async (dispatch) => {
 
   if (res.ok) {
     const photos = await res.json();
-    dispatch(getPhotos(photos));
+    dispatch(getPhotos(photos.photos));
     return photos;
   }
 };
@@ -94,7 +94,7 @@ const photoReducer = (state = {}, action) => {
   const newState = { ...state };
   switch (action.type) {
     case GET_PHOTOS: {
-      action.photos.photos.forEach((photo) => (newState[photo.id] = photo));
+      action.photos.forEach((photo) => (newState[photo.id] = photo));
       return newState;
     }
     case ADD_PHOTO: {

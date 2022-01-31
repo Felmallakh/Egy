@@ -1,26 +1,20 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { NavLink,useNavigate } from 'react-router-dom';
-import { useEffect } from 'react';
 import { useSelector, useDispatch } from "react-redux";
-import { logout } from "../store/session";
 import './homepage.css'
 import ProfileButton from "../Profile/ProfileButton"
 
 function Homepage() {
-  const dispatch = useDispatch();
   const hist = useNavigate()
-
   const user_session = useSelector((state) => state.session.user);
-  
-  useEffect(() => {
-    if (!user_session) return hist("/NotFound");
-  }, []);
 
   let albums = <NavLink className="secondary-button" to={`/users/${user_session?.id}/albums`}>Albums</NavLink>;
   let photos = <NavLink className="secondary-button" to={`/users/${user_session?.id}/photos`}>Photos</NavLink>;
   let Pharaohs = (<NavLink className="secondary-button" to={`/bio`}>Pharaohs</NavLink>);
 
-
+  useEffect(() => {
+    if (!user_session) return hist("/NotFound");
+  }, []);
 
   return (
     <div className="homepage">
