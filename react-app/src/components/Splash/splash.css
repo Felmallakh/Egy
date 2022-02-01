@@ -115,11 +115,11 @@ nav img {
 }
 
 footer {
-  position: -webkit-sticky;
   display: flex;
   justify-content: flex-end;
-  margin-top: 250px;
-  margin-right: 40px;
+  position: absolute;
+  bottom: 16px;
+  right: 10px;
 }
 
 footer a i {
