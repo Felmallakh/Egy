@@ -290,3 +290,10 @@ a {
   cursor: pointer;
 
 }
+
+#photo-mask, .img {
+    border-radius: 20px;
+    border-style: outset;
+    height: 88%;
+    width: 80%;
+}

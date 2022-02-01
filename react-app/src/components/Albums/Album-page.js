@@ -28,7 +28,7 @@ function AlbumPage() {
     (photo) => photo.album_id === +id
   );
 
-  
+
 
   useEffect(() => {
     dispatch(getAlbumsThunk(userId));
@@ -47,6 +47,7 @@ function AlbumPage() {
     );
     if (confirmed) {
       await dispatch(deleteAlbumThunk(albumId));
+      await dispatch(getPhotosThunk(userId));
       hist(`/users/${userId}/albums`);
     }
   };

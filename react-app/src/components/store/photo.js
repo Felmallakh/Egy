@@ -2,6 +2,7 @@ const GET_PHOTOS = "photo/GET_PHOTOS";
 const ADD_PHOTO = "photo/ADD_PHOTO";
 const UPDATE_PHOTO = "photo/UPDATE_PHOTO";
 const DELETE_PHOTO = "photo/DELETE_PHOTO";
+const DELETE_ALBUM = "album/DELETE_ALBUM";
 
 const getPhotos = (photos) => ({
   type: GET_PHOTOS,
@@ -21,6 +22,11 @@ const updatePhoto = (photo) => ({
 const deletePhoto = (photo) => ({
   type: DELETE_PHOTO,
   photo,
+});
+
+const deleteAlbum = (album) => ({
+  type: DELETE_ALBUM,
+  album,
 });
 
 // Get photo
@@ -94,8 +100,9 @@ const photoReducer = (state = {}, action) => {
   const newState = { ...state };
   switch (action.type) {
     case GET_PHOTOS: {
-      action.photos.forEach((photo) => (newState[photo.id] = photo));
-      return newState;
+      const nextState = { };
+      action.photos.forEach((photo) => (nextState[photo.id] = photo));
+      return nextState;
     }
     case ADD_PHOTO: {
       newState[action.photo.id] = action.photo;
@@ -108,6 +115,9 @@ const photoReducer = (state = {}, action) => {
     case DELETE_PHOTO: {
       delete newState[action.photo.id];
       return newState;
+    }
+    case DELETE_ALBUM:{
+      console.log("👍🤷‍♀️👍 deleteAlbum ")
     }
     default:
       return state;

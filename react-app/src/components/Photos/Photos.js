@@ -11,16 +11,15 @@ function Photos() {
   const session = useSelector((state) => state.session.user);
   const photos = useSelector((state) => state.photoReducer);
   const photo = Object.values(photos);
-  const albums = useSelector((state) => state.albumReducer);
 
   const dispatch = useDispatch();
   const userId = session?.id
 
-  
 
-  useEffect(() => {
-    dispatch(getPhotosThunk(userId));
-  }, [session]);
+
+  useEffect( async () => {
+    await dispatch(getPhotosThunk(userId));
+  }, []);
 
   return session ? (
     <div id="photo-page">
