@@ -50,7 +50,7 @@ export const addPhotoThunk = (image) => async (dispatch) => {
 
   if (res.ok) {
     const photo = await res.json();
-    console.log("😣😣😣 photo", photo)
+    // console.log("😣😣😣 photo", photo)
       dispatch(addPhoto(photo));
       return photo;
     }
@@ -117,7 +117,7 @@ const photoReducer = (state = {}, action) => {
       return newState;
     }
     case DELETE_ALBUM:{
-      console.log("👍🤷‍♀️👍 deleteAlbum ")
+      // console.log("👍🤷‍♀️👍 deleteAlbum ")
     }
     default:
       return state;

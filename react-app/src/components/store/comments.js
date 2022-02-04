@@ -67,18 +67,18 @@ export const deleteCommentThunk = (commentId) => async (dispatch) => {
     method: "DELETE",
   });
   const comment = await res.json();
-  console.log("😣😣😣😣😣😣😣", comment);
+  // console.log("😣😣😣😣😣😣😣", comment);
   dispatch(deleteComment(comment));
   return comment;
 };
 
 export default function commentsReducer(state = {}, action) {
   const newState = { ...state };
-  console.log("😣😣action.comments", action.comments);
+  // console.log("😣😣action.comments", action.comments);
   switch (action.type) {
     case GET_COMMENTS: {
       action.comments.forEach((comment) => {
-        console.log("🍎😒🍎🍎", comment)
+        // console.log("🍎😒🍎🍎", comment)
         newState[comment.id] = comment})
         return newState;
     }
