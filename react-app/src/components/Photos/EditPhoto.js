@@ -23,7 +23,8 @@ function EditPhotoFrom() {
     e.preventDefault();
     if (photo.user_id !== userId)
       return alert(`User not authorized to perform this action`);
-    dispatch(updatePhotoThunk({ id, title }));
+    await dispatch(updatePhotoThunk({ id, title }));
+    
   };
 
   const handleSubmit = async (e) => {
