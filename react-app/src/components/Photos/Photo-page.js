@@ -22,7 +22,7 @@ function PhotoPage() {
   const userId = session?.id;
   const id = photoId;
 
-  
+
 
   useEffect(() => {
     dispatch(getPhotosThunk(userId));

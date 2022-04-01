@@ -27,3 +27,7 @@
   padding: 0px 12px;
   align-items: center;
 }
+
+.namelogo{
+  min-inline-size: min-content;
+}

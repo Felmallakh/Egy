@@ -81,6 +81,7 @@ function CreatePhotoForm() {
         <div className="namelogo">
           <Link to={`/albums/${albumId}`}>
             <img
+              className="namelogo"
               src="https://cdn.discordapp.com/attachments/919391399269515305/932090523496370277/logo-removebg-preview.png"
               alt="logo"
             ></img>
@@ -145,7 +146,10 @@ function CreatePhotoForm() {
             <div className="error">
               {errors.length > 0 &&
               errors.map((error) => error.includes("title"))
-                ? errors.map((error) => error.includes("title") ? `${error.split(":")[1]}` : null) : null}
+                ? errors.map((error) =>
+                    error.includes("title") ? `${error.split(":")[1]}` : null
+                  )
+                : null}
             </div>
             <input
               className="form-field"

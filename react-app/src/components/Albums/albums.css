@@ -44,6 +44,11 @@
 .album-lef-Nav {
   display: flex;
   margin-block-end: auto;
+  
+}
+
+#nav-size {
+  font-size: 30px;
 }
 
 .nav-add{
@@ -296,4 +301,8 @@ a {
     border-style: outset;
     height: 88%;
     width: 80%;
+}
+
+.namelogo{
+  min-inline-size: min-content;
 }

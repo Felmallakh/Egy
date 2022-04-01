@@ -31,10 +31,11 @@ function CreateAlbumForm() {
     const output = [];
     const userId = session?.id;
     const albumTitle = albums?.map((album) => album?.title);
+    console.log("😣😣😣",albumTitle);
 
-    if(albumTitle.indexOf(title) > -1){
-      output.push(`Album ${title} already exists`)
-      return setErrors(output)
+    if (albumTitle.indexOf(title.toLowerCase()) > -1) {
+      output.push(`Album ${title} already exists`);
+      return setErrors(output);
     }
     await dispatch(addAlbumThunk({ userId, title, description }));
     hist(`/users/${userId}/albums`);
@@ -46,6 +47,7 @@ function CreateAlbumForm() {
         <div className="namelogo">
           <Link to="/users/${userId}/albums">
             <img
+              className="namelogo"
               src="https://cdn.discordapp.com/attachments/919391399269515305/932090523496370277/logo-removebg-preview.png"
               alt="logo"
             ></img>

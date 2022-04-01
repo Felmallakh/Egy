@@ -54,6 +54,7 @@ nav button {
   padding: 12px;
   background-color: transparent;
   border: 1px solid #000807;
+  min-inline-size: max-content;
 }
 nav .rightNav button {
   margin-left: 20px;

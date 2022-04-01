@@ -34,7 +34,7 @@ function ProfileButton({}) {
     <>
       <button id="profile-button" onClick={openMenu}>
         {/* #id { cursor: pointer;background: transparent;border: none;font-size: -webkit-xxx-large;} */}
-        <i className="fas fa-user-graduate" aria-hidden="true" />
+        <i className="fas fa-solid fa-user fa-1x" aria-hidden="true" />
       </button>
       {showMenu && (
         <div className="profile-dropdown">
