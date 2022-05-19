@@ -3,6 +3,7 @@ import { NavLink,useNavigate } from 'react-router-dom';
 import { useSelector, useDispatch } from "react-redux";
 import './homepage.css'
 import ProfileButton from "../Profile/ProfileButton"
+import Tfa from "../TFA"
 
 function Homepage() {
   const hist = useNavigate()
@@ -48,6 +49,9 @@ function Homepage() {
         </div>
         <div className="homepage-photo-box">
           <button className="secondary-button">{photos}</button>
+        </div>
+        <div className="homepage-photo-box">
+          <button className="secondary-button"><Tfa/></button>
         </div>
       </div>
     </div>
