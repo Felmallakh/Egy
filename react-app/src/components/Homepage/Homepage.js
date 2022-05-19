@@ -3,7 +3,7 @@ import { NavLink,useNavigate } from 'react-router-dom';
 import { useSelector, useDispatch } from "react-redux";
 import './homepage.css'
 import ProfileButton from "../Profile/ProfileButton"
-import Tfa from "../TFA"
+import Tfa from "../TFA/tfa"
 
 function Homepage() {
   const hist = useNavigate()
@@ -12,6 +12,7 @@ function Homepage() {
   let albums = <NavLink className="secondary-button" to={`/users/${user_session?.id}/albums`}>Albums</NavLink>;
   let photos = <NavLink className="secondary-button" to={`/users/${user_session?.id}/photos`}>Photos</NavLink>;
   let Pharaohs = (<NavLink className="secondary-button" to={`/bio`}>Pharaohs</NavLink>);
+  let Tfa = <NavLink className="secondary-button" to={`/tfa`}>TFA</NavLink>;
 
   useEffect(() => {
     if (!user_session) return hist("/NotFound");
@@ -51,7 +52,7 @@ function Homepage() {
           <button className="secondary-button">{photos}</button>
         </div>
         <div className="homepage-photo-box">
-          <button className="secondary-button"><Tfa/></button>
+          <button className="secondary-button">{Tfa}</button>
         </div>
       </div>
     </div>

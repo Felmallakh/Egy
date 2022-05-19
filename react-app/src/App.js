@@ -10,6 +10,7 @@ import Homepage from "./components/Homepage/Homepage"
 import Albums from "./components/Albums/Albums"
 import Photos from "./components/Photos/Photos"
 import Bio from "./components/Bio"
+import Tfa from "./components/TFA/tfa"
 import CreateAlbumForm from "./components/CreateAlbumForm"
 import CreatePhotoForm from "./components/CreatePhotoForm"
 import AlbumPage from "./components/Albums/Album-page"
@@ -53,6 +54,7 @@ function App() {
         element={<Photos />}
       ></Route>
       <Route path="/bio" exact element={<Bio />}></Route>
+      <Route path="/tfa" exact element={<Tfa />}></Route>
       <Route path="/albums/new" element={<CreateAlbumForm />}></Route>
       <Route
         path="/albums/:albumId/photos/new"
